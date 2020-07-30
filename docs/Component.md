@@ -5,6 +5,7 @@ Template component definition
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cls** | **str** | Defines component class/type | [optional] 
+**id** | **str** | Component id | [optional] 
 **width** | **float** | Width in units | [optional] 
 **height** | **float** | Height in units | [optional] 
 **top** | **float** | Position from the page top in units | [optional] 

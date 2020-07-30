@@ -1,10 +1,10 @@
-# InlineResponse422
+# Data
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**error** | **str** | Error description | [optional] 
-**status** | **int** | HTTP Error code | [optional] 
+**id** | **int** |  | [optional] 
+**name** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

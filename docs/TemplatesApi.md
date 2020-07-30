@@ -426,7 +426,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **merge_template**
-> InlineResponse2004 merge_template(template_id, body, name=name, format=format, output=output)
+> InlineResponse2004 merge_template(template_id, data, name=name, format=format, output=output)
 
 Merge template
 
@@ -453,14 +453,14 @@ with pdf_generator_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pdf_generator_api_client.TemplatesApi(api_client)
     template_id = 19375 # int | Template unique identifier
-body = None # object | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
+data = pdf_generator_api_client.Data() # Data | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
 name = 'My document' # str | Document name, returned in the meta data. (optional)
 format = 'pdf' # str | Document format. The zip option will return a ZIP file with PDF files. (optional) (default to 'pdf')
 output = 'base64' # str | Response format. (optional) (default to 'base64')
 
     try:
         # Merge template
-        api_response = api_instance.merge_template(template_id, body, name=name, format=format, output=output)
+        api_response = api_instance.merge_template(template_id, data, name=name, format=format, output=output)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TemplatesApi->merge_template: %s\n" % e)
@@ -471,7 +471,7 @@ output = 'base64' # str | Response format. (optional) (default to 'base64')
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **template_id** | **int**| Template unique identifier | 
- **body** | **object**| Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file. | 
+ **data** | [**Data**](Data.md)| Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file. | 
  **name** | **str**| Document name, returned in the meta data. | [optional] 
  **format** | **str**| Document format. The zip option will return a ZIP file with PDF files. | [optional] [default to &#39;pdf&#39;]
  **output** | **str**| Response format. | [optional] [default to &#39;base64&#39;]
