@@ -1,7 +1,3 @@
-from __future__ import absolute_import
-
-# flake8: noqa
-
-# import apis into api package
-from pdf_generator_api_client.api.templates_api import TemplatesApi
-from pdf_generator_api_client.api.workspaces_api import WorkspacesApi
+# do not import all apis into this module because that uses a lot of memory and stack frames
+# if you need the ability to import all apis from one package, import them with
+# from pdf_generator_api_client.apis import DocumentsApi
