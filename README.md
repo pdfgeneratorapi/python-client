@@ -289,17 +289,17 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v3*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DocumentsApi* | [**merge_template**](docs/DocumentsApi.md#merge_template) | **POST** /templates/templateId/output | Generate document
+*DocumentsApi* | [**merge_template**](docs/DocumentsApi.md#merge_template) | **POST** /templates/{templateId}/output | Generate document
 *DocumentsApi* | [**merge_templates**](docs/DocumentsApi.md#merge_templates) | **POST** /templates/output | Generate document (multiple templates)
-*TemplatesApi* | [**copy_template**](docs/TemplatesApi.md#copy_template) | **POST** /templates/templateId/copy | Copy template
+*TemplatesApi* | [**copy_template**](docs/TemplatesApi.md#copy_template) | **POST** /templates/{templateId}/copy | Copy template
 *TemplatesApi* | [**create_template**](docs/TemplatesApi.md#create_template) | **POST** /templates | Create template
-*TemplatesApi* | [**delete_template**](docs/TemplatesApi.md#delete_template) | **DELETE** /templates/templateId | Delete template
-*TemplatesApi* | [**get_editor_url**](docs/TemplatesApi.md#get_editor_url) | **POST** /templates/templateId/editor | Open editor
-*TemplatesApi* | [**get_template**](docs/TemplatesApi.md#get_template) | **GET** /templates/templateId | Get template
+*TemplatesApi* | [**delete_template**](docs/TemplatesApi.md#delete_template) | **DELETE** /templates/{templateId} | Delete template
+*TemplatesApi* | [**get_editor_url**](docs/TemplatesApi.md#get_editor_url) | **POST** /templates/{templateId}/editor | Open editor
+*TemplatesApi* | [**get_template**](docs/TemplatesApi.md#get_template) | **GET** /templates/{templateId} | Get template
 *TemplatesApi* | [**get_templates**](docs/TemplatesApi.md#get_templates) | **GET** /templates | Get templates
-*TemplatesApi* | [**update_template**](docs/TemplatesApi.md#update_template) | **PUT** /templates/templateId | Update template
-*WorkspacesApi* | [**delete_workspace**](docs/WorkspacesApi.md#delete_workspace) | **DELETE** /workspaces/workspaceId | Delete workspace
-*WorkspacesApi* | [**get_workspace**](docs/WorkspacesApi.md#get_workspace) | **GET** /workspaces/workspaceId | Get workspace
+*TemplatesApi* | [**update_template**](docs/TemplatesApi.md#update_template) | **PUT** /templates/{templateId} | Update template
+*WorkspacesApi* | [**delete_workspace**](docs/WorkspacesApi.md#delete_workspace) | **DELETE** /workspaces/{workspaceId} | Delete workspace
+*WorkspacesApi* | [**get_workspace**](docs/WorkspacesApi.md#get_workspace) | **GET** /workspaces/{workspaceId} | Get workspace
 
 
 ## Documentation For Models

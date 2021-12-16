@@ -115,7 +115,7 @@ class WorkspacesApi(object):
                 'auth': [
                     'JSONWebTokenAuth'
                 ],
-                'endpoint_path': '/workspaces/workspaceId',
+                'endpoint_path': '/workspaces/{workspaceId}',
                 'operation_id': 'delete_workspace',
                 'http_method': 'DELETE',
                 'servers': None,
@@ -234,7 +234,7 @@ class WorkspacesApi(object):
                 'auth': [
                     'JSONWebTokenAuth'
                 ],
-                'endpoint_path': '/workspaces/workspaceId',
+                'endpoint_path': '/workspaces/{workspaceId}',
                 'operation_id': 'get_workspace',
                 'http_method': 'GET',
                 'servers': None,

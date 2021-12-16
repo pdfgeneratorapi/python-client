@@ -119,7 +119,7 @@ class TemplatesApi(object):
                 'auth': [
                     'JSONWebTokenAuth'
                 ],
-                'endpoint_path': '/templates/templateId/copy',
+                'endpoint_path': '/templates/{templateId}/copy',
                 'operation_id': 'copy_template',
                 'http_method': 'POST',
                 'servers': None,
@@ -363,7 +363,7 @@ class TemplatesApi(object):
                 'auth': [
                     'JSONWebTokenAuth'
                 ],
-                'endpoint_path': '/templates/templateId',
+                'endpoint_path': '/templates/{templateId}',
                 'operation_id': 'delete_template',
                 'http_method': 'DELETE',
                 'servers': None,
@@ -487,7 +487,7 @@ class TemplatesApi(object):
                 'auth': [
                     'JSONWebTokenAuth'
                 ],
-                'endpoint_path': '/templates/templateId/editor',
+                'endpoint_path': '/templates/{templateId}/editor',
                 'operation_id': 'get_editor_url',
                 'http_method': 'POST',
                 'servers': None,
@@ -627,7 +627,7 @@ class TemplatesApi(object):
                 'auth': [
                     'JSONWebTokenAuth'
                 ],
-                'endpoint_path': '/templates/templateId',
+                'endpoint_path': '/templates/{templateId}',
                 'operation_id': 'get_template',
                 'http_method': 'GET',
                 'servers': None,
@@ -857,7 +857,7 @@ class TemplatesApi(object):
                 'auth': [
                     'JSONWebTokenAuth'
                 ],
-                'endpoint_path': '/templates/templateId',
+                'endpoint_path': '/templates/{templateId}',
                 'operation_id': 'update_template',
                 'http_method': 'PUT',
                 'servers': None,

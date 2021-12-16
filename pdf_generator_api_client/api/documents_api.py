@@ -123,7 +123,7 @@ class DocumentsApi(object):
                 'auth': [
                     'JSONWebTokenAuth'
                 ],
-                'endpoint_path': '/templates/templateId/output',
+                'endpoint_path': '/templates/{templateId}/output',
                 'operation_id': 'merge_template',
                 'http_method': 'POST',
                 'servers': None,
@@ -214,7 +214,7 @@ class DocumentsApi(object):
         ):
             """Generate document (multiple templates)  # noqa: E501
 
-            Allows to merge multiples template with data and returns base64 encoded document or public URL to a document. NB! When the public URL option is used, the document is stored for 30 days and automatically deleted.  # noqa: E501
+            Allows to merge multiple templated with data and returns base64 encoded document or public URL to a document. NB! When the public URL option is used, the document is stored for 30 days and automatically deleted.  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 

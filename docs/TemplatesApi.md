@@ -4,13 +4,13 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**copy_template**](TemplatesApi.md#copy_template) | **POST** /templates/templateId/copy | Copy template
+[**copy_template**](TemplatesApi.md#copy_template) | **POST** /templates/{templateId}/copy | Copy template
 [**create_template**](TemplatesApi.md#create_template) | **POST** /templates | Create template
-[**delete_template**](TemplatesApi.md#delete_template) | **DELETE** /templates/templateId | Delete template
-[**get_editor_url**](TemplatesApi.md#get_editor_url) | **POST** /templates/templateId/editor | Open editor
-[**get_template**](TemplatesApi.md#get_template) | **GET** /templates/templateId | Get template
+[**delete_template**](TemplatesApi.md#delete_template) | **DELETE** /templates/{templateId} | Delete template
+[**get_editor_url**](TemplatesApi.md#get_editor_url) | **POST** /templates/{templateId}/editor | Open editor
+[**get_template**](TemplatesApi.md#get_template) | **GET** /templates/{templateId} | Get template
 [**get_templates**](TemplatesApi.md#get_templates) | **GET** /templates | Get templates
-[**update_template**](TemplatesApi.md#update_template) | **PUT** /templates/templateId | Update template
+[**update_template**](TemplatesApi.md#update_template) | **PUT** /templates/{templateId} | Update template
 
 
 # **copy_template**

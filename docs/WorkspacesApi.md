@@ -4,8 +4,8 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_workspace**](WorkspacesApi.md#delete_workspace) | **DELETE** /workspaces/workspaceId | Delete workspace
-[**get_workspace**](WorkspacesApi.md#get_workspace) | **GET** /workspaces/workspaceId | Get workspace
+[**delete_workspace**](WorkspacesApi.md#delete_workspace) | **DELETE** /workspaces/{workspaceId} | Delete workspace
+[**get_workspace**](WorkspacesApi.md#get_workspace) | **GET** /workspaces/{workspaceId} | Get workspace
 
 
 # **delete_workspace**
