@@ -147,6 +147,7 @@ We have validated the generated libraries, but let us know if you find any anoma
 | Code   | Description                    |
 |--------|--------------------------------|
 | 401    | Unauthorized                   |
+| 402    | Payment Required               |
 | 403    | Forbidden                      |
 | 404    | Not Found                      |
 | 422    | Unprocessable Entity           |
@@ -162,6 +163,11 @@ We have validated the generated libraries, but let us know if you find any anoma
 | Authentication failed: property 'sub' (subject) missing in JWT          |
 | Authentication failed: property 'exp' (expiration time) missing in JWT  |
 | Authentication failed: incorrect signature                              |
+
+## 402 Payment Required
+| Description                                                             |
+|-------------------------------------------------------------------------|
+| Your account is suspended, please upgrade your account                  |
 
 ## 403 Forbidden
 | Description                                                             |
@@ -238,9 +244,9 @@ import pdf_generator_api_client
 from pprint import pprint
 from pdf_generator_api_client.api import documents_api
 from pdf_generator_api_client.model.batch_data import BatchData
-from pdf_generator_api_client.model.data import Data
 from pdf_generator_api_client.model.inline_response2004 import InlineResponse2004
 from pdf_generator_api_client.model.inline_response401 import InlineResponse401
+from pdf_generator_api_client.model.inline_response402 import InlineResponse402
 from pdf_generator_api_client.model.inline_response403 import InlineResponse403
 from pdf_generator_api_client.model.inline_response404 import InlineResponse404
 from pdf_generator_api_client.model.inline_response422 import InlineResponse422
@@ -267,17 +273,14 @@ with pdf_generator_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = documents_api.DocumentsApi(api_client)
     template_id = 19375 # int | Template unique identifier
-data = Data(
-        id=12312,
-        name="Sample Data",
-    ) # Data | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
+body = {} # {str: (bool, date, datetime, dict, float, int, list, str, none_type)} | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
 name = "My document" # str | Document name, returned in the meta data. (optional)
 format = "pdf" # str | Document format. The zip option will return a ZIP file with PDF files. (optional) (default to "pdf")
-output = "base64" # str | Response format. With the url option, the document is stored for 30 days and automatically deleted. (optional) (default to "base64")
+output = "base64" # str | Response format. "I" is used to return the file inline. With the url option, the document is stored for 30 days and automatically deleted. (optional) (default to "base64")
 
     try:
         # Generate document
-        api_response = api_instance.merge_template(template_id, data, name=name, format=format, output=output)
+        api_response = api_instance.merge_template(template_id, body, name=name, format=format, output=output)
         pprint(api_response)
     except pdf_generator_api_client.ApiException as e:
         print("Exception when calling DocumentsApi->merge_template: %s\n" % e)
@@ -306,7 +309,7 @@ Class | Method | HTTP request | Description
 
  - [BatchData](docs/BatchData.md)
  - [Component](docs/Component.md)
- - [Data](docs/Data.md)
+ - [DataArray](docs/DataArray.md)
  - [InlineResponse200](docs/InlineResponse200.md)
  - [InlineResponse2001](docs/InlineResponse2001.md)
  - [InlineResponse2002](docs/InlineResponse2002.md)
@@ -316,6 +319,7 @@ Class | Method | HTTP request | Description
  - [InlineResponse2004Meta](docs/InlineResponse2004Meta.md)
  - [InlineResponse2005](docs/InlineResponse2005.md)
  - [InlineResponse401](docs/InlineResponse401.md)
+ - [InlineResponse402](docs/InlineResponse402.md)
  - [InlineResponse403](docs/InlineResponse403.md)
  - [InlineResponse404](docs/InlineResponse404.md)
  - [InlineResponse422](docs/InlineResponse422.md)

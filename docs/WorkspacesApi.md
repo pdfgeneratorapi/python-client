@@ -25,6 +25,7 @@ from pdf_generator_api_client.api import workspaces_api
 from pdf_generator_api_client.model.inline_response401 import InlineResponse401
 from pdf_generator_api_client.model.inline_response422 import InlineResponse422
 from pdf_generator_api_client.model.inline_response404 import InlineResponse404
+from pdf_generator_api_client.model.inline_response402 import InlineResponse402
 from pdf_generator_api_client.model.inline_response500 import InlineResponse500
 from pdf_generator_api_client.model.inline_response2002 import InlineResponse2002
 from pdf_generator_api_client.model.inline_response403 import InlineResponse403
@@ -86,6 +87,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | The request was successfully executed. |  -  |
 **401** | Unauthorized |  -  |
+**402** | Account Suspended |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
 **422** | Unprocessable Entity |  -  |
@@ -110,6 +112,7 @@ from pdf_generator_api_client.api import workspaces_api
 from pdf_generator_api_client.model.inline_response401 import InlineResponse401
 from pdf_generator_api_client.model.inline_response422 import InlineResponse422
 from pdf_generator_api_client.model.inline_response404 import InlineResponse404
+from pdf_generator_api_client.model.inline_response402 import InlineResponse402
 from pdf_generator_api_client.model.inline_response500 import InlineResponse500
 from pdf_generator_api_client.model.inline_response2005 import InlineResponse2005
 from pdf_generator_api_client.model.inline_response403 import InlineResponse403
@@ -171,6 +174,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Workspace information |  -  |
 **401** | Unauthorized |  -  |
+**402** | Account Suspended |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
 **422** | Unprocessable Entity |  -  |

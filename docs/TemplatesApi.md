@@ -31,6 +31,7 @@ from pdf_generator_api_client.model.inline_response401 import InlineResponse401
 from pdf_generator_api_client.model.inline_response422 import InlineResponse422
 from pdf_generator_api_client.model.inline_response404 import InlineResponse404
 from pdf_generator_api_client.model.inline_response2001 import InlineResponse2001
+from pdf_generator_api_client.model.inline_response402 import InlineResponse402
 from pdf_generator_api_client.model.inline_response500 import InlineResponse500
 from pdf_generator_api_client.model.inline_response403 import InlineResponse403
 from pprint import pprint
@@ -102,6 +103,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Template configuration as JSON object |  -  |
 **401** | Unauthorized |  -  |
+**402** | Account Suspended |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
 **422** | Unprocessable Entity |  -  |
@@ -128,6 +130,7 @@ from pdf_generator_api_client.model.inline_response422 import InlineResponse422
 from pdf_generator_api_client.model.inline_response404 import InlineResponse404
 from pdf_generator_api_client.model.inline_response2001 import InlineResponse2001
 from pdf_generator_api_client.model.template_definition_new import TemplateDefinitionNew
+from pdf_generator_api_client.model.inline_response402 import InlineResponse402
 from pdf_generator_api_client.model.inline_response500 import InlineResponse500
 from pdf_generator_api_client.model.inline_response403 import InlineResponse403
 from pprint import pprint
@@ -235,6 +238,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Template configuration as JSON object |  -  |
 **401** | Unauthorized |  -  |
+**402** | Account Suspended |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
 **422** | Unprocessable Entity |  -  |
@@ -259,6 +263,7 @@ from pdf_generator_api_client.api import templates_api
 from pdf_generator_api_client.model.inline_response401 import InlineResponse401
 from pdf_generator_api_client.model.inline_response422 import InlineResponse422
 from pdf_generator_api_client.model.inline_response404 import InlineResponse404
+from pdf_generator_api_client.model.inline_response402 import InlineResponse402
 from pdf_generator_api_client.model.inline_response500 import InlineResponse500
 from pdf_generator_api_client.model.inline_response2002 import InlineResponse2002
 from pdf_generator_api_client.model.inline_response403 import InlineResponse403
@@ -320,6 +325,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | The request was successfully executed. |  -  |
 **401** | Unauthorized |  -  |
+**402** | Account Suspended |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
 **422** | Unprocessable Entity |  -  |
@@ -332,7 +338,7 @@ Name | Type | Description  | Notes
 
 Open editor
 
-Returns an unique URL which you can use to redirect your user to the editor from your application or use the generated URL as iframe source to show the editor within your application. 
+Returns an unique URL which you can use to redirect your user to the editor from your application or use the generated URL as iframe source to show the editor within your application. When using iframe, make sure that your browser allows third-party cookies. 
 
 ### Example
 
@@ -344,6 +350,7 @@ from pdf_generator_api_client.api import templates_api
 from pdf_generator_api_client.model.inline_response401 import InlineResponse401
 from pdf_generator_api_client.model.inline_response422 import InlineResponse422
 from pdf_generator_api_client.model.inline_response404 import InlineResponse404
+from pdf_generator_api_client.model.inline_response402 import InlineResponse402
 from pdf_generator_api_client.model.inline_response2003 import InlineResponse2003
 from pdf_generator_api_client.model.inline_response500 import InlineResponse500
 from pdf_generator_api_client.model.inline_response403 import InlineResponse403
@@ -418,6 +425,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Returns an URL which you can use to redirect your user to the editor or use as iframe source |  -  |
 **401** | Unauthorized |  -  |
+**402** | Account Suspended |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
 **422** | Unprocessable Entity |  -  |
@@ -443,6 +451,7 @@ from pdf_generator_api_client.model.inline_response401 import InlineResponse401
 from pdf_generator_api_client.model.inline_response422 import InlineResponse422
 from pdf_generator_api_client.model.inline_response404 import InlineResponse404
 from pdf_generator_api_client.model.inline_response2001 import InlineResponse2001
+from pdf_generator_api_client.model.inline_response402 import InlineResponse402
 from pdf_generator_api_client.model.inline_response500 import InlineResponse500
 from pdf_generator_api_client.model.inline_response403 import InlineResponse403
 from pprint import pprint
@@ -503,6 +512,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Template configuration as JSON object |  -  |
 **401** | Unauthorized |  -  |
+**402** | Account Suspended |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
 **422** | Unprocessable Entity |  -  |
@@ -527,6 +537,7 @@ from pdf_generator_api_client.api import templates_api
 from pdf_generator_api_client.model.inline_response401 import InlineResponse401
 from pdf_generator_api_client.model.inline_response422 import InlineResponse422
 from pdf_generator_api_client.model.inline_response404 import InlineResponse404
+from pdf_generator_api_client.model.inline_response402 import InlineResponse402
 from pdf_generator_api_client.model.inline_response500 import InlineResponse500
 from pdf_generator_api_client.model.inline_response200 import InlineResponse200
 from pdf_generator_api_client.model.inline_response403 import InlineResponse403
@@ -584,6 +595,7 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 **200** | An array of template objects |  -  |
 **401** | Unauthorized |  -  |
+**402** | Account Suspended |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
 **422** | Unprocessable Entity |  -  |
@@ -610,6 +622,7 @@ from pdf_generator_api_client.model.inline_response422 import InlineResponse422
 from pdf_generator_api_client.model.inline_response404 import InlineResponse404
 from pdf_generator_api_client.model.inline_response2001 import InlineResponse2001
 from pdf_generator_api_client.model.template_definition_new import TemplateDefinitionNew
+from pdf_generator_api_client.model.inline_response402 import InlineResponse402
 from pdf_generator_api_client.model.inline_response500 import InlineResponse500
 from pdf_generator_api_client.model.inline_response403 import InlineResponse403
 from pprint import pprint
@@ -719,6 +732,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Template configuration as JSON object |  -  |
 **401** | Unauthorized |  -  |
+**402** | Account Suspended |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
 **422** | Unprocessable Entity |  -  |

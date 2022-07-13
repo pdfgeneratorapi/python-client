@@ -11,7 +11,7 @@
 
 from pdf_generator_api_client.model.batch_data import BatchData
 from pdf_generator_api_client.model.component import Component
-from pdf_generator_api_client.model.data import Data
+from pdf_generator_api_client.model.data_array import DataArray
 from pdf_generator_api_client.model.inline_response200 import InlineResponse200
 from pdf_generator_api_client.model.inline_response2001 import InlineResponse2001
 from pdf_generator_api_client.model.inline_response2002 import InlineResponse2002
@@ -21,6 +21,7 @@ from pdf_generator_api_client.model.inline_response2004 import InlineResponse200
 from pdf_generator_api_client.model.inline_response2004_meta import InlineResponse2004Meta
 from pdf_generator_api_client.model.inline_response2005 import InlineResponse2005
 from pdf_generator_api_client.model.inline_response401 import InlineResponse401
+from pdf_generator_api_client.model.inline_response402 import InlineResponse402
 from pdf_generator_api_client.model.inline_response403 import InlineResponse403
 from pdf_generator_api_client.model.inline_response404 import InlineResponse404
 from pdf_generator_api_client.model.inline_response422 import InlineResponse422
