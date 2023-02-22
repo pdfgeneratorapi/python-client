@@ -4,15 +4,13 @@
 
 The PDF Generator API features a web API architecture, allowing you to code in the language of your choice. This API supports the JSON media type, and uses UTF-8 character encoding.
 
-You can find our previous API documentation page with references to Simple and Signature authentication [here](https://docs.pdfgeneratorapi.com/legacy).
-
 ## Base URL
-The base URL for all the API endpoints is `https://us1.pdfgeneratorapi.com/api/v3`
+The base URL for all the API endpoints is `https://us1.pdfgeneratorapi.com/api/v4`
 
 For example
-* `https://us1.pdfgeneratorapi.com/api/v3/templates`
-* `https://us1.pdfgeneratorapi.com/api/v3/workspaces`
-* `https://us1.pdfgeneratorapi.com/api/v3/templates/123123`
+* `https://us1.pdfgeneratorapi.com/api/v4/templates`
+* `https://us1.pdfgeneratorapi.com/api/v4/workspaces`
+* `https://us1.pdfgeneratorapi.com/api/v4/templates/123123`
 
 ## Editor
 PDF Generator API comes with a powerful drag & drop editor that allows to create any kind of document templates, from barcode labels to invoices, quotes and reports. You can find tutorials and videos from our [Support Portal](https://support.pdfgeneratorapi.com).
@@ -53,15 +51,27 @@ Data Field is a placeholder for the specific data in your JSON data set. In this
 ```
 
 ## Rate limiting
-Our API endpoints use IP-based rate limiting and allow you to make up to 30 requests per second and 240 requests per minute. If you make more requests, you will receive a response with HTTP code 429.
+Our API endpoints use IP-based rate limiting and allow you to make up to 2 requests per second and 60 requests per minute. If you make more requests, you will receive a response with HTTP code 429.
+
+Response headers contain additional values:
+
+| Header   | Description                    |
+|--------|--------------------------------|
+| X-RateLimit-Limit    | Maximum requests per minute                   |
+| X-RateLimit-Remaining    | The requests remaining in the current minute               |
+| Retry-After     | How many seconds you need to wait until you are allowed to make requests |
+
+## Postman Collection
+We have created a [Postman](https://www.postman.com) Collection so you can easily test all the API endpoints without developing and code. You can download the collection [here](https://god.gw.postman.com/run-collection/11578263-c6546175-de49-4b35-904b-29bb52a5a69a?action=collection%2Ffork&collection-url=entityId%3D11578263-c6546175-de49-4b35-904b-29bb52a5a69a%26entityType%3Dcollection%26workspaceId%3D5900d75f-c45d-4e61-9fb7-63aca23580df) or just click the button below.
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/11578263-c6546175-de49-4b35-904b-29bb52a5a69a?action=collection%2Ffork&collection-url=entityId%3D11578263-c6546175-de49-4b35-904b-29bb52a5a69a%26entityType%3Dcollection%26workspaceId%3D5900d75f-c45d-4e61-9fb7-63aca23580df)
 
 *  *  *  *  *
+
 # Authentication
 The PDF Generator API uses __JSON Web Tokens (JWT)__ to authenticate all API requests. These tokens offer a method to establish secure server-to-server authentication by transferring a compact JSON object with a signed payload of your account’s API Key and Secret.
 When authenticating to the PDF Generator API, a JWT should be generated uniquely by a __server-side application__ and included as a __Bearer Token__ in the header of each request.
 
-## Legacy Simple and Signature authentication
-You can find our legacy documentation for Simple and Signature authentication [here](https://docs.pdfgeneratorapi.com/legacy).
 
 <SecurityDefinitions />
 
@@ -122,27 +132,9 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhZDU0YWFmZjg5ZmZkZmVmZjE3OGJiOGE
 // Signature: SxO-H7UYYYsclS8RGWO1qf0z1cB1m73wF9FLl9RCc1Q
 ```
 
-## Testing with JWTs
-You can create a temporary token in [Account Settings](https://pdfgeneratorapi.com/account/organization) page after you login to PDF Generator API. The generated token uses your email address as the subject (`sub`) value and is valid for __5 minutes__.
+## Temporary JWTs
+You can create a temporary token in [Account Settings](https://pdfgeneratorapi.com/account/organization) page after you login to PDF Generator API. The generated token uses your email address as the subject (`sub`) value and is valid for __15 minutes__.
 You can also use [jwt.io](https://jwt.io/) to generate test tokens for your API calls. These test tokens should never be used in production applications.
-*  *  *  *  *
-
-# Libraries and SDKs
-## Postman Collection
-We have created a [Postman](https://www.postman.com) Collection so you can easily test all the API endpoints wihtout developing and code. You can download the collection [here](https://app.getpostman.com/run-collection/329f09618ec8a957dbc4) or just click the button below.
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/329f09618ec8a957dbc4)
-
-## Client Libraries
-All our Client Libraries are auto-generated using [OpenAPI Generator](https://openapi-generator.tech/) which uses the OpenAPI v3 specification to automatically generate a client library in specific programming language.
-
-* [PHP Client](https://github.com/pdfgeneratorapi/php-client)
-* [Java Client](https://github.com/pdfgeneratorapi/java-client)
-* [Ruby Client](https://github.com/pdfgeneratorapi/ruby-client)
-* [Python Client](https://github.com/pdfgeneratorapi/python-client)
-* [Javascript Client](https://github.com/pdfgeneratorapi/javascript-client)
-
-We have validated the generated libraries, but let us know if you find any anomalies in the client code.
 *  *  *  *  *
 
 # Error codes
@@ -201,10 +193,12 @@ We have validated the generated libraries, but let us know if you find any anoma
 |-------------------------------------------------------------------------|
 | You can make up to 5 requests per second and 120 requests per minute.   |
 
+*  *  *  *  *
+
 
 This Python package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: 3.1.1
+- API version: 4.0.1
 - Package version: 1.0.0
 - Build package: org.openapitools.codegen.languages.PythonClientCodegen
 For more information, please visit [https://support.pdfgeneratorapi.com](https://support.pdfgeneratorapi.com)
@@ -342,12 +336,11 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import time
 import pdf_generator_api_client
 from pprint import pprint
-from pdf_generator_api_client.apis.tags import documents_api
-from pdf_generator_api_client.model.batch_data import BatchData
-# Defining the host is optional and defaults to https://us1.pdfgeneratorapi.com/api/v3
+from pdf_generator_api_client.apis.tags import conversion_api
+# Defining the host is optional and defaults to https://us1.pdfgeneratorapi.com/api/v4
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pdf_generator_api_client.Configuration(
-    host = "https://us1.pdfgeneratorapi.com/api/v3"
+    host = "https://us1.pdfgeneratorapi.com/api/v4"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -363,46 +356,65 @@ configuration = pdf_generator_api_client.Configuration(
 # Enter a context with an instance of the API client
 with pdf_generator_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = documents_api.DocumentsApi(api_client)
-    template_id = 19375 # int | Template unique identifier
-body = dict() # {str: (bool, date, datetime, dict, float, int, list, str, none_type)} | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
-name = "My document" # str | Document name, returned in the meta data. (optional)
-format = "pdf" # str | Document format. The zip option will return a ZIP file with PDF files. (optional)
-output = "base64" # str | Response format. "I" is used to return the file inline. With the url option, the document is stored for 30 days and automatically deleted. (optional)
+    api_instance = conversion_api.ConversionApi(api_client)
+    any_type = dict(
+        content="<html><title>Test</title><body><h1>Hello world</h1></body></html>",
+        paper_size="a4",
+        orientation="portrait",
+        output="base64",
+        filename="Invoice 12345",
+    ) # anyType | 
 
     try:
-        # Generate document
-        api_response = api_instance.merge_template(template_idbodyname=nameformat=formatoutput=output)
+        # HTML to PDF
+        api_response = api_instance.convert_html2_pdf(any_type)
         pprint(api_response)
     except pdf_generator_api_client.ApiException as e:
-        print("Exception when calling DocumentsApi->merge_template: %s\n" % e)
+        print("Exception when calling ConversionApi->convert_html2_pdf: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v3*
+All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v4*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DocumentsApi* | [**merge_template**](docs/apis/tags/DocumentsApi.md#merge_template) | **post** /templates/{templateId}/output | Generate document
-*DocumentsApi* | [**merge_templates**](docs/apis/tags/DocumentsApi.md#merge_templates) | **post** /templates/output | Generate document (multiple templates)
+*ConversionApi* | [**convert_html2_pdf**](docs/apis/tags/ConversionApi.md#convert_html2_pdf) | **post** /conversion/html2pdf | HTML to PDF
+*ConversionApi* | [**convert_url2_pdf**](docs/apis/tags/ConversionApi.md#convert_url2_pdf) | **post** /conversion/url2pdf | URL to PDF
+*DocumentsApi* | [**generate_document**](docs/apis/tags/DocumentsApi.md#generate_document) | **post** /documents/generate | Generate document
+*DocumentsApi* | [**generate_document_async**](docs/apis/tags/DocumentsApi.md#generate_document_async) | **post** /documents/generate/async | Generate document (async)
+*DocumentsApi* | [**generate_document_batch**](docs/apis/tags/DocumentsApi.md#generate_document_batch) | **post** /documents/generate/batch | Generate document (batch)
+*DocumentsApi* | [**generate_document_batch_async**](docs/apis/tags/DocumentsApi.md#generate_document_batch_async) | **post** /documents/generate/batch/async | Generate document (batch + async)
+*DocumentsApi* | [**get_documents**](docs/apis/tags/DocumentsApi.md#get_documents) | **get** /documents | Get documents
 *TemplatesApi* | [**copy_template**](docs/apis/tags/TemplatesApi.md#copy_template) | **post** /templates/{templateId}/copy | Copy template
 *TemplatesApi* | [**create_template**](docs/apis/tags/TemplatesApi.md#create_template) | **post** /templates | Create template
 *TemplatesApi* | [**delete_template**](docs/apis/tags/TemplatesApi.md#delete_template) | **delete** /templates/{templateId} | Delete template
-*TemplatesApi* | [**get_editor_url**](docs/apis/tags/TemplatesApi.md#get_editor_url) | **post** /templates/{templateId}/editor | Open editor
 *TemplatesApi* | [**get_template**](docs/apis/tags/TemplatesApi.md#get_template) | **get** /templates/{templateId} | Get template
+*TemplatesApi* | [**get_template_data**](docs/apis/tags/TemplatesApi.md#get_template_data) | **get** /templates/{templateId}/data | Get template data fields
 *TemplatesApi* | [**get_templates**](docs/apis/tags/TemplatesApi.md#get_templates) | **get** /templates | Get templates
+*TemplatesApi* | [**open_editor**](docs/apis/tags/TemplatesApi.md#open_editor) | **post** /templates/{templateId}/editor | Open editor
 *TemplatesApi* | [**update_template**](docs/apis/tags/TemplatesApi.md#update_template) | **put** /templates/{templateId} | Update template
-*WorkspacesApi* | [**delete_workspace**](docs/apis/tags/WorkspacesApi.md#delete_workspace) | **delete** /workspaces/{workspaceId} | Delete workspace
-*WorkspacesApi* | [**get_workspace**](docs/apis/tags/WorkspacesApi.md#get_workspace) | **get** /workspaces/{workspaceId} | Get workspace
+*WorkspacesApi* | [**create_workspace**](docs/apis/tags/WorkspacesApi.md#create_workspace) | **post** /workspaces | Create workspace
+*WorkspacesApi* | [**delete_workspace**](docs/apis/tags/WorkspacesApi.md#delete_workspace) | **delete** /workspaces/{workspaceIdentifier} | Delete workspace
+*WorkspacesApi* | [**get_workspace**](docs/apis/tags/WorkspacesApi.md#get_workspace) | **get** /workspaces/{workspaceIdentifier} | Get workspace
+*WorkspacesApi* | [**get_workspaces**](docs/apis/tags/WorkspacesApi.md#get_workspaces) | **get** /workspaces | Get workspaces
 
 ## Documentation For Models
 
- - [BatchData](docs/models/BatchData.md)
+ - [AsyncOutputParam](docs/models/AsyncOutputParam.md)
+ - [CallbackParam](docs/models/CallbackParam.md)
  - [Component](docs/models/Component.md)
+ - [DataArray](docs/models/DataArray.md)
+ - [DataBatch](docs/models/DataBatch.md)
+ - [Document](docs/models/Document.md)
+ - [FormatParam](docs/models/FormatParam.md)
+ - [NameParam](docs/models/NameParam.md)
+ - [OutputParam](docs/models/OutputParam.md)
+ - [PaginationMeta](docs/models/PaginationMeta.md)
  - [Template](docs/models/Template.md)
  - [TemplateDefinition](docs/models/TemplateDefinition.md)
  - [TemplateDefinitionNew](docs/models/TemplateDefinitionNew.md)
+ - [TemplateParam](docs/models/TemplateParam.md)
  - [Workspace](docs/models/Workspace.md)
 
 ## Documentation For Authorization
@@ -415,6 +427,7 @@ Class | Method | HTTP request | Description
 
 ## Author
 
+support@pdfgeneratorapi.com
 support@pdfgeneratorapi.com
 support@pdfgeneratorapi.com
 support@pdfgeneratorapi.com

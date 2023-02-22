@@ -13,7 +13,8 @@ Key | Input Type | Accessed Type | Description | Notes
 **id** | decimal.Decimal, int,  | decimal.Decimal,  | Unique identifier | [optional] 
 **name** | str,  | str,  | Template name | [optional] 
 **owner** | bool,  | BoolClass,  | Indicates if the workspace is the owner of the template | [optional] 
-**modified** | str,  | str,  | Timestamp when the template was modified | [optional] 
+**created_at** | str,  | str,  | Timestamp when the template was created | [optional] 
+**updated_at** | str,  | str,  | Timestamp when the template was updated | [optional] 
 **[tags](#tags)** | list, tuple,  | tuple,  | A list of tags assigned to a template | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 

@@ -53,7 +53,7 @@ request_path_template_id = api_client.PathParameter(
 )
 
 
-class SchemaFor200ResponseBodyApplicationJson(
+class SchemaFor204ResponseBodyApplicationJson(
     schemas.DictSchema
 ):
 
@@ -142,7 +142,7 @@ class SchemaFor200ResponseBodyApplicationJson(
         response: typing.Union[MetaOapg.properties.response, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'SchemaFor200ResponseBodyApplicationJson':
+    ) -> 'SchemaFor204ResponseBodyApplicationJson':
         return super().__new__(
             cls,
             *args,
@@ -153,19 +153,19 @@ class SchemaFor200ResponseBodyApplicationJson(
 
 
 @dataclass
-class ApiResponseFor200(api_client.ApiResponse):
+class ApiResponseFor204(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        SchemaFor200ResponseBodyApplicationJson,
+        SchemaFor204ResponseBodyApplicationJson,
     ]
     headers: schemas.Unset = schemas.unset
 
 
-_response_for_200 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor200,
+_response_for_204 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor204,
     content={
         'application/json': api_client.MediaType(
-            schema=SchemaFor200ResponseBodyApplicationJson),
+            schema=SchemaFor204ResponseBodyApplicationJson),
     },
 )
 
@@ -180,7 +180,7 @@ class SchemaFor401ResponseBodyApplicationJson(
         class properties:
             
             
-            class error(
+            class message(
                 schemas.EnumBase,
                 schemas.StrSchema
             ):
@@ -224,52 +224,42 @@ class SchemaFor401ResponseBodyApplicationJson(
                 @schemas.classproperty
                 def FAILED(cls):
                     return cls("Authentication failed")
-            status = schemas.IntSchema
             __annotations__ = {
-                "error": error,
-                "status": status,
+                "message": message,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["error"]) -> MetaOapg.properties.error: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["status"]) -> MetaOapg.properties.status: ...
+    def __getitem__(self, name: typing_extensions.Literal["message"]) -> MetaOapg.properties.message: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["error", "status", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["message", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["error"]) -> typing.Union[MetaOapg.properties.error, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["status"]) -> typing.Union[MetaOapg.properties.status, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["message"]) -> typing.Union[MetaOapg.properties.message, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["error", "status", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["message", ], str]):
         return super().get_item_oapg(name)
     
 
     def __new__(
         cls,
         *args: typing.Union[dict, frozendict.frozendict, ],
-        error: typing.Union[MetaOapg.properties.error, str, schemas.Unset] = schemas.unset,
-        status: typing.Union[MetaOapg.properties.status, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        message: typing.Union[MetaOapg.properties.message, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SchemaFor401ResponseBodyApplicationJson':
         return super().__new__(
             cls,
             *args,
-            error=error,
-            status=status,
+            message=message,
             _configuration=_configuration,
             **kwargs,
         )
@@ -303,7 +293,7 @@ class SchemaFor402ResponseBodyApplicationJson(
         class properties:
             
             
-            class error(
+            class message(
                 schemas.EnumBase,
                 schemas.StrSchema
             ):
@@ -311,52 +301,42 @@ class SchemaFor402ResponseBodyApplicationJson(
                 @schemas.classproperty
                 def YOUR_ACCOUNT_IS_SUSPENDED_PLEASE_UPGRADE_YOUR_ACCOUNT_OR_CONTACT_SUPPORTPDFGENERATORAPI_COM(cls):
                     return cls("Your account is suspended, please upgrade your account or contact support@pdfgeneratorapi.com")
-            status = schemas.IntSchema
             __annotations__ = {
-                "error": error,
-                "status": status,
+                "message": message,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["error"]) -> MetaOapg.properties.error: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["status"]) -> MetaOapg.properties.status: ...
+    def __getitem__(self, name: typing_extensions.Literal["message"]) -> MetaOapg.properties.message: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["error", "status", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["message", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["error"]) -> typing.Union[MetaOapg.properties.error, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["status"]) -> typing.Union[MetaOapg.properties.status, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["message"]) -> typing.Union[MetaOapg.properties.message, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["error", "status", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["message", ], str]):
         return super().get_item_oapg(name)
     
 
     def __new__(
         cls,
         *args: typing.Union[dict, frozendict.frozendict, ],
-        error: typing.Union[MetaOapg.properties.error, str, schemas.Unset] = schemas.unset,
-        status: typing.Union[MetaOapg.properties.status, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        message: typing.Union[MetaOapg.properties.message, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SchemaFor402ResponseBodyApplicationJson':
         return super().__new__(
             cls,
             *args,
-            error=error,
-            status=status,
+            message=message,
             _configuration=_configuration,
             **kwargs,
         )
@@ -390,7 +370,7 @@ class SchemaFor403ResponseBodyApplicationJson(
         class properties:
             
             
-            class error(
+            class message(
                 schemas.EnumBase,
                 schemas.StrSchema
             ):
@@ -398,52 +378,42 @@ class SchemaFor403ResponseBodyApplicationJson(
                 @schemas.classproperty
                 def YOUR_ACCOUNT_HAS_EXCEEDED_THE_MONTHLY_DOCUMENT_GENERATION_LIMIT_(cls):
                     return cls("Your account has exceeded the monthly document generation limit.")
-            status = schemas.IntSchema
             __annotations__ = {
-                "error": error,
-                "status": status,
+                "message": message,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["error"]) -> MetaOapg.properties.error: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["status"]) -> MetaOapg.properties.status: ...
+    def __getitem__(self, name: typing_extensions.Literal["message"]) -> MetaOapg.properties.message: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["error", "status", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["message", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["error"]) -> typing.Union[MetaOapg.properties.error, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["status"]) -> typing.Union[MetaOapg.properties.status, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["message"]) -> typing.Union[MetaOapg.properties.message, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["error", "status", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["message", ], str]):
         return super().get_item_oapg(name)
     
 
     def __new__(
         cls,
         *args: typing.Union[dict, frozendict.frozendict, ],
-        error: typing.Union[MetaOapg.properties.error, str, schemas.Unset] = schemas.unset,
-        status: typing.Union[MetaOapg.properties.status, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        message: typing.Union[MetaOapg.properties.message, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SchemaFor403ResponseBodyApplicationJson':
         return super().__new__(
             cls,
             *args,
-            error=error,
-            status=status,
+            message=message,
             _configuration=_configuration,
             **kwargs,
         )
@@ -477,7 +447,7 @@ class SchemaFor404ResponseBodyApplicationJson(
         class properties:
             
             
-            class error(
+            class message(
                 schemas.EnumBase,
                 schemas.StrSchema
             ):
@@ -487,58 +457,52 @@ class SchemaFor404ResponseBodyApplicationJson(
                     return cls("Entity not found")
                 
                 @schemas.classproperty
+                def TEMPLATE_NOT_FOUND(cls):
+                    return cls("Template not found")
+                
+                @schemas.classproperty
                 def RESOURCE_NOT_FOUND(cls):
                     return cls("Resource not found")
                 
                 @schemas.classproperty
                 def NONE_OF_THE_TEMPLATES_IS_AVAILABLE_FOR_THE_WORKSPACE_(cls):
                     return cls("None of the templates is available for the workspace.")
-            status = schemas.IntSchema
             __annotations__ = {
-                "error": error,
-                "status": status,
+                "message": message,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["error"]) -> MetaOapg.properties.error: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["status"]) -> MetaOapg.properties.status: ...
+    def __getitem__(self, name: typing_extensions.Literal["message"]) -> MetaOapg.properties.message: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["error", "status", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["message", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["error"]) -> typing.Union[MetaOapg.properties.error, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["status"]) -> typing.Union[MetaOapg.properties.status, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["message"]) -> typing.Union[MetaOapg.properties.message, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["error", "status", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["message", ], str]):
         return super().get_item_oapg(name)
     
 
     def __new__(
         cls,
         *args: typing.Union[dict, frozendict.frozendict, ],
-        error: typing.Union[MetaOapg.properties.error, str, schemas.Unset] = schemas.unset,
-        status: typing.Union[MetaOapg.properties.status, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        message: typing.Union[MetaOapg.properties.message, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SchemaFor404ResponseBodyApplicationJson':
         return super().__new__(
             cls,
             *args,
-            error=error,
-            status=status,
+            message=message,
             _configuration=_configuration,
             **kwargs,
         )
@@ -570,74 +534,53 @@ class SchemaFor422ResponseBodyApplicationJson(
     class MetaOapg:
         
         class properties:
-            
-            
-            class error(
-                schemas.EnumBase,
-                schemas.StrSchema
-            ):
-                
-                @schemas.classproperty
-                def UNABLE_TO_PARSE_JSON_PLEASE_CHECK_FORMATTING(cls):
-                    return cls("Unable to parse JSON, please check formatting")
-                
-                @schemas.classproperty
-                def REQUIRED_PARAMETER_MISSING(cls):
-                    return cls("Required parameter missing")
-                
-                @schemas.classproperty
-                def REQUIRED_PARAMETER_MISSING_TEMPLATE_DEFINITION_NOT_DEFINED(cls):
-                    return cls("Required parameter missing: template definition not defined")
-                
-                @schemas.classproperty
-                def REQUIRED_PARAMETER_MISSING_TEMPLATE_NOT_DEFINED(cls):
-                    return cls("Required parameter missing: template not defined")
-            status = schemas.IntSchema
+            message = schemas.StrSchema
+            errors = schemas.DictSchema
             __annotations__ = {
-                "error": error,
-                "status": status,
+                "message": message,
+                "errors": errors,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["error"]) -> MetaOapg.properties.error: ...
+    def __getitem__(self, name: typing_extensions.Literal["message"]) -> MetaOapg.properties.message: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["status"]) -> MetaOapg.properties.status: ...
+    def __getitem__(self, name: typing_extensions.Literal["errors"]) -> MetaOapg.properties.errors: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["error", "status", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["message", "errors", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["error"]) -> typing.Union[MetaOapg.properties.error, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["message"]) -> typing.Union[MetaOapg.properties.message, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["status"]) -> typing.Union[MetaOapg.properties.status, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["errors"]) -> typing.Union[MetaOapg.properties.errors, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["error", "status", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["message", "errors", ], str]):
         return super().get_item_oapg(name)
     
 
     def __new__(
         cls,
         *args: typing.Union[dict, frozendict.frozendict, ],
-        error: typing.Union[MetaOapg.properties.error, str, schemas.Unset] = schemas.unset,
-        status: typing.Union[MetaOapg.properties.status, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        message: typing.Union[MetaOapg.properties.message, str, schemas.Unset] = schemas.unset,
+        errors: typing.Union[MetaOapg.properties.errors, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SchemaFor422ResponseBodyApplicationJson':
         return super().__new__(
             cls,
             *args,
-            error=error,
-            status=status,
+            message=message,
+            errors=errors,
             _configuration=_configuration,
             **kwargs,
         )
@@ -669,62 +612,43 @@ class SchemaFor429ResponseBodyApplicationJson(
     class MetaOapg:
         
         class properties:
-            
-            
-            class error(
-                schemas.EnumBase,
-                schemas.StrSchema
-            ):
-                
-                @schemas.classproperty
-                def YOU_CAN_MAKE_UP_TO_5_REQUESTS_PER_SECOND_AND_120_REQUESTS_PER_MINUTE_(cls):
-                    return cls("You can make up to 5 requests per second and 120 requests per minute.")
-            status = schemas.IntSchema
+            message = schemas.StrSchema
             __annotations__ = {
-                "error": error,
-                "status": status,
+                "message": message,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["error"]) -> MetaOapg.properties.error: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["status"]) -> MetaOapg.properties.status: ...
+    def __getitem__(self, name: typing_extensions.Literal["message"]) -> MetaOapg.properties.message: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["error", "status", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["message", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["error"]) -> typing.Union[MetaOapg.properties.error, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["status"]) -> typing.Union[MetaOapg.properties.status, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["message"]) -> typing.Union[MetaOapg.properties.message, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["error", "status", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["message", ], str]):
         return super().get_item_oapg(name)
     
 
     def __new__(
         cls,
         *args: typing.Union[dict, frozendict.frozendict, ],
-        error: typing.Union[MetaOapg.properties.error, str, schemas.Unset] = schemas.unset,
-        status: typing.Union[MetaOapg.properties.status, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        message: typing.Union[MetaOapg.properties.message, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SchemaFor429ResponseBodyApplicationJson':
         return super().__new__(
             cls,
             *args,
-            error=error,
-            status=status,
+            message=message,
             _configuration=_configuration,
             **kwargs,
         )
@@ -756,53 +680,43 @@ class SchemaFor500ResponseBodyApplicationJson(
     class MetaOapg:
         
         class properties:
-            error = schemas.StrSchema
-            status = schemas.IntSchema
+            message = schemas.StrSchema
             __annotations__ = {
-                "error": error,
-                "status": status,
+                "message": message,
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["error"]) -> MetaOapg.properties.error: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["status"]) -> MetaOapg.properties.status: ...
+    def __getitem__(self, name: typing_extensions.Literal["message"]) -> MetaOapg.properties.message: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["error", "status", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["message", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["error"]) -> typing.Union[MetaOapg.properties.error, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["status"]) -> typing.Union[MetaOapg.properties.status, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["message"]) -> typing.Union[MetaOapg.properties.message, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["error", "status", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["message", ], str]):
         return super().get_item_oapg(name)
     
 
     def __new__(
         cls,
         *args: typing.Union[dict, frozendict.frozendict, ],
-        error: typing.Union[MetaOapg.properties.error, str, schemas.Unset] = schemas.unset,
-        status: typing.Union[MetaOapg.properties.status, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        message: typing.Union[MetaOapg.properties.message, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SchemaFor500ResponseBodyApplicationJson':
         return super().__new__(
             cls,
             *args,
-            error=error,
-            status=status,
+            message=message,
             _configuration=_configuration,
             **kwargs,
         )
@@ -839,7 +753,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        ApiResponseFor200,
+        ApiResponseFor204,
     ]: ...
 
     @typing.overload
@@ -861,7 +775,7 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        ApiResponseFor200,
+        ApiResponseFor204,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -937,7 +851,7 @@ class DeleteTemplate(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        ApiResponseFor200,
+        ApiResponseFor204,
     ]: ...
 
     @typing.overload
@@ -959,7 +873,7 @@ class DeleteTemplate(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        ApiResponseFor200,
+        ApiResponseFor204,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
@@ -992,7 +906,7 @@ class ApiFordelete(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
     ) -> typing.Union[
-        ApiResponseFor200,
+        ApiResponseFor204,
     ]: ...
 
     @typing.overload
@@ -1014,7 +928,7 @@ class ApiFordelete(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
     ) -> typing.Union[
-        ApiResponseFor200,
+        ApiResponseFor204,
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 

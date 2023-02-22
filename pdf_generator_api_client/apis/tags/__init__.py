@@ -6,10 +6,7 @@ import enum
 
 
 class TagValues(str, enum.Enum):
-    TEMPLATE_MODEL = "template_model"
-    TEMPLATE_DEFINITION = "template_definition"
-    COMPONENT_MODEL = "component_model"
-    WORKSPACE_MODEL = "workspace_model"
+    CONVERSION = "Conversion"
     DOCUMENTS = "Documents"
     TEMPLATES = "Templates"
     WORKSPACES = "Workspaces"
