@@ -26,6 +26,7 @@ import frozendict  # noqa: F401
 from pdf_generator_api_client import schemas  # noqa: F401
 
 from pdf_generator_api_client.model.template import Template
+from pdf_generator_api_client.model.pagination_meta import PaginationMeta
 
 # Query params
 NameSchema = schemas.StrSchema
@@ -48,6 +49,8 @@ class AccessSchema(
     @schemas.classproperty
     def EMPTY(cls):
         return cls("")
+PageSchema = schemas.IntSchema
+PerPageSchema = schemas.IntSchema
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',
     {
@@ -59,6 +62,8 @@ RequestOptionalQueryParams = typing_extensions.TypedDict(
         'name': typing.Union[NameSchema, str, ],
         'tags': typing.Union[TagsSchema, str, ],
         'access': typing.Union[AccessSchema, str, ],
+        'page': typing.Union[PageSchema, decimal.Decimal, int, ],
+        'per_page': typing.Union[PerPageSchema, decimal.Decimal, int, ],
     },
     total=False
 )
@@ -86,6 +91,18 @@ request_query_access = api_client.QueryParameter(
     schema=AccessSchema,
     explode=True,
 )
+request_query_page = api_client.QueryParameter(
+    name="page",
+    style=api_client.ParameterStyle.FORM,
+    schema=PageSchema,
+    explode=True,
+)
+request_query_per_page = api_client.QueryParameter(
+    name="per_page",
+    style=api_client.ParameterStyle.FORM,
+    schema=PerPageSchema,
+    explode=True,
+)
 
 
 class SchemaFor200ResponseBodyApplicationJson(
@@ -111,28 +128,36 @@ class SchemaFor200ResponseBodyApplicationJson(
             
                 def __new__(
                     cls,
-                    arg: typing.Union[typing.Tuple['Template'], typing.List['Template']],
+                    _arg: typing.Union[typing.Tuple['Template'], typing.List['Template']],
                     _configuration: typing.Optional[schemas.Configuration] = None,
                 ) -> 'response':
                     return super().__new__(
                         cls,
-                        arg,
+                        _arg,
                         _configuration=_configuration,
                     )
             
                 def __getitem__(self, i: int) -> 'Template':
                     return super().__getitem__(i)
+        
+            @staticmethod
+            def meta() -> typing.Type['PaginationMeta']:
+                return PaginationMeta
             __annotations__ = {
                 "response": response,
+                "meta": meta,
             }
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["response"]) -> MetaOapg.properties.response: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["meta"]) -> 'PaginationMeta': ...
+    
+    @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["response", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["response", "meta", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -141,23 +166,28 @@ class SchemaFor200ResponseBodyApplicationJson(
     def get_item_oapg(self, name: typing_extensions.Literal["response"]) -> typing.Union[MetaOapg.properties.response, schemas.Unset]: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["meta"]) -> typing.Union['PaginationMeta', schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["response", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["response", "meta", ], str]):
         return super().get_item_oapg(name)
     
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         response: typing.Union[MetaOapg.properties.response, list, tuple, schemas.Unset] = schemas.unset,
+        meta: typing.Union['PaginationMeta', schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SchemaFor200ResponseBodyApplicationJson':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             response=response,
+            meta=meta,
             _configuration=_configuration,
             **kwargs,
         )
@@ -262,14 +292,14 @@ class SchemaFor401ResponseBodyApplicationJson(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         message: typing.Union[MetaOapg.properties.message, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SchemaFor401ResponseBodyApplicationJson':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             message=message,
             _configuration=_configuration,
             **kwargs,
@@ -339,14 +369,14 @@ class SchemaFor402ResponseBodyApplicationJson(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         message: typing.Union[MetaOapg.properties.message, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SchemaFor402ResponseBodyApplicationJson':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             message=message,
             _configuration=_configuration,
             **kwargs,
@@ -416,14 +446,14 @@ class SchemaFor403ResponseBodyApplicationJson(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         message: typing.Union[MetaOapg.properties.message, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SchemaFor403ResponseBodyApplicationJson':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             message=message,
             _configuration=_configuration,
             **kwargs,
@@ -505,14 +535,14 @@ class SchemaFor404ResponseBodyApplicationJson(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         message: typing.Union[MetaOapg.properties.message, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SchemaFor404ResponseBodyApplicationJson':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             message=message,
             _configuration=_configuration,
             **kwargs,
@@ -581,7 +611,7 @@ class SchemaFor422ResponseBodyApplicationJson(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         message: typing.Union[MetaOapg.properties.message, str, schemas.Unset] = schemas.unset,
         errors: typing.Union[MetaOapg.properties.errors, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
@@ -589,7 +619,7 @@ class SchemaFor422ResponseBodyApplicationJson(
     ) -> 'SchemaFor422ResponseBodyApplicationJson':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             message=message,
             errors=errors,
             _configuration=_configuration,
@@ -651,14 +681,14 @@ class SchemaFor429ResponseBodyApplicationJson(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         message: typing.Union[MetaOapg.properties.message, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SchemaFor429ResponseBodyApplicationJson':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             message=message,
             _configuration=_configuration,
             **kwargs,
@@ -719,14 +749,14 @@ class SchemaFor500ResponseBodyApplicationJson(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         message: typing.Union[MetaOapg.properties.message, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SchemaFor500ResponseBodyApplicationJson':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             message=message,
             _configuration=_configuration,
             **kwargs,
@@ -812,6 +842,8 @@ class BaseApi(api_client.Api):
             request_query_name,
             request_query_tags,
             request_query_access,
+            request_query_page,
+            request_query_per_page,
         ):
             parameter_data = query_params.get(parameter.name, schemas.unset)
             if parameter_data is schemas.unset:
@@ -847,7 +879,11 @@ class BaseApi(api_client.Api):
                 api_response = api_client.ApiResponseWithoutDeserialization(response=response)
 
         if not 200 <= response.status <= 299:
-            raise exceptions.ApiException(api_response=api_response)
+            raise exceptions.ApiException(
+                status=response.status,
+                reason=response.reason,
+                api_response=api_response
+            )
 
         return api_response
 

@@ -10,7 +10,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | Template component def
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**cls** | str,  | str,  | Defines component class/type | [optional] must be one of ["labelComponent", "numberComponent", "textComponent", "imageComponent", "dateComponent", "hlineComponent", "vlineComponent", "tableComponent", "compositeComponent", "barcodeComponent", "qrcodeComponent", "chartComponent", "rectangleComponent", "headerComponent", "footerComponent", "checkboxComponent", "radioComponent", ] 
+**cls** | str,  | str,  | Defines component class/type | [optional] must be one of ["labelComponent", "tableComponent", "compositeComponent", "chartComponent", "barcodeComponent", "qrcodeComponent", "imageComponent", "headerComponent", "footerComponent", "rectangleComponent", "vlineComponent", "hlineComponent", "pagenumberComponent", "symbolComponent", "checkboxComponent", "radioComponent", "signatureComponent", ] 
 **id** | str,  | str,  | Component id | [optional] 
 **width** | decimal.Decimal, int, float,  | decimal.Decimal,  | Width in units | [optional] 
 **height** | decimal.Decimal, int, float,  | decimal.Decimal,  | Height in units | [optional] 

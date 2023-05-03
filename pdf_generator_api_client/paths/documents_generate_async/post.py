@@ -45,7 +45,7 @@ class SchemaForRequestBodyApplicationJson(
         class properties:
         
             @staticmethod
-            def items() -> typing.Type['TemplateParam']:
+            def template() -> typing.Type['TemplateParam']:
                 return TemplateParam
         
             @staticmethod
@@ -61,7 +61,7 @@ class SchemaForRequestBodyApplicationJson(
                 return AsyncOutputParam
             name = schemas.StrSchema
             __annotations__ = {
-                "items": items,
+                "template": template,
                 "callback": callback,
                 "format": format,
                 "output": output,
@@ -69,7 +69,7 @@ class SchemaForRequestBodyApplicationJson(
             }
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["items"]) -> 'TemplateParam': ...
+    def __getitem__(self, name: typing_extensions.Literal["template"]) -> 'TemplateParam': ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["callback"]) -> 'CallbackParam': ...
@@ -86,13 +86,13 @@ class SchemaForRequestBodyApplicationJson(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["items", "callback", "format", "output", "name", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["template", "callback", "format", "output", "name", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["items"]) -> typing.Union['TemplateParam', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["template"]) -> typing.Union['TemplateParam', schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["callback"]) -> typing.Union['CallbackParam', schemas.Unset]: ...
@@ -109,14 +109,14 @@ class SchemaForRequestBodyApplicationJson(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["items", "callback", "format", "output", "name", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["template", "callback", "format", "output", "name", ], str]):
         return super().get_item_oapg(name)
     
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
-        items: typing.Union['TemplateParam', schemas.Unset] = schemas.unset,
+        *_args: typing.Union[dict, frozendict.frozendict, ],
+        template: typing.Union['TemplateParam', schemas.Unset] = schemas.unset,
         callback: typing.Union['CallbackParam', schemas.Unset] = schemas.unset,
         format: typing.Union['FormatParam', schemas.Unset] = schemas.unset,
         output: typing.Union['AsyncOutputParam', schemas.Unset] = schemas.unset,
@@ -126,8 +126,8 @@ class SchemaForRequestBodyApplicationJson(
     ) -> 'SchemaForRequestBodyApplicationJson':
         return super().__new__(
             cls,
-            *args,
-            items=items,
+            *_args,
+            template=template,
             callback=callback,
             format=format,
             output=output,
@@ -195,14 +195,14 @@ class SchemaFor200ResponseBodyApplicationJson(
             
                 def __new__(
                     cls,
-                    *args: typing.Union[dict, frozendict.frozendict, ],
+                    *_args: typing.Union[dict, frozendict.frozendict, ],
                     job_id: typing.Union[MetaOapg.properties.job_id, str, schemas.Unset] = schemas.unset,
                     _configuration: typing.Optional[schemas.Configuration] = None,
                     **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
                 ) -> 'response':
                     return super().__new__(
                         cls,
-                        *args,
+                        *_args,
                         job_id=job_id,
                         _configuration=_configuration,
                         **kwargs,
@@ -234,14 +234,14 @@ class SchemaFor200ResponseBodyApplicationJson(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         response: typing.Union[MetaOapg.properties.response, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SchemaFor200ResponseBodyApplicationJson':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             response=response,
             _configuration=_configuration,
             **kwargs,
@@ -362,14 +362,14 @@ class SchemaFor401ResponseBodyApplicationJson(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         message: typing.Union[MetaOapg.properties.message, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SchemaFor401ResponseBodyApplicationJson':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             message=message,
             _configuration=_configuration,
             **kwargs,
@@ -445,14 +445,14 @@ class SchemaFor402ResponseBodyApplicationJson(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         message: typing.Union[MetaOapg.properties.message, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SchemaFor402ResponseBodyApplicationJson':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             message=message,
             _configuration=_configuration,
             **kwargs,
@@ -528,14 +528,14 @@ class SchemaFor403ResponseBodyApplicationJson(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         message: typing.Union[MetaOapg.properties.message, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SchemaFor403ResponseBodyApplicationJson':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             message=message,
             _configuration=_configuration,
             **kwargs,
@@ -626,14 +626,14 @@ class SchemaFor404ResponseBodyApplicationJson(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         message: typing.Union[MetaOapg.properties.message, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SchemaFor404ResponseBodyApplicationJson':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             message=message,
             _configuration=_configuration,
             **kwargs,
@@ -702,7 +702,7 @@ class SchemaFor422ResponseBodyApplicationJson(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         message: typing.Union[MetaOapg.properties.message, str, schemas.Unset] = schemas.unset,
         errors: typing.Union[MetaOapg.properties.errors, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
@@ -710,7 +710,7 @@ class SchemaFor422ResponseBodyApplicationJson(
     ) -> 'SchemaFor422ResponseBodyApplicationJson':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             message=message,
             errors=errors,
             _configuration=_configuration,
@@ -772,14 +772,14 @@ class SchemaFor429ResponseBodyApplicationJson(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         message: typing.Union[MetaOapg.properties.message, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SchemaFor429ResponseBodyApplicationJson':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             message=message,
             _configuration=_configuration,
             **kwargs,
@@ -840,14 +840,14 @@ class SchemaFor500ResponseBodyApplicationJson(
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict.frozendict, ],
+        *_args: typing.Union[dict, frozendict.frozendict, ],
         message: typing.Union[MetaOapg.properties.message, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SchemaFor500ResponseBodyApplicationJson':
         return super().__new__(
             cls,
-            *args,
+            *_args,
             message=message,
             _configuration=_configuration,
             **kwargs,
@@ -887,7 +887,7 @@ _all_accept_content_types = (
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _generate_document_async_oapg(
+    def _generate_document_asynchronous_oapg(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
@@ -900,7 +900,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _generate_document_async_oapg(
+    def _generate_document_asynchronous_oapg(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
         content_type: str = ...,
@@ -914,7 +914,7 @@ class BaseApi(api_client.Api):
 
 
     @typing.overload
-    def _generate_document_async_oapg(
+    def _generate_document_asynchronous_oapg(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
         skip_deserialization: typing_extensions.Literal[True],
@@ -925,7 +925,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _generate_document_async_oapg(
+    def _generate_document_asynchronous_oapg(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
         content_type: str = ...,
@@ -938,7 +938,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _generate_document_async_oapg(
+    def _generate_document_asynchronous_oapg(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
@@ -993,16 +993,20 @@ class BaseApi(api_client.Api):
                 api_response = api_client.ApiResponseWithoutDeserialization(response=response)
 
         if not 200 <= response.status <= 299:
-            raise exceptions.ApiException(api_response=api_response)
+            raise exceptions.ApiException(
+                status=response.status,
+                reason=response.reason,
+                api_response=api_response
+            )
 
         return api_response
 
 
-class GenerateDocumentAsync(BaseApi):
+class GenerateDocumentAsynchronous(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId fn names
 
     @typing.overload
-    def generate_document_async(
+    def generate_document_asynchronous(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
         content_type: typing_extensions.Literal["application/json"] = ...,
@@ -1015,7 +1019,7 @@ class GenerateDocumentAsync(BaseApi):
     ]: ...
 
     @typing.overload
-    def generate_document_async(
+    def generate_document_asynchronous(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
         content_type: str = ...,
@@ -1029,7 +1033,7 @@ class GenerateDocumentAsync(BaseApi):
 
 
     @typing.overload
-    def generate_document_async(
+    def generate_document_asynchronous(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
         skip_deserialization: typing_extensions.Literal[True],
@@ -1040,7 +1044,7 @@ class GenerateDocumentAsync(BaseApi):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def generate_document_async(
+    def generate_document_asynchronous(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
         content_type: str = ...,
@@ -1053,7 +1057,7 @@ class GenerateDocumentAsync(BaseApi):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def generate_document_async(
+    def generate_document_asynchronous(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
         content_type: str = 'application/json',
@@ -1062,7 +1066,7 @@ class GenerateDocumentAsync(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._generate_document_async_oapg(
+        return self._generate_document_asynchronous_oapg(
             body=body,
             content_type=content_type,
             accept_content_types=accept_content_types,
@@ -1136,7 +1140,7 @@ class ApiForpost(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._generate_document_async_oapg(
+        return self._generate_document_asynchronous_oapg(
             body=body,
             content_type=content_type,
             accept_content_types=accept_content_types,

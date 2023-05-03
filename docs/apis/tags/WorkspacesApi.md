@@ -116,7 +116,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**items** | [**Workspace**]({{complexTypePrefix}}Workspace.md) | [**Workspace**]({{complexTypePrefix}}Workspace.md) |  | [optional] 
+**response** | [**Workspace**]({{complexTypePrefix}}Workspace.md) | [**Workspace**]({{complexTypePrefix}}Workspace.md) |  | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 #### create_workspace.ApiResponseFor401
@@ -654,7 +654,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**items** | [**Workspace**]({{complexTypePrefix}}Workspace.md) | [**Workspace**]({{complexTypePrefix}}Workspace.md) |  | [optional] 
+**response** | [**Workspace**]({{complexTypePrefix}}Workspace.md) | [**Workspace**]({{complexTypePrefix}}Workspace.md) |  | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 #### get_workspace.ApiResponseFor401
@@ -850,16 +850,52 @@ with pdf_generator_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = workspaces_api.WorkspacesApi(api_client)
 
-    # example, this endpoint has no required or optional parameters
+    # example passing only optional values
+    query_params = {
+        'page': 1,
+        'per_page': 20,
+    }
     try:
         # Get workspaces
-        api_response = api_instance.get_workspaces()
+        api_response = api_instance.get_workspaces(
+            query_params=query_params,
+        )
         pprint(api_response)
     except pdf_generator_api_client.ApiException as e:
         print("Exception when calling WorkspacesApi->get_workspaces: %s\n" % e)
 ```
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+query_params | RequestQueryParams | |
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### query_params
+#### RequestQueryParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+page | PageSchema | | optional
+per_page | PerPageSchema | | optional
+
+
+# PageSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use the default value of 1
+
+# PerPageSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use the default value of 15
 
 ### Return Types, Responses
 

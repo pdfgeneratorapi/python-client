@@ -6,9 +6,9 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v4*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**generate_document**](#generate_document) | **post** /documents/generate | Generate document
-[**generate_document_async**](#generate_document_async) | **post** /documents/generate/async | Generate document (async)
+[**generate_document_asynchronous**](#generate_document_asynchronous) | **post** /documents/generate/async | Generate document (async)
 [**generate_document_batch**](#generate_document_batch) | **post** /documents/generate/batch | Generate document (batch)
-[**generate_document_batch_async**](#generate_document_batch_async) | **post** /documents/generate/batch/async | Generate document (batch + async)
+[**generate_document_batch_asynchronous**](#generate_document_batch_asynchronous) | **post** /documents/generate/batch/async | Generate document (batch + async)
 [**get_documents**](#get_documents) | **get** /documents | Get documents
 
 # **generate_document**
@@ -91,7 +91,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**items** | [**TemplateParam**]({{complexTypePrefix}}TemplateParam.md) | [**TemplateParam**]({{complexTypePrefix}}TemplateParam.md) |  | [optional] 
+**template** | [**TemplateParam**]({{complexTypePrefix}}TemplateParam.md) | [**TemplateParam**]({{complexTypePrefix}}TemplateParam.md) |  | [optional] 
 **format** | [**FormatParam**]({{complexTypePrefix}}FormatParam.md) | [**FormatParam**]({{complexTypePrefix}}FormatParam.md) |  | [optional] 
 **output** | [**OutputParam**]({{complexTypePrefix}}OutputParam.md) | [**OutputParam**]({{complexTypePrefix}}OutputParam.md) |  | [optional] 
 **name** | str,  | str,  | Generated document name (optional) | [optional] if omitted the server will use the default value of ""
@@ -304,9 +304,9 @@ Key | Input Type | Accessed Type | Description | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **generate_document_async**
-<a name="generate_document_async"></a>
-> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} generate_document_async(any_type)
+# **generate_document_asynchronous**
+<a name="generate_document_asynchronous"></a>
+> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} generate_document_asynchronous(any_type)
 
 Generate document (async)
 
@@ -359,12 +359,12 @@ with pdf_generator_api_client.ApiClient(configuration) as api_client:
     )
     try:
         # Generate document (async)
-        api_response = api_instance.generate_document_async(
+        api_response = api_instance.generate_document_asynchronous(
             body=body,
         )
         pprint(api_response)
     except pdf_generator_api_client.ApiException as e:
-        print("Exception when calling DocumentsApi->generate_document_async: %s\n" % e)
+        print("Exception when calling DocumentsApi->generate_document_asynchronous: %s\n" % e)
 ```
 ### Parameters
 
@@ -389,7 +389,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**items** | [**TemplateParam**]({{complexTypePrefix}}TemplateParam.md) | [**TemplateParam**]({{complexTypePrefix}}TemplateParam.md) |  | [optional] 
+**template** | [**TemplateParam**]({{complexTypePrefix}}TemplateParam.md) | [**TemplateParam**]({{complexTypePrefix}}TemplateParam.md) |  | [optional] 
 **callback** | [**CallbackParam**]({{complexTypePrefix}}CallbackParam.md) | [**CallbackParam**]({{complexTypePrefix}}CallbackParam.md) |  | [optional] 
 **format** | [**FormatParam**]({{complexTypePrefix}}FormatParam.md) | [**FormatParam**]({{complexTypePrefix}}FormatParam.md) |  | [optional] 
 **output** | [**AsyncOutputParam**]({{complexTypePrefix}}AsyncOutputParam.md) | [**AsyncOutputParam**]({{complexTypePrefix}}AsyncOutputParam.md) |  | [optional] 
@@ -401,16 +401,16 @@ Key | Input Type | Accessed Type | Description | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#generate_document_async.ApiResponseFor200) | Async job response
-401 | [ApiResponseFor401](#generate_document_async.ApiResponseFor401) | Unauthorized
-402 | [ApiResponseFor402](#generate_document_async.ApiResponseFor402) | Account Suspended
-403 | [ApiResponseFor403](#generate_document_async.ApiResponseFor403) | Forbidden
-404 | [ApiResponseFor404](#generate_document_async.ApiResponseFor404) | Not Found
-422 | [ApiResponseFor422](#generate_document_async.ApiResponseFor422) | Unprocessable Entity
-429 | [ApiResponseFor429](#generate_document_async.ApiResponseFor429) | Too Many Requests
-500 | [ApiResponseFor500](#generate_document_async.ApiResponseFor500) | Internal Server Error
+200 | [ApiResponseFor200](#generate_document_asynchronous.ApiResponseFor200) | Async job response
+401 | [ApiResponseFor401](#generate_document_asynchronous.ApiResponseFor401) | Unauthorized
+402 | [ApiResponseFor402](#generate_document_asynchronous.ApiResponseFor402) | Account Suspended
+403 | [ApiResponseFor403](#generate_document_asynchronous.ApiResponseFor403) | Forbidden
+404 | [ApiResponseFor404](#generate_document_asynchronous.ApiResponseFor404) | Not Found
+422 | [ApiResponseFor422](#generate_document_asynchronous.ApiResponseFor422) | Unprocessable Entity
+429 | [ApiResponseFor429](#generate_document_asynchronous.ApiResponseFor429) | Too Many Requests
+500 | [ApiResponseFor500](#generate_document_asynchronous.ApiResponseFor500) | Internal Server Error
 
-#### generate_document_async.ApiResponseFor200
+#### generate_document_asynchronous.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -443,7 +443,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **job_id** | str,  | str,  | Unique job id which is also added to the callback request as header PDF-API-Job-Id | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-#### generate_document_async.ApiResponseFor401
+#### generate_document_asynchronous.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -463,7 +463,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **message** | str,  | str,  | Error description | [optional] must be one of ["Authentication failed: request expired", "Authentication failed: signature or secret missing", "Authentication failed: workspace missing", "Authentication failed: key missing", "Authentication failed: property iss (issuer) missing in JWT", "Authentication failed: property sub (subject) missing in JWT", "Authentication failed: property exp (expiration time) missing in JWT", "Authentication failed: invalid iss (issuer)", "Authentication failed: incorrect signature", "Authentication failed", ] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-#### generate_document_async.ApiResponseFor402
+#### generate_document_asynchronous.ApiResponseFor402
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -483,7 +483,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **message** | str,  | str,  | Error description | [optional] must be one of ["Your account is suspended, please upgrade your account or contact support@pdfgeneratorapi.com", ] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-#### generate_document_async.ApiResponseFor403
+#### generate_document_asynchronous.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -503,7 +503,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **message** | str,  | str,  | Error description | [optional] must be one of ["Your account has exceeded the monthly document generation limit.", ] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-#### generate_document_async.ApiResponseFor404
+#### generate_document_asynchronous.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -523,7 +523,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **message** | str,  | str,  | Error description | [optional] must be one of ["Entity not found", "Template not found", "Resource not found", "None of the templates is available for the workspace.", ] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-#### generate_document_async.ApiResponseFor422
+#### generate_document_asynchronous.ApiResponseFor422
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -553,7 +553,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  | Details about validation errors | 
 
-#### generate_document_async.ApiResponseFor429
+#### generate_document_asynchronous.ApiResponseFor429
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -573,7 +573,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **message** | str,  | str,  | Error description | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-#### generate_document_async.ApiResponseFor500
+#### generate_document_asynchronous.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -906,9 +906,9 @@ Key | Input Type | Accessed Type | Description | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **generate_document_batch_async**
-<a name="generate_document_batch_async"></a>
-> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} generate_document_batch_async(any_type)
+# **generate_document_batch_asynchronous**
+<a name="generate_document_batch_asynchronous"></a>
+> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} generate_document_batch_asynchronous(any_type)
 
 Generate document (batch + async)
 
@@ -963,12 +963,12 @@ with pdf_generator_api_client.ApiClient(configuration) as api_client:
     )
     try:
         # Generate document (batch + async)
-        api_response = api_instance.generate_document_batch_async(
+        api_response = api_instance.generate_document_batch_asynchronous(
             body=body,
         )
         pprint(api_response)
     except pdf_generator_api_client.ApiException as e:
-        print("Exception when calling DocumentsApi->generate_document_batch_async: %s\n" % e)
+        print("Exception when calling DocumentsApi->generate_document_batch_asynchronous: %s\n" % e)
 ```
 ### Parameters
 
@@ -1017,16 +1017,16 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#generate_document_batch_async.ApiResponseFor200) | Async job response
-401 | [ApiResponseFor401](#generate_document_batch_async.ApiResponseFor401) | Unauthorized
-402 | [ApiResponseFor402](#generate_document_batch_async.ApiResponseFor402) | Account Suspended
-403 | [ApiResponseFor403](#generate_document_batch_async.ApiResponseFor403) | Forbidden
-404 | [ApiResponseFor404](#generate_document_batch_async.ApiResponseFor404) | Not Found
-422 | [ApiResponseFor422](#generate_document_batch_async.ApiResponseFor422) | Unprocessable Entity
-429 | [ApiResponseFor429](#generate_document_batch_async.ApiResponseFor429) | Too Many Requests
-500 | [ApiResponseFor500](#generate_document_batch_async.ApiResponseFor500) | Internal Server Error
+200 | [ApiResponseFor200](#generate_document_batch_asynchronous.ApiResponseFor200) | Async job response
+401 | [ApiResponseFor401](#generate_document_batch_asynchronous.ApiResponseFor401) | Unauthorized
+402 | [ApiResponseFor402](#generate_document_batch_asynchronous.ApiResponseFor402) | Account Suspended
+403 | [ApiResponseFor403](#generate_document_batch_asynchronous.ApiResponseFor403) | Forbidden
+404 | [ApiResponseFor404](#generate_document_batch_asynchronous.ApiResponseFor404) | Not Found
+422 | [ApiResponseFor422](#generate_document_batch_asynchronous.ApiResponseFor422) | Unprocessable Entity
+429 | [ApiResponseFor429](#generate_document_batch_asynchronous.ApiResponseFor429) | Too Many Requests
+500 | [ApiResponseFor500](#generate_document_batch_asynchronous.ApiResponseFor500) | Internal Server Error
 
-#### generate_document_batch_async.ApiResponseFor200
+#### generate_document_batch_asynchronous.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1059,7 +1059,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **job_id** | str,  | str,  | Unique job id which is also added to the callback request as header PDF-API-Job-Id | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-#### generate_document_batch_async.ApiResponseFor401
+#### generate_document_batch_asynchronous.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1079,7 +1079,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **message** | str,  | str,  | Error description | [optional] must be one of ["Authentication failed: request expired", "Authentication failed: signature or secret missing", "Authentication failed: workspace missing", "Authentication failed: key missing", "Authentication failed: property iss (issuer) missing in JWT", "Authentication failed: property sub (subject) missing in JWT", "Authentication failed: property exp (expiration time) missing in JWT", "Authentication failed: invalid iss (issuer)", "Authentication failed: incorrect signature", "Authentication failed", ] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-#### generate_document_batch_async.ApiResponseFor402
+#### generate_document_batch_asynchronous.ApiResponseFor402
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1099,7 +1099,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **message** | str,  | str,  | Error description | [optional] must be one of ["Your account is suspended, please upgrade your account or contact support@pdfgeneratorapi.com", ] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-#### generate_document_batch_async.ApiResponseFor403
+#### generate_document_batch_asynchronous.ApiResponseFor403
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1119,7 +1119,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **message** | str,  | str,  | Error description | [optional] must be one of ["Your account has exceeded the monthly document generation limit.", ] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-#### generate_document_batch_async.ApiResponseFor404
+#### generate_document_batch_asynchronous.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1139,7 +1139,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **message** | str,  | str,  | Error description | [optional] must be one of ["Entity not found", "Template not found", "Resource not found", "None of the templates is available for the workspace.", ] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-#### generate_document_batch_async.ApiResponseFor422
+#### generate_document_batch_asynchronous.ApiResponseFor422
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1169,7 +1169,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, frozendict.frozendict,  | frozendict.frozendict,  | Details about validation errors | 
 
-#### generate_document_batch_async.ApiResponseFor429
+#### generate_document_batch_asynchronous.ApiResponseFor429
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1189,7 +1189,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **message** | str,  | str,  | Error description | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
-#### generate_document_batch_async.ApiResponseFor500
+#### generate_document_batch_asynchronous.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1230,6 +1230,7 @@ Returns a list of generated documents created by authorized workspace and stored
 import pdf_generator_api_client
 from pdf_generator_api_client.apis.tags import documents_api
 from pdf_generator_api_client.model.document import Document
+from pdf_generator_api_client.model.pagination_meta import PaginationMeta
 from pprint import pprint
 # Defining the host is optional and defaults to https://us1.pdfgeneratorapi.com/api/v4
 # See configuration.py for a list of all supported configuration parameters.
@@ -1255,6 +1256,8 @@ with pdf_generator_api_client.ApiClient(configuration) as api_client:
     query_params = {
         'start_date': "2022-08-01 12:00:00",
         'end_date': "2022-08-05 12:00:00",
+        'page': 1,
+        'per_page': 20,
     }
     try:
         # Get documents
@@ -1282,6 +1285,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 start_date | StartDateSchema | | optional
 end_date | EndDateSchema | | optional
+page | PageSchema | | optional
+per_page | PerPageSchema | | optional
 
 
 # StartDateSchema
@@ -1297,6 +1302,20 @@ str,  | str,  |  |
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
+
+# PageSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use the default value of 1
+
+# PerPageSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use the default value of 15
 
 ### Return Types, Responses
 
@@ -1330,6 +1349,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **[response](#response)** | list, tuple,  | tuple,  |  | [optional] 
+**meta** | [**PaginationMeta**]({{complexTypePrefix}}PaginationMeta.md) | [**PaginationMeta**]({{complexTypePrefix}}PaginationMeta.md) |  | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # response

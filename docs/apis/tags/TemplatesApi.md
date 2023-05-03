@@ -359,7 +359,7 @@ with pdf_generator_api_client.ApiClient(configuration) as api_client:
             height=29.7,
             unit="cm",
             orientation="portrait",
-            rotaion=0,
+            rotation=0,
             margins=dict(
                 top=0.5,
                 right=0.5,
@@ -1437,6 +1437,7 @@ Returns a list of templates available for the authenticated workspace
 import pdf_generator_api_client
 from pdf_generator_api_client.apis.tags import templates_api
 from pdf_generator_api_client.model.template import Template
+from pdf_generator_api_client.model.pagination_meta import PaginationMeta
 from pprint import pprint
 # Defining the host is optional and defaults to https://us1.pdfgeneratorapi.com/api/v4
 # See configuration.py for a list of all supported configuration parameters.
@@ -1463,6 +1464,8 @@ with pdf_generator_api_client.ApiClient(configuration) as api_client:
         'name': "name_example",
         'tags': "tags_example",
         'access': "private",
+        'page': 1,
+        'per_page': 20,
     }
     try:
         # Get templates
@@ -1491,6 +1494,8 @@ Name | Type | Description  | Notes
 name | NameSchema | | optional
 tags | TagsSchema | | optional
 access | AccessSchema | | optional
+page | PageSchema | | optional
+per_page | PerPageSchema | | optional
 
 
 # NameSchema
@@ -1513,6 +1518,20 @@ str,  | str,  |  |
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | must be one of ["private", "organization", "", ] if omitted the server will use the default value of ""
+
+# PageSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use the default value of 1
+
+# PerPageSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use the default value of 15
 
 ### Return Types, Responses
 
@@ -1546,6 +1565,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **[response](#response)** | list, tuple,  | tuple,  |  | [optional] 
+**meta** | [**PaginationMeta**]({{complexTypePrefix}}PaginationMeta.md) | [**PaginationMeta**]({{complexTypePrefix}}PaginationMeta.md) |  | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # response
@@ -2078,7 +2098,7 @@ with pdf_generator_api_client.ApiClient(configuration) as api_client:
             height=29.7,
             unit="cm",
             orientation="portrait",
-            rotaion=0,
+            rotation=0,
             margins=dict(
                 top=0.5,
                 right=0.5,

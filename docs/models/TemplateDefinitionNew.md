@@ -48,7 +48,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **height** | decimal.Decimal, int, float,  | decimal.Decimal,  | Page height in units | [optional] 
 **unit** | str,  | str,  | Measure unit | [optional] must be one of ["cm", "in", ] 
 **orientation** | str,  | str,  | Page orientation | [optional] must be one of ["portrait", "landscape", ] 
-**rotaion** | decimal.Decimal, int,  | decimal.Decimal,  | Page rotation in degrees | [optional] must be one of [0, 90, 180, 270, ] 
+**rotation** | decimal.Decimal, int,  | decimal.Decimal,  | Page rotation in degrees | [optional] must be one of [0, 90, 180, 270, ] 
 **[margins](#margins)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | Page margins in units | [optional] 
 **[repeatLayout](#repeatLayout)** | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  | Defines page size if layout is repeated on the page e.g sheet labels | [optional] 
 **emptyLabels** | decimal.Decimal, int,  | decimal.Decimal,  | Defines how many pages or labels should be empty | [optional] 

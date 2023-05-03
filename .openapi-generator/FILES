@@ -71,14 +71,4 @@ setup.py
 test-requirements.txt
 test/__init__.py
 test/test_models/__init__.py
-test/test_models/test_async_output_param.py
-test/test_models/test_callback_param.py
-test/test_models/test_data_array.py
-test/test_models/test_data_batch.py
-test/test_models/test_document.py
-test/test_models/test_format_param.py
-test/test_models/test_name_param.py
-test/test_models/test_output_param.py
-test/test_models/test_pagination_meta.py
-test/test_models/test_template_param.py
 tox.ini
