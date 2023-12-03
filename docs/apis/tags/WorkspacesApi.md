@@ -90,7 +90,7 @@ Key | Input Type | Accessed Type | Description | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#create_workspace.ApiResponseFor200) | Workspace information
+201 | [ApiResponseFor201](#create_workspace.ApiResponseFor201) | Workspace information
 401 | [ApiResponseFor401](#create_workspace.ApiResponseFor401) | Unauthorized
 402 | [ApiResponseFor402](#create_workspace.ApiResponseFor402) | Account Suspended
 403 | [ApiResponseFor403](#create_workspace.ApiResponseFor403) | Forbidden
@@ -99,14 +99,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 429 | [ApiResponseFor429](#create_workspace.ApiResponseFor429) | Too Many Requests
 500 | [ApiResponseFor500](#create_workspace.ApiResponseFor500) | Internal Server Error
 
-#### create_workspace.ApiResponseFor200
+#### create_workspace.ApiResponseFor201
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[SchemaFor201ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# SchemaFor201ResponseBodyApplicationJson
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

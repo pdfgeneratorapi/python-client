@@ -126,7 +126,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#copy_template.ApiResponseFor200) | Template configuration and example data structure
+201 | [ApiResponseFor201](#copy_template.ApiResponseFor201) | Template configuration and example data structure
 401 | [ApiResponseFor401](#copy_template.ApiResponseFor401) | Unauthorized
 402 | [ApiResponseFor402](#copy_template.ApiResponseFor402) | Account Suspended
 403 | [ApiResponseFor403](#copy_template.ApiResponseFor403) | Forbidden
@@ -135,14 +135,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 429 | [ApiResponseFor429](#copy_template.ApiResponseFor429) | Too Many Requests
 500 | [ApiResponseFor500](#copy_template.ApiResponseFor500) | Internal Server Error
 
-#### copy_template.ApiResponseFor200
+#### copy_template.ApiResponseFor201
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[SchemaFor201ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# SchemaFor201ResponseBodyApplicationJson
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -430,7 +430,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#create_template.ApiResponseFor200) | Template configuration and example data structure
+201 | [ApiResponseFor201](#create_template.ApiResponseFor201) | Template configuration and example data structure
 401 | [ApiResponseFor401](#create_template.ApiResponseFor401) | Unauthorized
 402 | [ApiResponseFor402](#create_template.ApiResponseFor402) | Account Suspended
 403 | [ApiResponseFor403](#create_template.ApiResponseFor403) | Forbidden
@@ -439,14 +439,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 429 | [ApiResponseFor429](#create_template.ApiResponseFor429) | Too Many Requests
 500 | [ApiResponseFor500](#create_template.ApiResponseFor500) | Internal Server Error
 
-#### create_template.ApiResponseFor200
+#### create_template.ApiResponseFor201
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[SchemaFor201ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# SchemaFor201ResponseBodyApplicationJson
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

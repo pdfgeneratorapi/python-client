@@ -102,7 +102,7 @@ Key | Input Type | Accessed Type | Description | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#generate_document.ApiResponseFor200) | Document data
+201 | [ApiResponseFor201](#generate_document.ApiResponseFor201) | Document data
 401 | [ApiResponseFor401](#generate_document.ApiResponseFor401) | Unauthorized
 402 | [ApiResponseFor402](#generate_document.ApiResponseFor402) | Account Suspended
 403 | [ApiResponseFor403](#generate_document.ApiResponseFor403) | Forbidden
@@ -111,14 +111,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 429 | [ApiResponseFor429](#generate_document.ApiResponseFor429) | Too Many Requests
 500 | [ApiResponseFor500](#generate_document.ApiResponseFor500) | Internal Server Error
 
-#### generate_document.ApiResponseFor200
+#### generate_document.ApiResponseFor201
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[SchemaFor201ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# SchemaFor201ResponseBodyApplicationJson
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -401,7 +401,7 @@ Key | Input Type | Accessed Type | Description | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#generate_document_asynchronous.ApiResponseFor200) | Async job response
+201 | [ApiResponseFor201](#generate_document_asynchronous.ApiResponseFor201) | Async job response
 401 | [ApiResponseFor401](#generate_document_asynchronous.ApiResponseFor401) | Unauthorized
 402 | [ApiResponseFor402](#generate_document_asynchronous.ApiResponseFor402) | Account Suspended
 403 | [ApiResponseFor403](#generate_document_asynchronous.ApiResponseFor403) | Forbidden
@@ -410,14 +410,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 429 | [ApiResponseFor429](#generate_document_asynchronous.ApiResponseFor429) | Too Many Requests
 500 | [ApiResponseFor500](#generate_document_asynchronous.ApiResponseFor500) | Internal Server Error
 
-#### generate_document_asynchronous.ApiResponseFor200
+#### generate_document_asynchronous.ApiResponseFor201
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[SchemaFor201ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# SchemaFor201ResponseBodyApplicationJson
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -704,7 +704,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#generate_document_batch.ApiResponseFor200) | Document data
+201 | [ApiResponseFor201](#generate_document_batch.ApiResponseFor201) | Document data
 401 | [ApiResponseFor401](#generate_document_batch.ApiResponseFor401) | Unauthorized
 402 | [ApiResponseFor402](#generate_document_batch.ApiResponseFor402) | Account Suspended
 403 | [ApiResponseFor403](#generate_document_batch.ApiResponseFor403) | Forbidden
@@ -713,14 +713,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 429 | [ApiResponseFor429](#generate_document_batch.ApiResponseFor429) | Too Many Requests
 500 | [ApiResponseFor500](#generate_document_batch.ApiResponseFor500) | Internal Server Error
 
-#### generate_document_batch.ApiResponseFor200
+#### generate_document_batch.ApiResponseFor201
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[SchemaFor201ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# SchemaFor201ResponseBodyApplicationJson
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1017,7 +1017,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#generate_document_batch_asynchronous.ApiResponseFor200) | Async job response
+201 | [ApiResponseFor201](#generate_document_batch_asynchronous.ApiResponseFor201) | Async job response
 401 | [ApiResponseFor401](#generate_document_batch_asynchronous.ApiResponseFor401) | Unauthorized
 402 | [ApiResponseFor402](#generate_document_batch_asynchronous.ApiResponseFor402) | Account Suspended
 403 | [ApiResponseFor403](#generate_document_batch_asynchronous.ApiResponseFor403) | Forbidden
@@ -1026,14 +1026,14 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 429 | [ApiResponseFor429](#generate_document_batch_asynchronous.ApiResponseFor429) | Too Many Requests
 500 | [ApiResponseFor500](#generate_document_batch_asynchronous.ApiResponseFor500) | Internal Server Error
 
-#### generate_document_batch_asynchronous.ApiResponseFor200
+#### generate_document_batch_asynchronous.ApiResponseFor201
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[SchemaFor201ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# SchemaFor201ResponseBodyApplicationJson
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
