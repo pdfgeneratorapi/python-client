@@ -58,120 +58,15 @@ _auth = [
 ]
 
 
-class SchemaFor204ResponseBodyApplicationJson(
-    schemas.DictSchema
-):
-
-
-    class MetaOapg:
-        
-        class properties:
-            
-            
-            class response(
-                schemas.DictSchema
-            ):
-            
-            
-                class MetaOapg:
-                    
-                    class properties:
-                        success = schemas.BoolSchema
-                        __annotations__ = {
-                            "success": success,
-                        }
-                
-                @typing.overload
-                def __getitem__(self, name: typing_extensions.Literal["success"]) -> MetaOapg.properties.success: ...
-                
-                @typing.overload
-                def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-                
-                def __getitem__(self, name: typing.Union[typing_extensions.Literal["success", ], str]):
-                    # dict_instance[name] accessor
-                    return super().__getitem__(name)
-                
-                
-                @typing.overload
-                def get_item_oapg(self, name: typing_extensions.Literal["success"]) -> typing.Union[MetaOapg.properties.success, schemas.Unset]: ...
-                
-                @typing.overload
-                def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-                
-                def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["success", ], str]):
-                    return super().get_item_oapg(name)
-                
-            
-                def __new__(
-                    cls,
-                    *_args: typing.Union[dict, frozendict.frozendict, ],
-                    success: typing.Union[MetaOapg.properties.success, bool, schemas.Unset] = schemas.unset,
-                    _configuration: typing.Optional[schemas.Configuration] = None,
-                    **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-                ) -> 'response':
-                    return super().__new__(
-                        cls,
-                        *_args,
-                        success=success,
-                        _configuration=_configuration,
-                        **kwargs,
-                    )
-            __annotations__ = {
-                "response": response,
-            }
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["response"]) -> MetaOapg.properties.response: ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-    
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["response", ], str]):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
-    
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["response"]) -> typing.Union[MetaOapg.properties.response, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["response", ], str]):
-        return super().get_item_oapg(name)
-    
-
-    def __new__(
-        cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
-        response: typing.Union[MetaOapg.properties.response, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.Configuration] = None,
-        **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'SchemaFor204ResponseBodyApplicationJson':
-        return super().__new__(
-            cls,
-            *_args,
-            response=response,
-            _configuration=_configuration,
-            **kwargs,
-        )
-
-
 @dataclass
 class ApiResponseFor204(api_client.ApiResponse):
     response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor204ResponseBodyApplicationJson,
-    ]
+    body: schemas.Unset = schemas.unset
     headers: schemas.Unset = schemas.unset
 
 
 _response_for_204 = api_client.OpenApiResponse(
     response_cls=ApiResponseFor204,
-    content={
-        'application/json': api_client.MediaType(
-            schema=SchemaFor204ResponseBodyApplicationJson),
-    },
 )
 
 

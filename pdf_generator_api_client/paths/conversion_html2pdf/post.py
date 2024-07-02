@@ -56,6 +56,7 @@ class SchemaForRequestBodyApplicationJson(
                         "a4": "A4",
                         "legal": "LEGAL",
                         "tabloid": "TABLOID",
+                        "letter": "LETTER",
                     }
                 
                 @schemas.classproperty
@@ -85,6 +86,10 @@ class SchemaForRequestBodyApplicationJson(
                 @schemas.classproperty
                 def TABLOID(cls):
                     return cls("tabloid")
+                
+                @schemas.classproperty
+                def LETTER(cls):
+                    return cls("letter")
             
             
             class orientation(

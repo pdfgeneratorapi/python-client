@@ -84,7 +84,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **content** | str,  | str,  | HTML content | [optional] 
-**paper_size** | str,  | str,  | PDF page size | [optional] must be one of ["a0", "a1", "a2", "a3", "a4", "legal", "tabloid", ] if omitted the server will use the default value of "a4"
+**paper_size** | str,  | str,  | PDF page size | [optional] must be one of ["a0", "a1", "a2", "a3", "a4", "legal", "tabloid", "letter", ] if omitted the server will use the default value of "a4"
 **orientation** | str,  | str,  |  | [optional] must be one of ["portrait", "landscape", ] if omitted the server will use the default value of "portrait"
 **output** | str,  | str,  | Output | [optional] must be one of ["base64", "file", ] if omitted the server will use the default value of "base64"
 **filename** | str,  | str,  | Document name | [optional] 
@@ -373,7 +373,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **url** | str,  | str,  | Public URL | [optional] 
-**paper_size** | str,  | str,  | PDF page size | [optional] must be one of ["a0", "a1", "a2", "a3", "a4", "legal", "tabloid", ] if omitted the server will use the default value of "a4"
+**paper_size** | str,  | str,  | PDF page size | [optional] must be one of ["a0", "a1", "a2", "a3", "a4", "legal", "tabloid", "letter", ] if omitted the server will use the default value of "a4"
 **orientation** | str,  | str,  |  | [optional] must be one of ["portrait", "landscape", ] if omitted the server will use the default value of "portrait"
 **output** | str,  | str,  | Output | [optional] must be one of ["base64", "file", ] if omitted the server will use the default value of "base64"
 **filename** | str,  | str,  | Document name | [optional] 

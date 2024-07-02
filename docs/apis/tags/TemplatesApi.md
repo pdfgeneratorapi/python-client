@@ -126,7 +126,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-201 | [ApiResponseFor201](#copy_template.ApiResponseFor201) | Template configuration and example data structure
+201 | [ApiResponseFor201](#copy_template.ApiResponseFor201) | Template configuration
 401 | [ApiResponseFor401](#copy_template.ApiResponseFor401) | Unauthorized
 402 | [ApiResponseFor402](#copy_template.ApiResponseFor402) | Account Suspended
 403 | [ApiResponseFor403](#copy_template.ApiResponseFor403) | Forbidden
@@ -153,7 +153,15 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **response** | [**TemplateDefinition**]({{complexTypePrefix}}TemplateDefinition.md) | [**TemplateDefinition**]({{complexTypePrefix}}TemplateDefinition.md) |  | [optional] 
+**[meta](#meta)** | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
+
+# meta
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
 #### copy_template.ApiResponseFor401
 Name | Type | Description  | Notes
@@ -382,20 +390,17 @@ with pdf_generator_api_client.ApiClient(configuration) as api_client:
                     bottom=0.5,
                 ),
                 components=[
-                    Component(
-                        cls="labelComponent",
-                        id="component-12313",
-                        width=3.5,
-                        height=1,
-                        top=4.2,
-                        left=2.5,
-                        zindex=102,
-                        value="${price}",
-                        data_index="line_items",
-                    )
+                    dict()
                 ],
             )
         ],
+        data_settings=dict(
+,
+,
+        ),
+        editor=dict(
+            height_multiplier=2,
+        ),
     )
     try:
         # Create template
@@ -430,7 +435,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-201 | [ApiResponseFor201](#create_template.ApiResponseFor201) | Template configuration and example data structure
+201 | [ApiResponseFor201](#create_template.ApiResponseFor201) | Template configuration
 401 | [ApiResponseFor401](#create_template.ApiResponseFor401) | Unauthorized
 402 | [ApiResponseFor402](#create_template.ApiResponseFor402) | Account Suspended
 403 | [ApiResponseFor403](#create_template.ApiResponseFor403) | Forbidden
@@ -457,7 +462,15 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **response** | [**TemplateDefinition**]({{complexTypePrefix}}TemplateDefinition.md) | [**TemplateDefinition**]({{complexTypePrefix}}TemplateDefinition.md) |  | [optional] 
+**[meta](#meta)** | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
+
+# meta
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
 #### create_template.ApiResponseFor401
 Name | Type | Description  | Notes
@@ -617,7 +630,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # **delete_template**
 <a name="delete_template"></a>
-> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} delete_template(template_id)
+> delete_template(template_id)
 
 Delete template
 
@@ -659,7 +672,6 @@ with pdf_generator_api_client.ApiClient(configuration) as api_client:
         api_response = api_instance.delete_template(
             path_params=path_params,
         )
-        pprint(api_response)
     except pdf_generator_api_client.ApiException as e:
         print("Exception when calling TemplatesApi->delete_template: %s\n" % e)
 ```
@@ -692,7 +704,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-204 | [ApiResponseFor204](#delete_template.ApiResponseFor204) | The request was successfully executed.
+204 | [ApiResponseFor204](#delete_template.ApiResponseFor204) | The resource was deleted successfully.
 401 | [ApiResponseFor401](#delete_template.ApiResponseFor401) | Unauthorized
 402 | [ApiResponseFor402](#delete_template.ApiResponseFor402) | Account Suspended
 403 | [ApiResponseFor403](#delete_template.ApiResponseFor403) | Forbidden
@@ -705,34 +717,8 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor204ResponseBodyApplicationJson, ] |  |
+body | Unset | body was not defined |
 headers | Unset | headers were not defined |
-
-# SchemaFor204ResponseBodyApplicationJson
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
-
-### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**[response](#response)** | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | [optional] 
-**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
-
-# response
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
-
-### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**success** | bool,  | BoolClass,  |  | [optional] 
-**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 #### delete_template.ApiResponseFor401
 Name | Type | Description  | Notes
@@ -968,7 +954,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#get_template.ApiResponseFor200) | Template configuration and example data structure
+200 | [ApiResponseFor200](#get_template.ApiResponseFor200) | Template configuration
 401 | [ApiResponseFor401](#get_template.ApiResponseFor401) | Unauthorized
 402 | [ApiResponseFor402](#get_template.ApiResponseFor402) | Account Suspended
 403 | [ApiResponseFor403](#get_template.ApiResponseFor403) | Forbidden
@@ -995,7 +981,15 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **response** | [**TemplateDefinition**]({{complexTypePrefix}}TemplateDefinition.md) | [**TemplateDefinition**]({{complexTypePrefix}}TemplateDefinition.md) |  | [optional] 
+**[meta](#meta)** | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
+
+# meta
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
 #### get_template.ApiResponseFor401
 Name | Type | Description  | Notes
@@ -2121,20 +2115,17 @@ with pdf_generator_api_client.ApiClient(configuration) as api_client:
                     bottom=0.5,
                 ),
                 components=[
-                    Component(
-                        cls="labelComponent",
-                        id="component-12313",
-                        width=3.5,
-                        height=1,
-                        top=4.2,
-                        left=2.5,
-                        zindex=102,
-                        value="${price}",
-                        data_index="line_items",
-                    )
+                    dict()
                 ],
             )
         ],
+        data_settings=dict(
+,
+,
+        ),
+        editor=dict(
+            height_multiplier=2,
+        ),
     )
     try:
         # Update template
@@ -2185,7 +2176,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#update_template.ApiResponseFor200) | Template configuration and example data structure
+200 | [ApiResponseFor200](#update_template.ApiResponseFor200) | Template configuration
 401 | [ApiResponseFor401](#update_template.ApiResponseFor401) | Unauthorized
 402 | [ApiResponseFor402](#update_template.ApiResponseFor402) | Account Suspended
 403 | [ApiResponseFor403](#update_template.ApiResponseFor403) | Forbidden
@@ -2212,7 +2203,15 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **response** | [**TemplateDefinition**]({{complexTypePrefix}}TemplateDefinition.md) | [**TemplateDefinition**]({{complexTypePrefix}}TemplateDefinition.md) |  | [optional] 
+**[meta](#meta)** | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
+
+# meta
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
 #### update_template.ApiResponseFor401
 Name | Type | Description  | Notes

@@ -44,15 +44,15 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | Defines template layou
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**format** | str,  | str,  | Defines template page size | [optional] must be one of ["A4", "letter", "custom", ] 
+**format** | str,  | str,  | Defines template page size | [optional] must be one of ["A4", "letter", "custom", ] if omitted the server will use the default value of "A4"
 **width** | decimal.Decimal, int, float,  | decimal.Decimal,  | Page width in units | [optional] 
 **height** | decimal.Decimal, int, float,  | decimal.Decimal,  | Page height in units | [optional] 
-**unit** | str,  | str,  | Measure unit | [optional] must be one of ["cm", "in", ] 
+**unit** | str,  | str,  | Measure unit | [optional] must be one of ["cm", "in", ] if omitted the server will use the default value of "cm"
 **orientation** | str,  | str,  | Page orientation | [optional] must be one of ["portrait", "landscape", ] 
 **rotation** | decimal.Decimal, int,  | decimal.Decimal,  | Page rotation in degrees | [optional] must be one of [0, 90, 180, 270, ] 
 **[margins](#margins)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | Page margins in units | [optional] 
 **[repeatLayout](#repeatLayout)** | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  | Defines page size if layout is repeated on the page e.g sheet labels | [optional] 
-**emptyLabels** | decimal.Decimal, int,  | decimal.Decimal,  | Defines how many pages or labels should be empty | [optional] 
+**emptyLabels** | decimal.Decimal, int,  | decimal.Decimal,  | Specifies how many blank lables to add to sheet label. | [optional] if omitted the server will use the default value of 0
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # margins
@@ -144,7 +144,14 @@ list, tuple,  | tuple,  |  |
 ### Tuple Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**Component**](Component.md) | [**Component**](Component.md) | [**Component**](Component.md) |  | 
+[items](#items) | dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
+
+# items
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
 
 # dataSettings
 

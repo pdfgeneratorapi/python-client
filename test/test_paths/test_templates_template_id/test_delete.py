@@ -33,8 +33,7 @@ class TestTemplatesTemplateId(ApiTestMixin, unittest.TestCase):
         pass
 
     response_status = 204
-
-
+    response_body = ''
 
 
 if __name__ == '__main__':

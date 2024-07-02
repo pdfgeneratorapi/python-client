@@ -71,6 +71,10 @@ class SchemaForRequestBodyApplicationJson(
                 @schemas.classproperty
                 def TABLOID(cls):
                     return cls("tabloid")
+                
+                @schemas.classproperty
+                def LETTER(cls):
+                    return cls("letter")
             
             
             class orientation(

@@ -67,17 +67,22 @@ class SchemaFor200ResponseBodyApplicationJson(
             @staticmethod
             def response() -> typing.Type['TemplateDefinition']:
                 return TemplateDefinition
+            meta = schemas.DictSchema
             __annotations__ = {
                 "response": response,
+                "meta": meta,
             }
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["response"]) -> 'TemplateDefinition': ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["meta"]) -> MetaOapg.properties.meta: ...
+    
+    @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["response", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["response", "meta", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -86,9 +91,12 @@ class SchemaFor200ResponseBodyApplicationJson(
     def get_item_oapg(self, name: typing_extensions.Literal["response"]) -> typing.Union['TemplateDefinition', schemas.Unset]: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["meta"]) -> typing.Union[MetaOapg.properties.meta, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["response", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["response", "meta", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -96,6 +104,7 @@ class SchemaFor200ResponseBodyApplicationJson(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
         response: typing.Union['TemplateDefinition', schemas.Unset] = schemas.unset,
+        meta: typing.Union[MetaOapg.properties.meta, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'SchemaFor200ResponseBodyApplicationJson':
@@ -103,6 +112,7 @@ class SchemaFor200ResponseBodyApplicationJson(
             cls,
             *_args,
             response=response,
+            meta=meta,
             _configuration=_configuration,
             **kwargs,
         )
