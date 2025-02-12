@@ -1,3 +1,9 @@
-# do not import all apis into this module because that uses a lot of memory and stack frames
-# if you need the ability to import all apis from one package, import them with
-# from pdf_generator_api_client.apis import DocumentsApi
+# flake8: noqa
+
+# import apis into api package
+from pdf_generator_api_client.api.conversion_api import ConversionApi
+from pdf_generator_api_client.api.documents_api import DocumentsApi
+from pdf_generator_api_client.api.forms_api import FormsApi
+from pdf_generator_api_client.api.templates_api import TemplatesApi
+from pdf_generator_api_client.api.workspaces_api import WorkspacesApi
+

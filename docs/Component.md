@@ -3,6 +3,7 @@
 Template component definition
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cls** | **str** | Defines component class/type | [optional] 
@@ -14,8 +15,24 @@ Name | Type | Description | Notes
 **zindex** | **int** | Defines the rendering order on page. Components with smaller zindex are rendered before | [optional] 
 **value** | **str** | Component value | [optional] 
 **data_index** | **str** | Defines data field for Table and Container components which are used to iterate over list of items | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from pdf_generator_api_client.models.component import Component
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of Component from a JSON string
+component_instance = Component.from_json(json)
+# print the JSON string representation of the object
+print(Component.to_json())
+
+# convert the object into a dict
+component_dict = component_instance.to_dict()
+# create an instance of Component from a dict
+component_from_dict = Component.from_dict(component_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

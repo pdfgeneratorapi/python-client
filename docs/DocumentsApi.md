@@ -1,39 +1,38 @@
 # pdf_generator_api_client.DocumentsApi
 
-All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v3*
+All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**merge_template**](DocumentsApi.md#merge_template) | **POST** /templates/{templateId}/output | Generate document
-[**merge_templates**](DocumentsApi.md#merge_templates) | **POST** /templates/output | Generate document (multiple templates)
+[**delete_document**](DocumentsApi.md#delete_document) | **DELETE** /documents/{publicId} | Delete document
+[**generate_document**](DocumentsApi.md#generate_document) | **POST** /documents/generate | Generate document
+[**generate_document_asynchronous**](DocumentsApi.md#generate_document_asynchronous) | **POST** /documents/generate/async | Generate document (async)
+[**generate_document_batch**](DocumentsApi.md#generate_document_batch) | **POST** /documents/generate/batch | Generate document (batch)
+[**generate_document_batch_asynchronous**](DocumentsApi.md#generate_document_batch_asynchronous) | **POST** /documents/generate/batch/async | Generate document (batch + async)
+[**get_document**](DocumentsApi.md#get_document) | **GET** /documents/{publicId} | Get document
+[**get_documents**](DocumentsApi.md#get_documents) | **GET** /documents | Get documents
 
 
-# **merge_template**
-> InlineResponse2004 merge_template(template_id, body)
+# **delete_document**
+> delete_document(public_id)
 
-Generate document
+Delete document
 
-Merges template with data and returns base64 encoded document or a public URL to a document. You can send json encoded data in request body or a public URL to your json file as the data parameter. NB! When the public URL option is used, the document is stored for 30 days and automatically deleted.
+Delete document from the Document Storage
 
 ### Example
 
 * Bearer (JWT) Authentication (JSONWebTokenAuth):
+
 ```python
-import time
 import pdf_generator_api_client
-from pdf_generator_api_client.api import documents_api
-from pdf_generator_api_client.model.inline_response401 import InlineResponse401
-from pdf_generator_api_client.model.inline_response422 import InlineResponse422
-from pdf_generator_api_client.model.inline_response404 import InlineResponse404
-from pdf_generator_api_client.model.inline_response402 import InlineResponse402
-from pdf_generator_api_client.model.inline_response500 import InlineResponse500
-from pdf_generator_api_client.model.inline_response403 import InlineResponse403
-from pdf_generator_api_client.model.inline_response2004 import InlineResponse2004
+from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://us1.pdfgeneratorapi.com/api/v3
+
+# Defining the host is optional and defaults to https://us1.pdfgeneratorapi.com/api/v4
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pdf_generator_api_client.Configuration(
-    host = "https://us1.pdfgeneratorapi.com/api/v3"
+    host = "https://us1.pdfgeneratorapi.com/api/v4"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -43,51 +42,120 @@ configuration = pdf_generator_api_client.Configuration(
 
 # Configure Bearer authorization (JWT): JSONWebTokenAuth
 configuration = pdf_generator_api_client.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pdf_generator_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = documents_api.DocumentsApi(api_client)
-    template_id = 19375 # int | Template unique identifier
-    body = {} # {str: (bool, date, datetime, dict, float, int, list, str, none_type)} | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
-    name = "My document" # str | Document name, returned in the meta data. (optional)
-    format = "pdf" # str | Document format. The zip option will return a ZIP file with PDF files. (optional) if omitted the server will use the default value of "pdf"
-    output = "base64" # str | Response format. \"I\" is used to return the file inline. With the url option, the document is stored for 30 days and automatically deleted. (optional) if omitted the server will use the default value of "base64"
+    api_instance = pdf_generator_api_client.DocumentsApi(api_client)
+    public_id = 'bac8381bce1982e5f6957a0f52371336' # str | Resource public id
 
-    # example passing only required values which don't have defaults set
     try:
-        # Generate document
-        api_response = api_instance.merge_template(template_id, body)
-        pprint(api_response)
-    except pdf_generator_api_client.ApiException as e:
-        print("Exception when calling DocumentsApi->merge_template: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Generate document
-        api_response = api_instance.merge_template(template_id, body, name=name, format=format, output=output)
-        pprint(api_response)
-    except pdf_generator_api_client.ApiException as e:
-        print("Exception when calling DocumentsApi->merge_template: %s\n" % e)
+        # Delete document
+        api_instance.delete_document(public_id)
+    except Exception as e:
+        print("Exception when calling DocumentsApi->delete_document: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **template_id** | **int**| Template unique identifier |
- **body** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}**| Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file. |
- **name** | **str**| Document name, returned in the meta data. | [optional]
- **format** | **str**| Document format. The zip option will return a ZIP file with PDF files. | [optional] if omitted the server will use the default value of "pdf"
- **output** | **str**| Response format. \&quot;I\&quot; is used to return the file inline. With the url option, the document is stored for 30 days and automatically deleted. | [optional] if omitted the server will use the default value of "base64"
+ **public_id** | **str**| Resource public id | 
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+void (empty response body)
+
+### Authorization
+
+[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | The resource was deleted successfully. |  -  |
+**401** | Unauthorized |  -  |
+**402** | Account Suspended |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **generate_document**
+> GenerateDocument201Response generate_document(generate_document_request)
+
+Generate document
+
+Merges template with data and returns base64 encoded document or a public URL to a document. NB! When the public URL option is used, the document is stored for 30 days and automatically deleted.
+
+### Example
+
+* Bearer (JWT) Authentication (JSONWebTokenAuth):
+
+```python
+import pdf_generator_api_client
+from pdf_generator_api_client.models.generate_document201_response import GenerateDocument201Response
+from pdf_generator_api_client.models.generate_document_request import GenerateDocumentRequest
+from pdf_generator_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://us1.pdfgeneratorapi.com/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pdf_generator_api_client.Configuration(
+    host = "https://us1.pdfgeneratorapi.com/api/v4"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): JSONWebTokenAuth
+configuration = pdf_generator_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with pdf_generator_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pdf_generator_api_client.DocumentsApi(api_client)
+    generate_document_request = pdf_generator_api_client.GenerateDocumentRequest() # GenerateDocumentRequest | Request parameters, including template id, data and formats.
+
+    try:
+        # Generate document
+        api_response = api_instance.generate_document(generate_document_request)
+        print("The response of DocumentsApi->generate_document:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DocumentsApi->generate_document: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **generate_document_request** | [**GenerateDocumentRequest**](GenerateDocumentRequest.md)| Request parameters, including template id, data and formats. | 
+
+### Return type
+
+[**GenerateDocument201Response**](GenerateDocument201Response.md)
 
 ### Authorization
 
@@ -98,47 +166,129 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Document data |  -  |
+**201** | Document data |  -  |
 **401** | Unauthorized |  -  |
 **402** | Account Suspended |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **merge_templates**
-> InlineResponse2004 merge_templates(batch_data)
+# **generate_document_asynchronous**
+> GenerateDocumentAsynchronous201Response generate_document_asynchronous(generate_document_asynchronous_request)
 
-Generate document (multiple templates)
+Generate document (async)
+
+Merges template with data as asynchronous job and makes POST request to callback URL defined in the request. Request uses the same format as response of synchronous generation endpoint. The job id is also added to the callback request as header PDF-API-Job-Id  *Example payload for callback URL:* ``` {   \"response\": \"https://us1.pdfgeneratorapi.com/share/12821/VBERi0xLjcKJeLjz9MKNyAwIG9i\",   \"meta\": {     \"name\": \"a2bd25b8921f3dc7a440fd7f427f90a4.pdf\",     \"display_name\": \"a2bd25b8921f3dc7a440fd7f427f90a4\",     \"encoding\": \"binary\",     \"content-type\": \"application/pdf\"   } } ``` 
+
+### Example
+
+* Bearer (JWT) Authentication (JSONWebTokenAuth):
+
+```python
+import pdf_generator_api_client
+from pdf_generator_api_client.models.generate_document_asynchronous201_response import GenerateDocumentAsynchronous201Response
+from pdf_generator_api_client.models.generate_document_asynchronous_request import GenerateDocumentAsynchronousRequest
+from pdf_generator_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://us1.pdfgeneratorapi.com/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pdf_generator_api_client.Configuration(
+    host = "https://us1.pdfgeneratorapi.com/api/v4"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): JSONWebTokenAuth
+configuration = pdf_generator_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with pdf_generator_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pdf_generator_api_client.DocumentsApi(api_client)
+    generate_document_asynchronous_request = pdf_generator_api_client.GenerateDocumentAsynchronousRequest() # GenerateDocumentAsynchronousRequest | Request parameters, including template id, data and formats.
+
+    try:
+        # Generate document (async)
+        api_response = api_instance.generate_document_asynchronous(generate_document_asynchronous_request)
+        print("The response of DocumentsApi->generate_document_asynchronous:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DocumentsApi->generate_document_asynchronous: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **generate_document_asynchronous_request** | [**GenerateDocumentAsynchronousRequest**](GenerateDocumentAsynchronousRequest.md)| Request parameters, including template id, data and formats. | 
+
+### Return type
+
+[**GenerateDocumentAsynchronous201Response**](GenerateDocumentAsynchronous201Response.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Async job response |  -  |
+**401** | Unauthorized |  -  |
+**402** | Account Suspended |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **generate_document_batch**
+> GenerateDocument201Response generate_document_batch(generate_document_batch_request)
+
+Generate document (batch)
 
 Allows to merge multiple templates with data and returns base64 encoded document or public URL to a document. NB! When the public URL option is used, the document is stored for 30 days and automatically deleted.
 
 ### Example
 
 * Bearer (JWT) Authentication (JSONWebTokenAuth):
+
 ```python
-import time
 import pdf_generator_api_client
-from pdf_generator_api_client.api import documents_api
-from pdf_generator_api_client.model.inline_response401 import InlineResponse401
-from pdf_generator_api_client.model.inline_response422 import InlineResponse422
-from pdf_generator_api_client.model.inline_response404 import InlineResponse404
-from pdf_generator_api_client.model.inline_response402 import InlineResponse402
-from pdf_generator_api_client.model.inline_response500 import InlineResponse500
-from pdf_generator_api_client.model.batch_data import BatchData
-from pdf_generator_api_client.model.inline_response403 import InlineResponse403
-from pdf_generator_api_client.model.inline_response2004 import InlineResponse2004
+from pdf_generator_api_client.models.generate_document201_response import GenerateDocument201Response
+from pdf_generator_api_client.models.generate_document_batch_request import GenerateDocumentBatchRequest
+from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://us1.pdfgeneratorapi.com/api/v3
+
+# Defining the host is optional and defaults to https://us1.pdfgeneratorapi.com/api/v4
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pdf_generator_api_client.Configuration(
-    host = "https://us1.pdfgeneratorapi.com/api/v3"
+    host = "https://us1.pdfgeneratorapi.com/api/v4"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -148,49 +298,36 @@ configuration = pdf_generator_api_client.Configuration(
 
 # Configure Bearer authorization (JWT): JSONWebTokenAuth
 configuration = pdf_generator_api_client.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with pdf_generator_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = documents_api.DocumentsApi(api_client)
-    batch_data = BatchData([{"template":52272,"data":{"key":"value"}},{"template":52273,"data":{"key2":"value2"}}]) # BatchData | Data used to specify templates and data objects which are used to merge the template
-    name = "My document" # str | Document name, returned in the meta data. (optional)
-    format = "pdf" # str | Document format. The zip option will return a ZIP file with PDF files. (optional) if omitted the server will use the default value of "pdf"
-    output = "base64" # str | Response format. \"I\" is used to return the file inline. With the url option, the document is stored for 30 days and automatically deleted. (optional) if omitted the server will use the default value of "base64"
+    api_instance = pdf_generator_api_client.DocumentsApi(api_client)
+    generate_document_batch_request = pdf_generator_api_client.GenerateDocumentBatchRequest() # GenerateDocumentBatchRequest | Request parameters, including template id, data and formats.
 
-    # example passing only required values which don't have defaults set
     try:
-        # Generate document (multiple templates)
-        api_response = api_instance.merge_templates(batch_data)
+        # Generate document (batch)
+        api_response = api_instance.generate_document_batch(generate_document_batch_request)
+        print("The response of DocumentsApi->generate_document_batch:\n")
         pprint(api_response)
-    except pdf_generator_api_client.ApiException as e:
-        print("Exception when calling DocumentsApi->merge_templates: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Generate document (multiple templates)
-        api_response = api_instance.merge_templates(batch_data, name=name, format=format, output=output)
-        pprint(api_response)
-    except pdf_generator_api_client.ApiException as e:
-        print("Exception when calling DocumentsApi->merge_templates: %s\n" % e)
+    except Exception as e:
+        print("Exception when calling DocumentsApi->generate_document_batch: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **batch_data** | [**BatchData**](BatchData.md)| Data used to specify templates and data objects which are used to merge the template |
- **name** | **str**| Document name, returned in the meta data. | [optional]
- **format** | **str**| Document format. The zip option will return a ZIP file with PDF files. | [optional] if omitted the server will use the default value of "pdf"
- **output** | **str**| Response format. \&quot;I\&quot; is used to return the file inline. With the url option, the document is stored for 30 days and automatically deleted. | [optional] if omitted the server will use the default value of "base64"
+ **generate_document_batch_request** | [**GenerateDocumentBatchRequest**](GenerateDocumentBatchRequest.md)| Request parameters, including template id, data and formats. | 
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**GenerateDocument201Response**](GenerateDocument201Response.md)
 
 ### Authorization
 
@@ -201,8 +338,179 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Document data |  -  |
+**401** | Unauthorized |  -  |
+**402** | Account Suspended |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **generate_document_batch_asynchronous**
+> GenerateDocumentAsynchronous201Response generate_document_batch_asynchronous(generate_document_batch_asynchronous_request)
+
+Generate document (batch + async)
+
+Merges template with data as asynchronous job and makes POST request to callback URL defined in the request. Request uses the same format as response of synchronous generation endpoint. The job id is also added to the callback request as header PDF-API-Job-Id  *Example payload for callback URL:* ``` {   \"response\": \"https://us1.pdfgeneratorapi.com/share/12821/VBERi0xLjcKJeLjz9MKNyAwIG9i\",   \"meta\": {     \"name\": \"a2bd25b8921f3dc7a440fd7f427f90a4.pdf\",     \"display_name\": \"a2bd25b8921f3dc7a440fd7f427f90a4\",     \"encoding\": \"binary\",     \"content-type\": \"application/pdf\"   } } ``` 
+
+### Example
+
+* Bearer (JWT) Authentication (JSONWebTokenAuth):
+
+```python
+import pdf_generator_api_client
+from pdf_generator_api_client.models.generate_document_asynchronous201_response import GenerateDocumentAsynchronous201Response
+from pdf_generator_api_client.models.generate_document_batch_asynchronous_request import GenerateDocumentBatchAsynchronousRequest
+from pdf_generator_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://us1.pdfgeneratorapi.com/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pdf_generator_api_client.Configuration(
+    host = "https://us1.pdfgeneratorapi.com/api/v4"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): JSONWebTokenAuth
+configuration = pdf_generator_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with pdf_generator_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pdf_generator_api_client.DocumentsApi(api_client)
+    generate_document_batch_asynchronous_request = pdf_generator_api_client.GenerateDocumentBatchAsynchronousRequest() # GenerateDocumentBatchAsynchronousRequest | Request parameters, including template id, data and formats.
+
+    try:
+        # Generate document (batch + async)
+        api_response = api_instance.generate_document_batch_asynchronous(generate_document_batch_asynchronous_request)
+        print("The response of DocumentsApi->generate_document_batch_asynchronous:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DocumentsApi->generate_document_batch_asynchronous: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **generate_document_batch_asynchronous_request** | [**GenerateDocumentBatchAsynchronousRequest**](GenerateDocumentBatchAsynchronousRequest.md)| Request parameters, including template id, data and formats. | 
+
+### Return type
+
+[**GenerateDocumentAsynchronous201Response**](GenerateDocumentAsynchronous201Response.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Async job response |  -  |
+**401** | Unauthorized |  -  |
+**402** | Account Suspended |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_document**
+> GetDocument200Response get_document(public_id)
+
+Get document
+
+Returns document stored in the Document Storage
+
+### Example
+
+* Bearer (JWT) Authentication (JSONWebTokenAuth):
+
+```python
+import pdf_generator_api_client
+from pdf_generator_api_client.models.get_document200_response import GetDocument200Response
+from pdf_generator_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://us1.pdfgeneratorapi.com/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pdf_generator_api_client.Configuration(
+    host = "https://us1.pdfgeneratorapi.com/api/v4"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): JSONWebTokenAuth
+configuration = pdf_generator_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with pdf_generator_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pdf_generator_api_client.DocumentsApi(api_client)
+    public_id = 'bac8381bce1982e5f6957a0f52371336' # str | Resource public id
+
+    try:
+        # Get document
+        api_response = api_instance.get_document(public_id)
+        print("The response of DocumentsApi->get_document:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DocumentsApi->get_document: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **public_id** | **str**| Resource public id | 
+
+### Return type
+
+[**GetDocument200Response**](GetDocument200Response.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Document data |  -  |
@@ -211,6 +519,100 @@ Name | Type | Description  | Notes
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
 **422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_documents**
+> GetDocuments200Response get_documents(template_id=template_id, start_date=start_date, end_date=end_date, page=page, per_page=per_page)
+
+Get documents
+
+Returns a list of generated documents created by authorized workspace and stored in PDF Generator API. If master user is specified as workspace in JWT then all documents created in the organization are returned. NB! This endpoint returns only documents generated using the output=url option.
+
+### Example
+
+* Bearer (JWT) Authentication (JSONWebTokenAuth):
+
+```python
+import pdf_generator_api_client
+from pdf_generator_api_client.models.get_documents200_response import GetDocuments200Response
+from pdf_generator_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://us1.pdfgeneratorapi.com/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pdf_generator_api_client.Configuration(
+    host = "https://us1.pdfgeneratorapi.com/api/v4"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): JSONWebTokenAuth
+configuration = pdf_generator_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with pdf_generator_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pdf_generator_api_client.DocumentsApi(api_client)
+    template_id = 19375 # int | Template unique identifier (optional)
+    start_date = '2022-08-01 12:00:00' # str | Start date. Format: Y-m-d H:i:s (optional)
+    end_date = '2022-08-05 12:00:00' # str | End date. Format: Y-m-d H:i:s. Defaults to current timestamp (optional)
+    page = 1 # int | Pagination: page to return (optional) (default to 1)
+    per_page = 15 # int | Pagination: How many records to return per page (optional) (default to 15)
+
+    try:
+        # Get documents
+        api_response = api_instance.get_documents(template_id=template_id, start_date=start_date, end_date=end_date, page=page, per_page=per_page)
+        print("The response of DocumentsApi->get_documents:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DocumentsApi->get_documents: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **template_id** | **int**| Template unique identifier | [optional] 
+ **start_date** | **str**| Start date. Format: Y-m-d H:i:s | [optional] 
+ **end_date** | **str**| End date. Format: Y-m-d H:i:s. Defaults to current timestamp | [optional] 
+ **page** | **int**| Pagination: page to return | [optional] [default to 1]
+ **per_page** | **int**| Pagination: How many records to return per page | [optional] [default to 15]
+
+### Return type
+
+[**GetDocuments200Response**](GetDocuments200Response.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A list of generated documents |  -  |
+**401** | Unauthorized |  -  |
+**402** | Account Suspended |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
