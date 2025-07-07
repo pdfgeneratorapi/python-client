@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **str** | Error description | [optional] 
-**errors** | **object** | Details about validation errors | [optional] 
+**error** | **str** | Error description | [optional] 
+**status** | **int** | HTTP Error code | [optional] 
 
 ## Example
 

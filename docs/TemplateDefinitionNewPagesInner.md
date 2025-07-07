@@ -8,11 +8,7 @@ Name | Type | Description | Notes
 **width** | **float** | Page width in units | [optional] 
 **height** | **float** | Page height in units | [optional] 
 **margins** | [**TemplateDefinitionNewPagesInnerMargins**](TemplateDefinitionNewPagesInnerMargins.md) |  | [optional] 
-**border** | **bool** |  | [optional] [default to False]
-**components** | **List[object]** |  | [optional] 
-**layout** | **object** | Defines page specific layout which can differ from the main template layout (e.g page format, margins). | [optional] 
-**conditional_formats** | **List[object]** |  | [optional] 
-**background_image** | **str** | Defines background image for the page. | [optional] 
+**components** | [**List[Component]**](Component.md) |  | [optional] 
 
 ## Example
 

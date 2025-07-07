@@ -9,8 +9,7 @@ Name | Type | Description | Notes
 **id** | **int** | Unique identifier | [optional] 
 **name** | **str** | Template name | [optional] 
 **owner** | **bool** | Indicates if the workspace is the owner of the template | [optional] 
-**created_at** | **str** | Timestamp when the template was created | [optional] 
-**updated_at** | **str** | Timestamp when the template was updated | [optional] 
+**modified** | **str** | Timestamp when the template was modified | [optional] 
 **tags** | **List[str]** | A list of tags assigned to a template | [optional] 
 
 ## Example

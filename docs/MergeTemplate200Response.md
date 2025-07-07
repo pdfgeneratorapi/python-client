@@ -1,0 +1,30 @@
+# MergeTemplate200Response
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**response** | **str** | Base64 encoded document if the output&#x3D;base64 is used or URL to the document when the output&#x3D;url is used. | [optional] 
+**meta** | [**MergeTemplate200ResponseMeta**](MergeTemplate200ResponseMeta.md) |  | [optional] 
+
+## Example
+
+```python
+from pdf_generator_api_client.models.merge_template200_response import MergeTemplate200Response
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of MergeTemplate200Response from a JSON string
+merge_template200_response_instance = MergeTemplate200Response.from_json(json)
+# print the JSON string representation of the object
+print(MergeTemplate200Response.to_json())
+
+# convert the object into a dict
+merge_template200_response_dict = merge_template200_response_instance.to_dict()
+# create an instance of MergeTemplate200Response from a dict
+merge_template200_response_from_dict = MergeTemplate200Response.from_dict(merge_template200_response_dict)
+```
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

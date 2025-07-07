@@ -5,7 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **str** | Error description | [optional] 
+**error** | **str** | Error description | [optional] 
+**status** | **int** | HTTP Error code | [optional] 
 
 ## Example
 
