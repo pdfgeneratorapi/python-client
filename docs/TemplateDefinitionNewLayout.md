@@ -6,15 +6,15 @@ Defines template layout (e.g page format, margins).
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**format** | **str** | Defines template page size | [optional] 
+**format** | **str** | Defines template page size | [optional] [default to 'A4']
 **width** | **float** | Page width in units | [optional] 
 **height** | **float** | Page height in units | [optional] 
-**unit** | **str** | Measure unit | [optional] 
+**unit** | **str** | Measure unit | [optional] [default to 'cm']
 **orientation** | **str** | Page orientation | [optional] 
 **rotation** | **int** | Page rotation in degrees | [optional] 
 **margins** | [**TemplateDefinitionNewLayoutMargins**](TemplateDefinitionNewLayoutMargins.md) |  | [optional] 
 **repeat_layout** | [**TemplateDefinitionNewLayoutRepeatLayout**](TemplateDefinitionNewLayoutRepeatLayout.md) |  | [optional] 
-**empty_labels** | **int** | Defines how many pages or labels should be empty | [optional] 
+**empty_labels** | **int** | Specifies how many blank lables to add to sheet label. | [optional] [default to 0]
 
 ## Example
 

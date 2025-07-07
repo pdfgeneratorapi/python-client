@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **convert_html2_pdf**
-> GenerateDocument201Response convert_html2_pdf(convert_html2_pdf_request)
+> AddWatermark201Response convert_html2_pdf(convert_html2_pdf_request)
 
 HTML to PDF
 
@@ -21,8 +21,8 @@ Converts HTML content to PDF
 
 ```python
 import pdf_generator_api_client
+from pdf_generator_api_client.models.add_watermark201_response import AddWatermark201Response
 from pdf_generator_api_client.models.convert_html2_pdf_request import ConvertHTML2PDFRequest
-from pdf_generator_api_client.models.generate_document201_response import GenerateDocument201Response
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GenerateDocument201Response**](GenerateDocument201Response.md)
+[**AddWatermark201Response**](AddWatermark201Response.md)
 
 ### Authorization
 
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **convert_url2_pdf**
-> GenerateDocument201Response convert_url2_pdf(convert_url2_pdf_request)
+> AddWatermark201Response convert_url2_pdf(convert_url2_pdf_request)
 
 URL to PDF
 
@@ -107,8 +107,8 @@ Converts public URL to PDF
 
 ```python
 import pdf_generator_api_client
+from pdf_generator_api_client.models.add_watermark201_response import AddWatermark201Response
 from pdf_generator_api_client.models.convert_url2_pdf_request import ConvertURL2PDFRequest
-from pdf_generator_api_client.models.generate_document201_response import GenerateDocument201Response
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GenerateDocument201Response**](GenerateDocument201Response.md)
+[**AddWatermark201Response**](AddWatermark201Response.md)
 
 ### Authorization
 
