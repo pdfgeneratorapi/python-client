@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **name** | **str** | Form name | [optional] 
 **actions** | [**List[FormConfigurationNewActionsInner]**](FormConfigurationNewActionsInner.md) | Array of action configurations | [optional] 
 **fields** | [**List[FormFieldsInner]**](FormFieldsInner.md) | A list of form field objects | [optional] 
+**configuration** | [**FormConfiguration**](FormConfiguration.md) |  | [optional] 
 
 ## Example
 

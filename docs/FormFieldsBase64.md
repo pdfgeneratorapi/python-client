@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **file_base64** | **str** | PDF document in base64 encoded string format | 
+**key_field** | [**KeyFieldParam**](KeyFieldParam.md) |  | [optional] [default to KeyFieldParam.NAME]
 
 ## Example
 

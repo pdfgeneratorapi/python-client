@@ -1,12 +1,13 @@
 # TemplateParam
 
-Template id, version and data
+Template id, version, version id and data
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Template ID | [optional] 
+**id** | [**TemplateParamId**](TemplateParamId.md) |  | [optional] 
+**version_id** | **int** | Template version ID | [optional] 
 **data** | [**TemplateParamData**](TemplateParamData.md) |  | [optional] 
 
 ## Example

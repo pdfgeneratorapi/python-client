@@ -5,11 +5,12 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v4*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**convert_html2_pdf**](ConversionApi.md#convert_html2_pdf) | **POST** /conversion/html2pdf | HTML to PDF
+[**convert_pdf2_image**](ConversionApi.md#convert_pdf2_image) | **POST** /conversion/pdf2image | PDF to Image
 [**convert_url2_pdf**](ConversionApi.md#convert_url2_pdf) | **POST** /conversion/url2pdf | URL to PDF
 
 
 # **convert_html2_pdf**
-> AddWatermark201Response convert_html2_pdf(convert_html2_pdf_request)
+> InlineObject9 convert_html2_pdf(convert_html2_pdf_request)
 
 HTML to PDF
 
@@ -21,8 +22,8 @@ Converts HTML content to PDF
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.add_watermark201_response import AddWatermark201Response
 from pdf_generator_api_client.models.convert_html2_pdf_request import ConvertHTML2PDFRequest
+from pdf_generator_api_client.models.inline_object9 import InlineObject9
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -68,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AddWatermark201Response**](AddWatermark201Response.md)
+[**InlineObject9**](InlineObject9.md)
 
 ### Authorization
 
@@ -94,8 +95,94 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **convert_pdf2_image**
+> InlineObject10 convert_pdf2_image(convert_pdf2_image_request)
+
+PDF to Image
+
+Converts PDF document to images. Provide either a base64 encoded PDF or a public URL to a PDF file.
+
+### Example
+
+* Bearer (JWT) Authentication (JSONWebTokenAuth):
+
+```python
+import pdf_generator_api_client
+from pdf_generator_api_client.models.convert_pdf2_image_request import ConvertPDF2ImageRequest
+from pdf_generator_api_client.models.inline_object10 import InlineObject10
+from pdf_generator_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://us1.pdfgeneratorapi.com/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pdf_generator_api_client.Configuration(
+    host = "https://us1.pdfgeneratorapi.com/api/v4"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): JSONWebTokenAuth
+configuration = pdf_generator_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with pdf_generator_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pdf_generator_api_client.ConversionApi(api_client)
+    convert_pdf2_image_request = pdf_generator_api_client.ConvertPDF2ImageRequest() # ConvertPDF2ImageRequest | 
+
+    try:
+        # PDF to Image
+        api_response = api_instance.convert_pdf2_image(convert_pdf2_image_request)
+        print("The response of ConversionApi->convert_pdf2_image:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ConversionApi->convert_pdf2_image: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **convert_pdf2_image_request** | [**ConvertPDF2ImageRequest**](ConvertPDF2ImageRequest.md)|  | 
+
+### Return type
+
+[**InlineObject10**](InlineObject10.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | PDF to image conversion result |  -  |
+**401** | Unauthorized |  -  |
+**402** | Account Suspended |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **convert_url2_pdf**
-> AddWatermark201Response convert_url2_pdf(convert_url2_pdf_request)
+> InlineObject9 convert_url2_pdf(convert_url2_pdf_request)
 
 URL to PDF
 
@@ -107,8 +194,8 @@ Converts public URL to PDF
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.add_watermark201_response import AddWatermark201Response
 from pdf_generator_api_client.models.convert_url2_pdf_request import ConvertURL2PDFRequest
+from pdf_generator_api_client.models.inline_object9 import InlineObject9
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -154,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AddWatermark201Response**](AddWatermark201Response.md)
+[**InlineObject9**](InlineObject9.md)
 
 ### Authorization
 

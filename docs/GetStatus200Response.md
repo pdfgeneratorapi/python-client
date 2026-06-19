@@ -5,11 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**api** | **str** |  | [optional] [default to 'ok']
-**chart_api** | **str** |  | [optional] [default to 'ok']
-**conversion_api** | **str** |  | [optional] [default to 'ok']
-**generator_api_sync** | **str** |  | [optional] [default to 'ok']
-**generator_api_async** | **str** |  | [optional] [default to 'ok']
+**api** | [**StatusParam**](StatusParam.md) |  | [optional] [default to StatusParam.OK]
+**chart_api** | [**StatusParam**](StatusParam.md) |  | [optional] [default to StatusParam.OK]
+**conversion_api** | [**StatusParam**](StatusParam.md) |  | [optional] [default to StatusParam.OK]
+**generator_api_sync** | [**StatusParam**](StatusParam.md) |  | [optional] [default to StatusParam.OK]
+**generator_api_async** | [**StatusParam**](StatusParam.md) |  | [optional] [default to StatusParam.OK]
+**e_invoice** | [**StatusParam**](StatusParam.md) |  | [optional] [default to StatusParam.OK]
 
 ## Example
 

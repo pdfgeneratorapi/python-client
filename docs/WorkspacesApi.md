@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **create_workspace**
-> CreateWorkspace201Response create_workspace(create_workspace_request=create_workspace_request)
+> InlineObject8 create_workspace(create_workspace_request=create_workspace_request)
 
 Create workspace
 
@@ -23,8 +23,8 @@ Creates a regular workspace with identifier specified in the request.
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.create_workspace201_response import CreateWorkspace201Response
 from pdf_generator_api_client.models.create_workspace_request import CreateWorkspaceRequest
+from pdf_generator_api_client.models.inline_object8 import InlineObject8
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateWorkspace201Response**](CreateWorkspace201Response.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 
@@ -179,7 +179,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_workspace**
-> CreateWorkspace201Response get_workspace(workspace_identifier)
+> InlineObject8 get_workspace(workspace_identifier)
 
 Get workspace
 
@@ -191,7 +191,7 @@ Returns workspace information for the workspace identifier specified in the requ
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.create_workspace201_response import CreateWorkspace201Response
+from pdf_generator_api_client.models.inline_object8 import InlineObject8
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -237,7 +237,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateWorkspace201Response**](CreateWorkspace201Response.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 
@@ -264,7 +264,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_workspaces**
-> GetWorkspaces200Response get_workspaces(page=page, per_page=per_page)
+> InlineObject5 get_workspaces(page=page, per_page=per_page)
 
 Get workspaces
 
@@ -276,7 +276,7 @@ Returns all workspaces in the organization
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.get_workspaces200_response import GetWorkspaces200Response
+from pdf_generator_api_client.models.inline_object5 import InlineObject5
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -324,7 +324,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetWorkspaces200Response**](GetWorkspaces200Response.md)
+[**InlineObject5**](InlineObject5.md)
 
 ### Authorization
 

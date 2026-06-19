@@ -1,23 +1,29 @@
-[tool.poetry]
+[project]
 name = "pdf_generator_api_client"
-version = "1.0.0"
+version = "4.0.25"
 description = "PDF Generator API"
-authors = ["Support <support@pdfgeneratorapi.com>"]
+authors = [
+  {name = "Support",email = "support@pdfgeneratorapi.com"},
+]
 license = "NoLicense"
 readme = "README.md"
-repository = "https://github.com/pdfgeneratorapi/python-client"
 keywords = ["OpenAPI", "OpenAPI-Generator", "PDF Generator API"]
-include = ["pdf_generator_api_client/py.typed"]
+requires-python = ">=3.9"
 
-[tool.poetry.dependencies]
-python = "^3.8"
+dependencies = [
+  "urllib3 (>=2.1.0,<3.0.0)",
+  "python-dateutil (>=2.8.2)",
+  "pydantic (>=2)",
+  "typing-extensions (>=4.7.1)"
+]
 
-urllib3 = ">= 1.25.3, < 3.0.0"
-python-dateutil = ">= 2.8.2"
-pydantic = ">= 2"
-typing-extensions = ">= 4.7.1"
+[project.urls]
+Repository = "https://github.com/pdfgeneratorapi/python-client"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry]
+requires-poetry = ">=2.0"
+
+[tool.poetry.group.dev.dependencies]
 pytest = ">= 7.2.1"
 pytest-cov = ">= 2.8.1"
 tox = ">= 3.9.0"

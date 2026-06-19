@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **output** | [**AsyncOutputParam**](AsyncOutputParam.md) |  | [optional] [default to AsyncOutputParam.BASE64]
 **name** | **str** | Generated document name (optional) | [optional] [default to '']
 **testing** | **bool** | When set to true the generation is not counted as merge (monthly usage), but a large PREVIEW stamp is added. | [optional] [default to False]
+**metadata** | [**MetadataParam**](MetadataParam.md) |  | [optional] 
 
 ## Example
 

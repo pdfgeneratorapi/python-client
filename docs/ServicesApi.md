@@ -9,11 +9,12 @@ Method | HTTP request | Description
 [**encrypt_document**](ServicesApi.md#encrypt_document) | **POST** /pdfservices/encrypt | Encrypt document
 [**extract_form_fields**](ServicesApi.md#extract_form_fields) | **POST** /pdfservices/form/fields | Extract form fields
 [**fill_form_fields**](ServicesApi.md#fill_form_fields) | **POST** /pdfservices/form/fill | Fill form fields
+[**make_accessible**](ServicesApi.md#make_accessible) | **POST** /pdfservices/make-accessible | Make accessible
 [**optimize_document**](ServicesApi.md#optimize_document) | **POST** /pdfservices/optimize | Optimize document
 
 
 # **add_watermark**
-> AddWatermark201Response add_watermark(add_watermark_request)
+> InlineObject9 add_watermark(add_watermark_request)
 
 Add watermark
 
@@ -25,8 +26,8 @@ Adds a text or an image watermark to PDF document from base64 string or a remote
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.add_watermark201_response import AddWatermark201Response
 from pdf_generator_api_client.models.add_watermark_request import AddWatermarkRequest
+from pdf_generator_api_client.models.inline_object9 import InlineObject9
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -72,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AddWatermark201Response**](AddWatermark201Response.md)
+[**InlineObject9**](InlineObject9.md)
 
 ### Authorization
 
@@ -99,7 +100,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **decrypt_document**
-> AddWatermark201Response decrypt_document(encrypt_document_request)
+> InlineObject9 decrypt_document(encrypt_document_request)
 
 Decrypt document
 
@@ -111,8 +112,8 @@ Decrypts an encrypted PDF document from base64 string or a remote URL.
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.add_watermark201_response import AddWatermark201Response
 from pdf_generator_api_client.models.encrypt_document_request import EncryptDocumentRequest
+from pdf_generator_api_client.models.inline_object9 import InlineObject9
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -158,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AddWatermark201Response**](AddWatermark201Response.md)
+[**InlineObject9**](InlineObject9.md)
 
 ### Authorization
 
@@ -185,7 +186,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **encrypt_document**
-> AddWatermark201Response encrypt_document(encrypt_document_request)
+> InlineObject9 encrypt_document(encrypt_document_request)
 
 Encrypt document
 
@@ -197,8 +198,8 @@ Encrypts a PDF document from base64 string or a remote URL.
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.add_watermark201_response import AddWatermark201Response
 from pdf_generator_api_client.models.encrypt_document_request import EncryptDocumentRequest
+from pdf_generator_api_client.models.inline_object9 import InlineObject9
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -244,7 +245,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AddWatermark201Response**](AddWatermark201Response.md)
+[**InlineObject9**](InlineObject9.md)
 
 ### Authorization
 
@@ -271,7 +272,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **extract_form_fields**
-> ExtractFormFields200Response extract_form_fields(extract_form_fields_request)
+> InlineObject14 extract_form_fields(extract_form_fields_request)
 
 Extract form fields
 
@@ -283,8 +284,8 @@ Extracts form fields and their metadata from a PDF document using base64 string 
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.extract_form_fields200_response import ExtractFormFields200Response
 from pdf_generator_api_client.models.extract_form_fields_request import ExtractFormFieldsRequest
+from pdf_generator_api_client.models.inline_object14 import InlineObject14
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -330,7 +331,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExtractFormFields200Response**](ExtractFormFields200Response.md)
+[**InlineObject14**](InlineObject14.md)
 
 ### Authorization
 
@@ -357,7 +358,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **fill_form_fields**
-> AddWatermark201Response fill_form_fields(fill_form_fields_request)
+> InlineObject9 fill_form_fields(fill_form_fields_request)
 
 Fill form fields
 
@@ -369,8 +370,8 @@ Fills form fields in a PDF document with provided data from base64 string or a r
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.add_watermark201_response import AddWatermark201Response
 from pdf_generator_api_client.models.fill_form_fields_request import FillFormFieldsRequest
+from pdf_generator_api_client.models.inline_object9 import InlineObject9
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -416,7 +417,93 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AddWatermark201Response**](AddWatermark201Response.md)
+[**InlineObject9**](InlineObject9.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Document data |  -  |
+**401** | Unauthorized |  -  |
+**402** | Account Suspended |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **make_accessible**
+> InlineObject9 make_accessible(make_accessible_request)
+
+Make accessible
+
+Tags a PDF document for accessibility from base64 string or a remote URL.
+
+### Example
+
+* Bearer (JWT) Authentication (JSONWebTokenAuth):
+
+```python
+import pdf_generator_api_client
+from pdf_generator_api_client.models.inline_object9 import InlineObject9
+from pdf_generator_api_client.models.make_accessible_request import MakeAccessibleRequest
+from pdf_generator_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://us1.pdfgeneratorapi.com/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pdf_generator_api_client.Configuration(
+    host = "https://us1.pdfgeneratorapi.com/api/v4"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): JSONWebTokenAuth
+configuration = pdf_generator_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with pdf_generator_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pdf_generator_api_client.ServicesApi(api_client)
+    make_accessible_request = pdf_generator_api_client.MakeAccessibleRequest() # MakeAccessibleRequest | 
+
+    try:
+        # Make accessible
+        api_response = api_instance.make_accessible(make_accessible_request)
+        print("The response of ServicesApi->make_accessible:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ServicesApi->make_accessible: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **make_accessible_request** | [**MakeAccessibleRequest**](MakeAccessibleRequest.md)|  | 
+
+### Return type
+
+[**InlineObject9**](InlineObject9.md)
 
 ### Authorization
 
@@ -443,7 +530,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **optimize_document**
-> OptimizeDocument201Response optimize_document(optimize_document_request)
+> InlineObject12 optimize_document(optimize_document_request)
 
 Optimize document
 
@@ -455,7 +542,7 @@ Optimizes the size of a PDF document from base64 string or a remote URL.
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.optimize_document201_response import OptimizeDocument201Response
+from pdf_generator_api_client.models.inline_object12 import InlineObject12
 from pdf_generator_api_client.models.optimize_document_request import OptimizeDocumentRequest
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
@@ -502,7 +589,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OptimizeDocument201Response**](OptimizeDocument201Response.md)
+[**InlineObject12**](InlineObject12.md)
 
 ### Authorization
 

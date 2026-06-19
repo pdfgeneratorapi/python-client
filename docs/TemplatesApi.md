@@ -9,14 +9,16 @@ Method | HTTP request | Description
 [**delete_template**](TemplatesApi.md#delete_template) | **DELETE** /templates/{templateId} | Delete template
 [**get_template**](TemplatesApi.md#get_template) | **GET** /templates/{templateId} | Get template
 [**get_template_data**](TemplatesApi.md#get_template_data) | **GET** /templates/{templateId}/data | Get template data fields
+[**get_template_schema**](TemplatesApi.md#get_template_schema) | **GET** /templates/schema | Get schema
 [**get_templates**](TemplatesApi.md#get_templates) | **GET** /templates | Get templates
+[**import_template**](TemplatesApi.md#import_template) | **POST** /templates/import | Import template
 [**open_editor**](TemplatesApi.md#open_editor) | **POST** /templates/{templateId}/editor | Open editor
 [**update_template**](TemplatesApi.md#update_template) | **PUT** /templates/{templateId} | Update template
 [**validate_template**](TemplatesApi.md#validate_template) | **POST** /templates/validate | Validate template
 
 
 # **copy_template**
-> CreateTemplate201Response copy_template(template_id, copy_template_request=copy_template_request)
+> InlineObject16 copy_template(template_id, copy_template_request=copy_template_request)
 
 Copy template
 
@@ -29,7 +31,7 @@ Creates a copy of a template to the workspace specified in authentication parame
 ```python
 import pdf_generator_api_client
 from pdf_generator_api_client.models.copy_template_request import CopyTemplateRequest
-from pdf_generator_api_client.models.create_template201_response import CreateTemplate201Response
+from pdf_generator_api_client.models.inline_object16 import InlineObject16
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -77,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateTemplate201Response**](CreateTemplate201Response.md)
+[**InlineObject16**](InlineObject16.md)
 
 ### Authorization
 
@@ -104,7 +106,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_template**
-> CreateTemplate201Response create_template(template_definition_new)
+> InlineObject16 create_template(template_definition_new)
 
 Create template
 
@@ -116,7 +118,7 @@ Creates a new template. If template configuration is not specified in the reques
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.create_template201_response import CreateTemplate201Response
+from pdf_generator_api_client.models.inline_object16 import InlineObject16
 from pdf_generator_api_client.models.template_definition_new import TemplateDefinitionNew
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
@@ -163,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateTemplate201Response**](CreateTemplate201Response.md)
+[**InlineObject16**](InlineObject16.md)
 
 ### Authorization
 
@@ -272,7 +274,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_template**
-> CreateTemplate201Response get_template(template_id)
+> InlineObject16 get_template(template_id)
 
 Get template
 
@@ -284,7 +286,7 @@ Returns template configuration
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.create_template201_response import CreateTemplate201Response
+from pdf_generator_api_client.models.inline_object16 import InlineObject16
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -330,7 +332,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateTemplate201Response**](CreateTemplate201Response.md)
+[**InlineObject16**](InlineObject16.md)
 
 ### Authorization
 
@@ -357,11 +359,12 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_template_data**
-> GetTemplateData200Response get_template_data(template_id)
+> InlineObject2 get_template_data(template_id)
 
 Get template data fields
 
-Returns all data fields used in the template. Returns structured JSON data that can be used to check which data fields are used in template or autogenerate sample data. 
+Returns all data fields used in the template. Returns structured JSON data that can be used to check which data fields are used in template or autogenerate sample data.
+
 
 ### Example
 
@@ -369,7 +372,7 @@ Returns all data fields used in the template. Returns structured JSON data that 
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.get_template_data200_response import GetTemplateData200Response
+from pdf_generator_api_client.models.inline_object2 import InlineObject2
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -415,7 +418,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTemplateData200Response**](GetTemplateData200Response.md)
+[**InlineObject2**](InlineObject2.md)
 
 ### Authorization
 
@@ -441,8 +444,83 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_template_schema**
+> object get_template_schema()
+
+Get schema
+
+Returns Template JSON Schema which defines the structure of the Template Definition.
+
+### Example
+
+* Bearer (JWT) Authentication (JSONWebTokenAuth):
+
+```python
+import pdf_generator_api_client
+from pdf_generator_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://us1.pdfgeneratorapi.com/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pdf_generator_api_client.Configuration(
+    host = "https://us1.pdfgeneratorapi.com/api/v4"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): JSONWebTokenAuth
+configuration = pdf_generator_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with pdf_generator_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pdf_generator_api_client.TemplatesApi(api_client)
+
+    try:
+        # Get schema
+        api_response = api_instance.get_template_schema()
+        print("The response of TemplatesApi->get_template_schema:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TemplatesApi->get_template_schema: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+**object**
+
+### Authorization
+
+[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Template JSON Schema |  -  |
+**429** | Too Many Requests |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_templates**
-> GetTemplates200Response get_templates(name=name, tags=tags, access=access, page=page, per_page=per_page)
+> InlineObject4 get_templates(name=name, tags=tags, access=access, page=page, per_page=per_page)
 
 Get templates
 
@@ -454,7 +532,7 @@ Returns a list of templates available for the authenticated workspace
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.get_templates200_response import GetTemplates200Response
+from pdf_generator_api_client.models.inline_object4 import InlineObject4
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -508,7 +586,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTemplates200Response**](GetTemplates200Response.md)
+[**InlineObject4**](InlineObject4.md)
 
 ### Authorization
 
@@ -534,12 +612,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **open_editor**
-> OpenEditor200Response open_editor(template_id, open_editor_request)
+# **import_template**
+> InlineObject16 import_template(import_template_request)
 
-Open editor
+Import template
 
-Returns an unique URL which you can use to redirect your user to the editor from your application or use the generated URL as iframe source to show the editor within your application. When using iframe, make sure that your browser allows third-party cookies. 
+Creates a template from existing PDF
 
 ### Example
 
@@ -547,7 +625,95 @@ Returns an unique URL which you can use to redirect your user to the editor from
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.open_editor200_response import OpenEditor200Response
+from pdf_generator_api_client.models.import_template_request import ImportTemplateRequest
+from pdf_generator_api_client.models.inline_object16 import InlineObject16
+from pdf_generator_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://us1.pdfgeneratorapi.com/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pdf_generator_api_client.Configuration(
+    host = "https://us1.pdfgeneratorapi.com/api/v4"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): JSONWebTokenAuth
+configuration = pdf_generator_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with pdf_generator_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pdf_generator_api_client.TemplatesApi(api_client)
+    import_template_request = pdf_generator_api_client.ImportTemplateRequest() # ImportTemplateRequest | Import a PDF via URL or base64 string as template
+
+    try:
+        # Import template
+        api_response = api_instance.import_template(import_template_request)
+        print("The response of TemplatesApi->import_template:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TemplatesApi->import_template: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **import_template_request** | [**ImportTemplateRequest**](ImportTemplateRequest.md)| Import a PDF via URL or base64 string as template | 
+
+### Return type
+
+[**InlineObject16**](InlineObject16.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Template configuration |  -  |
+**401** | Unauthorized |  -  |
+**402** | Account Suspended |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **open_editor**
+> InlineObject3 open_editor(template_id, open_editor_request)
+
+Open editor
+
+Returns an unique URL which you can use to redirect your user to the editor from your application or use the generated URL as iframe source to show the editor within your application.
+When using iframe, make sure that your browser allows third-party cookies.
+
+
+### Example
+
+* Bearer (JWT) Authentication (JSONWebTokenAuth):
+
+```python
+import pdf_generator_api_client
+from pdf_generator_api_client.models.inline_object3 import InlineObject3
 from pdf_generator_api_client.models.open_editor_request import OpenEditorRequest
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
@@ -596,7 +762,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OpenEditor200Response**](OpenEditor200Response.md)
+[**InlineObject3**](InlineObject3.md)
 
 ### Authorization
 
@@ -623,7 +789,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_template**
-> CreateTemplate201Response update_template(template_id, template_definition_new)
+> InlineObject16 update_template(template_id, template_definition_new)
 
 Update template
 
@@ -635,7 +801,7 @@ Updates template configuration. The template configuration for pages and layout 
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.create_template201_response import CreateTemplate201Response
+from pdf_generator_api_client.models.inline_object16 import InlineObject16
 from pdf_generator_api_client.models.template_definition_new import TemplateDefinitionNew
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
@@ -684,7 +850,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateTemplate201Response**](CreateTemplate201Response.md)
+[**InlineObject16**](InlineObject16.md)
 
 ### Authorization
 
@@ -711,7 +877,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **validate_template**
-> ValidateTemplate200Response validate_template(template_definition_new)
+> InlineObject1 validate_template(template_definition_new)
 
 Validate template
 
@@ -723,8 +889,8 @@ Validates if the provided template configuration matches the template JSON schem
 
 ```python
 import pdf_generator_api_client
+from pdf_generator_api_client.models.inline_object1 import InlineObject1
 from pdf_generator_api_client.models.template_definition_new import TemplateDefinitionNew
-from pdf_generator_api_client.models.validate_template200_response import ValidateTemplate200Response
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -770,7 +936,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ValidateTemplate200Response**](ValidateTemplate200Response.md)
+[**InlineObject1**](InlineObject1.md)
 
 ### Authorization
 

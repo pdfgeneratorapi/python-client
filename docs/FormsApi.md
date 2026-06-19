@@ -4,16 +4,19 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_from**](FormsApi.md#create_from) | **POST** /forms | Create form
+[**create_form**](FormsApi.md#create_form) | **POST** /forms | Create form
 [**delete_form**](FormsApi.md#delete_form) | **DELETE** /forms/{formId} | Delete form
 [**get_form**](FormsApi.md#get_form) | **GET** /forms/{formId} | Get form
 [**get_forms**](FormsApi.md#get_forms) | **GET** /forms | Get forms
+[**import_form**](FormsApi.md#import_form) | **POST** /forms/import | Import Form
+[**open_form_builder**](FormsApi.md#open_form_builder) | **POST** /forms/open | Open new form builder
+[**open_form_builder_for_existing_form**](FormsApi.md#open_form_builder_for_existing_form) | **POST** /forms/{formId}/open | Open existing form builder
 [**share_form**](FormsApi.md#share_form) | **POST** /forms/{formId}/share | Share form
 [**update_form**](FormsApi.md#update_form) | **PUT** /forms/{formId} | Update form
 
 
-# **create_from**
-> CreateFrom201Response create_from(form_configuration_new)
+# **create_form**
+> InlineObject17 create_form(form_configuration_new)
 
 Create form
 
@@ -25,8 +28,8 @@ Creates a new form based on the configuration sent in the request body.
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.create_from201_response import CreateFrom201Response
 from pdf_generator_api_client.models.form_configuration_new import FormConfigurationNew
+from pdf_generator_api_client.models.inline_object17 import InlineObject17
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -54,11 +57,11 @@ with pdf_generator_api_client.ApiClient(configuration) as api_client:
 
     try:
         # Create form
-        api_response = api_instance.create_from(form_configuration_new)
-        print("The response of FormsApi->create_from:\n")
+        api_response = api_instance.create_form(form_configuration_new)
+        print("The response of FormsApi->create_form:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling FormsApi->create_from: %s\n" % e)
+        print("Exception when calling FormsApi->create_form: %s\n" % e)
 ```
 
 
@@ -72,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateFrom201Response**](CreateFrom201Response.md)
+[**InlineObject17**](InlineObject17.md)
 
 ### Authorization
 
@@ -181,7 +184,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_form**
-> CreateFrom201Response get_form(form_id)
+> InlineObject17 get_form(form_id)
 
 Get form
 
@@ -193,7 +196,7 @@ Returns form configuration
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.create_from201_response import CreateFrom201Response
+from pdf_generator_api_client.models.inline_object17 import InlineObject17
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -239,7 +242,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateFrom201Response**](CreateFrom201Response.md)
+[**InlineObject17**](InlineObject17.md)
 
 ### Authorization
 
@@ -266,7 +269,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_forms**
-> GetForms200Response get_forms(page=page, per_page=per_page)
+> InlineObject6 get_forms(page=page, per_page=per_page)
 
 Get forms
 
@@ -278,7 +281,7 @@ Returns a list of forms available for the organization
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.get_forms200_response import GetForms200Response
+from pdf_generator_api_client.models.inline_object6 import InlineObject6
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -326,7 +329,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetForms200Response**](GetForms200Response.md)
+[**InlineObject6**](InlineObject6.md)
 
 ### Authorization
 
@@ -352,8 +355,260 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **import_form**
+> InlineObject17 import_form(import_form_request)
+
+Import Form
+
+Creates a new form based on editable PDF
+
+### Example
+
+* Bearer (JWT) Authentication (JSONWebTokenAuth):
+
+```python
+import pdf_generator_api_client
+from pdf_generator_api_client.models.import_form_request import ImportFormRequest
+from pdf_generator_api_client.models.inline_object17 import InlineObject17
+from pdf_generator_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://us1.pdfgeneratorapi.com/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pdf_generator_api_client.Configuration(
+    host = "https://us1.pdfgeneratorapi.com/api/v4"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): JSONWebTokenAuth
+configuration = pdf_generator_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with pdf_generator_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pdf_generator_api_client.FormsApi(api_client)
+    import_form_request = pdf_generator_api_client.ImportFormRequest() # ImportFormRequest | Import editable PDF via URL or base64 string as form
+
+    try:
+        # Import Form
+        api_response = api_instance.import_form(import_form_request)
+        print("The response of FormsApi->import_form:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling FormsApi->import_form: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **import_form_request** | [**ImportFormRequest**](ImportFormRequest.md)| Import editable PDF via URL or base64 string as form | 
+
+### Return type
+
+[**InlineObject17**](InlineObject17.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Form configuration |  -  |
+**401** | Unauthorized |  -  |
+**402** | Account Suspended |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **open_form_builder**
+> InlineObject19 open_form_builder()
+
+Open new form builder
+
+Creates a new Form Builder session and returns a URL that can be used to open the embeddable Form Builder for creating a new form.
+
+### Example
+
+* Bearer (JWT) Authentication (JSONWebTokenAuth):
+
+```python
+import pdf_generator_api_client
+from pdf_generator_api_client.models.inline_object19 import InlineObject19
+from pdf_generator_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://us1.pdfgeneratorapi.com/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pdf_generator_api_client.Configuration(
+    host = "https://us1.pdfgeneratorapi.com/api/v4"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): JSONWebTokenAuth
+configuration = pdf_generator_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with pdf_generator_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pdf_generator_api_client.FormsApi(api_client)
+
+    try:
+        # Open new form builder
+        api_response = api_instance.open_form_builder()
+        print("The response of FormsApi->open_form_builder:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling FormsApi->open_form_builder: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**InlineObject19**](InlineObject19.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Form Builder URL |  -  |
+**401** | Unauthorized |  -  |
+**402** | Account Suspended |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **open_form_builder_for_existing_form**
+> InlineObject19 open_form_builder_for_existing_form(form_id)
+
+Open existing form builder
+
+Creates a Form Builder session for editing an existing form and returns a URL that can be used to open the embeddable Form Builder.
+
+### Example
+
+* Bearer (JWT) Authentication (JSONWebTokenAuth):
+
+```python
+import pdf_generator_api_client
+from pdf_generator_api_client.models.inline_object19 import InlineObject19
+from pdf_generator_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://us1.pdfgeneratorapi.com/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pdf_generator_api_client.Configuration(
+    host = "https://us1.pdfgeneratorapi.com/api/v4"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): JSONWebTokenAuth
+configuration = pdf_generator_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with pdf_generator_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pdf_generator_api_client.FormsApi(api_client)
+    form_id = 1 # int | Form unique identifier
+
+    try:
+        # Open existing form builder
+        api_response = api_instance.open_form_builder_for_existing_form(form_id)
+        print("The response of FormsApi->open_form_builder_for_existing_form:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling FormsApi->open_form_builder_for_existing_form: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **form_id** | **int**| Form unique identifier | 
+
+### Return type
+
+[**InlineObject19**](InlineObject19.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Form Builder URL |  -  |
+**401** | Unauthorized |  -  |
+**402** | Account Suspended |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **share_form**
-> ShareForm201Response share_form(form_id)
+> InlineObject18 share_form(form_id)
 
 Share form
 
@@ -365,7 +620,7 @@ Creates an unique sharing URL to collect form data
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.share_form201_response import ShareForm201Response
+from pdf_generator_api_client.models.inline_object18 import InlineObject18
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -411,7 +666,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ShareForm201Response**](ShareForm201Response.md)
+[**InlineObject18**](InlineObject18.md)
 
 ### Authorization
 
@@ -438,7 +693,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_form**
-> CreateFrom201Response update_form(form_id, form_configuration_new)
+> InlineObject17 update_form(form_id, form_configuration_new)
 
 Update form
 
@@ -450,8 +705,8 @@ Updates the form configuration. The form configuration must be complete as the e
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.create_from201_response import CreateFrom201Response
 from pdf_generator_api_client.models.form_configuration_new import FormConfigurationNew
+from pdf_generator_api_client.models.inline_object17 import InlineObject17
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -499,7 +754,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateFrom201Response**](CreateFrom201Response.md)
+[**InlineObject17**](InlineObject17.md)
 
 ### Authorization
 

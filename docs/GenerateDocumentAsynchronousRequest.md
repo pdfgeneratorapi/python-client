@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **output** | [**AsyncOutputParam**](AsyncOutputParam.md) |  | [optional] [default to AsyncOutputParam.BASE64]
 **name** | **str** | Generated document name (optional) | [optional] [default to '']
 **testing** | **bool** | When set to true the generation is not counted as merge (monthly usage), but a large PREVIEW stamp is added. | [optional] [default to False]
+**make_accessible** | **bool** | Enables semantic document tagging. When enabled, a separate Make Accessible action is executed, which consumes additional credits. | [optional] [default to False]
+**metadata** | [**MetadataParam**](MetadataParam.md) |  | [optional] 
 
 ## Example
 

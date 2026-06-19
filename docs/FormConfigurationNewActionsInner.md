@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **store_document** | **bool** |  | [optional] 
 **download_document** | **bool** |  | [optional] 
+**send_document** | [**FormActionSendSendDocument**](FormActionSendSendDocument.md) |  | [optional] 
 
 ## Example
 
