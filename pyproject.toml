@@ -5,7 +5,7 @@ description = "PDF Generator API"
 authors = [
   {name = "Support",email = "support@pdfgeneratorapi.com"},
 ]
-license = "NoLicense"
+license = "MIT"
 readme = "README.md"
 keywords = ["OpenAPI", "OpenAPI-Generator", "PDF Generator API"]
 requires-python = ">=3.9"
