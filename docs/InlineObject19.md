@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**response** | **str** | URL to open the embeddable Form Builder | [optional] 
+**response** | [**FormConfiguration**](FormConfiguration.md) |  | [optional] 
 
 ## Example
 

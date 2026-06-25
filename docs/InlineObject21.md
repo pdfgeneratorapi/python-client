@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **str** | Error description | [optional] 
+**response** | **str** | URL to open the embeddable Form Builder | [optional] 
 
 ## Example
 

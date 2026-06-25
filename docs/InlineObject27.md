@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **message** | **str** | Error description | [optional] 
+**errors** | **object** | Details about validation errors | [optional] 
 
 ## Example
 

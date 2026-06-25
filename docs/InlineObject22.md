@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **str** | Error description | [optional] 
+**response** | [**InlineObject22Response**](InlineObject22Response.md) |  | [optional] 
 
 ## Example
 

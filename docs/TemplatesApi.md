@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **copy_template**
-> InlineObject16 copy_template(template_id, copy_template_request=copy_template_request)
+> InlineObject18 copy_template(template_id, copy_template_request=copy_template_request)
 
 Copy template
 
@@ -31,7 +31,7 @@ Creates a copy of a template to the workspace specified in authentication parame
 ```python
 import pdf_generator_api_client
 from pdf_generator_api_client.models.copy_template_request import CopyTemplateRequest
-from pdf_generator_api_client.models.inline_object16 import InlineObject16
+from pdf_generator_api_client.models.inline_object18 import InlineObject18
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject16**](InlineObject16.md)
+[**InlineObject18**](InlineObject18.md)
 
 ### Authorization
 
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_template**
-> InlineObject16 create_template(template_definition_new)
+> InlineObject18 create_template(template_definition_new)
 
 Create template
 
@@ -118,7 +118,7 @@ Creates a new template. If template configuration is not specified in the reques
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.inline_object16 import InlineObject16
+from pdf_generator_api_client.models.inline_object18 import InlineObject18
 from pdf_generator_api_client.models.template_definition_new import TemplateDefinitionNew
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject16**](InlineObject16.md)
+[**InlineObject18**](InlineObject18.md)
 
 ### Authorization
 
@@ -274,7 +274,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_template**
-> InlineObject16 get_template(template_id)
+> InlineObject18 get_template(template_id)
 
 Get template
 
@@ -286,7 +286,7 @@ Returns template configuration
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.inline_object16 import InlineObject16
+from pdf_generator_api_client.models.inline_object18 import InlineObject18
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -332,7 +332,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject16**](InlineObject16.md)
+[**InlineObject18**](InlineObject18.md)
 
 ### Authorization
 
@@ -613,7 +613,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **import_template**
-> InlineObject16 import_template(import_template_request)
+> InlineObject18 import_template(import_template_request)
 
 Import template
 
@@ -626,7 +626,7 @@ Creates a template from existing PDF
 ```python
 import pdf_generator_api_client
 from pdf_generator_api_client.models.import_template_request import ImportTemplateRequest
-from pdf_generator_api_client.models.inline_object16 import InlineObject16
+from pdf_generator_api_client.models.inline_object18 import InlineObject18
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -672,7 +672,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject16**](InlineObject16.md)
+[**InlineObject18**](InlineObject18.md)
 
 ### Authorization
 
@@ -789,7 +789,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_template**
-> InlineObject16 update_template(template_id, template_definition_new)
+> InlineObject18 update_template(template_id, template_definition_new)
 
 Update template
 
@@ -801,7 +801,7 @@ Updates template configuration. The template configuration for pages and layout 
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.inline_object16 import InlineObject16
+from pdf_generator_api_client.models.inline_object18 import InlineObject18
 from pdf_generator_api_client.models.template_definition_new import TemplateDefinitionNew
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
@@ -850,7 +850,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject16**](InlineObject16.md)
+[**InlineObject18**](InlineObject18.md)
 
 ### Authorization
 

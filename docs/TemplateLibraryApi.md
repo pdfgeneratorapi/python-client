@@ -84,7 +84,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_template_library_item**
-> InlineObject16 get_template_library_item(public_id)
+> InlineObject18 get_template_library_item(public_id)
 
 Open template from the library
 
@@ -96,7 +96,7 @@ Returns the template definition for a public template identified by its `public_
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.inline_object16 import InlineObject16
+from pdf_generator_api_client.models.inline_object18 import InlineObject18
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject16**](InlineObject16.md)
+[**InlineObject18**](InlineObject18.md)
 
 ### Authorization
 

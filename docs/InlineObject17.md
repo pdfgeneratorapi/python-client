@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**response** | [**FormConfiguration**](FormConfiguration.md) |  | [optional] 
+**response** | [**List[DocumentAction]**](DocumentAction.md) |  | [optional] 
 
 ## Example
 

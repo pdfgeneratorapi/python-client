@@ -96,7 +96,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_template_version**
-> InlineObject16 get_template_version(template_id, template_version)
+> InlineObject18 get_template_version(template_id, template_version)
 
 Get template version
 
@@ -109,7 +109,7 @@ Returns the template definition of the specified version.
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.inline_object16 import InlineObject16
+from pdf_generator_api_client.models.inline_object18 import InlineObject18
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -157,7 +157,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject16**](InlineObject16.md)
+[**InlineObject18**](InlineObject18.md)
 
 ### Authorization
 

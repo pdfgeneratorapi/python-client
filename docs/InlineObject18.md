@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**response** | **str** | Public URL for form data collection | [optional] 
-**meta** | [**InlineObject18Meta**](InlineObject18Meta.md) |  | [optional] 
+**response** | [**TemplateDefinition**](TemplateDefinition.md) |  | [optional] 
+**meta** | **object** |  | [optional] 
 
 ## Example
 

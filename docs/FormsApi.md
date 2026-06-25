@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **create_form**
-> InlineObject17 create_form(form_configuration_new)
+> InlineObject19 create_form(form_configuration_new)
 
 Create form
 
@@ -29,7 +29,7 @@ Creates a new form based on the configuration sent in the request body.
 ```python
 import pdf_generator_api_client
 from pdf_generator_api_client.models.form_configuration_new import FormConfigurationNew
-from pdf_generator_api_client.models.inline_object17 import InlineObject17
+from pdf_generator_api_client.models.inline_object19 import InlineObject19
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject17**](InlineObject17.md)
+[**InlineObject19**](InlineObject19.md)
 
 ### Authorization
 
@@ -184,7 +184,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_form**
-> InlineObject17 get_form(form_id)
+> InlineObject19 get_form(form_id)
 
 Get form
 
@@ -196,7 +196,7 @@ Returns form configuration
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.inline_object17 import InlineObject17
+from pdf_generator_api_client.models.inline_object19 import InlineObject19
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject17**](InlineObject17.md)
+[**InlineObject19**](InlineObject19.md)
 
 ### Authorization
 
@@ -356,7 +356,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **import_form**
-> InlineObject17 import_form(import_form_request)
+> InlineObject19 import_form(import_form_request)
 
 Import Form
 
@@ -369,7 +369,7 @@ Creates a new form based on editable PDF
 ```python
 import pdf_generator_api_client
 from pdf_generator_api_client.models.import_form_request import ImportFormRequest
-from pdf_generator_api_client.models.inline_object17 import InlineObject17
+from pdf_generator_api_client.models.inline_object19 import InlineObject19
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -415,7 +415,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject17**](InlineObject17.md)
+[**InlineObject19**](InlineObject19.md)
 
 ### Authorization
 
@@ -442,7 +442,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **open_form_builder**
-> InlineObject19 open_form_builder()
+> InlineObject21 open_form_builder()
 
 Open new form builder
 
@@ -454,7 +454,7 @@ Creates a new Form Builder session and returns a URL that can be used to open th
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.inline_object19 import InlineObject19
+from pdf_generator_api_client.models.inline_object21 import InlineObject21
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -496,7 +496,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineObject19**](InlineObject19.md)
+[**InlineObject21**](InlineObject21.md)
 
 ### Authorization
 
@@ -523,7 +523,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **open_form_builder_for_existing_form**
-> InlineObject19 open_form_builder_for_existing_form(form_id)
+> InlineObject21 open_form_builder_for_existing_form(form_id)
 
 Open existing form builder
 
@@ -535,7 +535,7 @@ Creates a Form Builder session for editing an existing form and returns a URL th
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.inline_object19 import InlineObject19
+from pdf_generator_api_client.models.inline_object21 import InlineObject21
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -581,7 +581,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject19**](InlineObject19.md)
+[**InlineObject21**](InlineObject21.md)
 
 ### Authorization
 
@@ -608,7 +608,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **share_form**
-> InlineObject18 share_form(form_id)
+> InlineObject20 share_form(form_id)
 
 Share form
 
@@ -620,7 +620,7 @@ Creates an unique sharing URL to collect form data
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.inline_object18 import InlineObject18
+from pdf_generator_api_client.models.inline_object20 import InlineObject20
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -666,7 +666,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject18**](InlineObject18.md)
+[**InlineObject20**](InlineObject20.md)
 
 ### Authorization
 
@@ -693,7 +693,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_form**
-> InlineObject17 update_form(form_id, form_configuration_new)
+> InlineObject19 update_form(form_id, form_configuration_new)
 
 Update form
 
@@ -706,7 +706,7 @@ Updates the form configuration. The form configuration must be complete as the e
 ```python
 import pdf_generator_api_client
 from pdf_generator_api_client.models.form_configuration_new import FormConfigurationNew
-from pdf_generator_api_client.models.inline_object17 import InlineObject17
+from pdf_generator_api_client.models.inline_object19 import InlineObject19
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -754,7 +754,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject17**](InlineObject17.md)
+[**InlineObject19**](InlineObject19.md)
 
 ### Authorization
 
