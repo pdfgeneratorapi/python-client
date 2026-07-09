@@ -1,6 +1,6 @@
 [project]
 name = "pdf_generator_api_client"
-version = "8.0.26"
+version = "8.0.27"
 description = "PDF Generator API"
 authors = [
   {name = "Support",email = "support@pdfgeneratorapi.com"},

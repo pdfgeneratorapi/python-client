@@ -53,6 +53,9 @@ docs/GenerateDocumentRequest.md
 docs/GenerateQRCode201Response.md
 docs/GenerateQRCode201ResponseMeta.md
 docs/GenerateQRCodeRequest.md
+docs/GenerateViewerUrl200Response.md
+docs/GenerateViewerUrl200ResponseMeta.md
+docs/GenerateViewerUrlRequest.md
 docs/GetStatus200Response.md
 docs/GetTemplateLibrary200Response.md
 docs/GetTemplateVersion422Response.md
@@ -119,6 +122,7 @@ docs/OptimizeDocumentRequest.md
 docs/OptimizeUrl.md
 docs/OutputParam.md
 docs/PaginationMeta.md
+docs/PrefillParam.md
 docs/PromoteTemplateVersion200Response.md
 docs/PublicTemplateLibraryItem.md
 docs/ServicesApi.md
@@ -218,6 +222,9 @@ pdf_generator_api_client/models/generate_document_request.py
 pdf_generator_api_client/models/generate_qr_code201_response.py
 pdf_generator_api_client/models/generate_qr_code201_response_meta.py
 pdf_generator_api_client/models/generate_qr_code_request.py
+pdf_generator_api_client/models/generate_viewer_url200_response.py
+pdf_generator_api_client/models/generate_viewer_url200_response_meta.py
+pdf_generator_api_client/models/generate_viewer_url_request.py
 pdf_generator_api_client/models/get_status200_response.py
 pdf_generator_api_client/models/get_template_library200_response.py
 pdf_generator_api_client/models/get_template_version422_response.py
@@ -283,6 +290,7 @@ pdf_generator_api_client/models/optimize_document_request.py
 pdf_generator_api_client/models/optimize_url.py
 pdf_generator_api_client/models/output_param.py
 pdf_generator_api_client/models/pagination_meta.py
+pdf_generator_api_client/models/prefill_param.py
 pdf_generator_api_client/models/promote_template_version200_response.py
 pdf_generator_api_client/models/public_template_library_item.py
 pdf_generator_api_client/models/status_param.py
@@ -371,6 +379,9 @@ test/test_generate_document_request.py
 test/test_generate_qr_code201_response.py
 test/test_generate_qr_code201_response_meta.py
 test/test_generate_qr_code_request.py
+test/test_generate_viewer_url200_response.py
+test/test_generate_viewer_url200_response_meta.py
+test/test_generate_viewer_url_request.py
 test/test_get_status200_response.py
 test/test_get_template_library200_response.py
 test/test_get_template_version422_response.py
@@ -437,6 +448,7 @@ test/test_optimize_document_request.py
 test/test_optimize_url.py
 test/test_output_param.py
 test/test_pagination_meta.py
+test/test_prefill_param.py
 test/test_promote_template_version200_response.py
 test/test_public_template_library_item.py
 test/test_services_api.py

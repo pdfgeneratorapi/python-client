@@ -4,11 +4,12 @@ All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_document**](DocumentsApi.md#delete_document) | **DELETE** /documents/{publicId}/actions | Delete document
+[**delete_document**](DocumentsApi.md#delete_document) | **DELETE** /documents/{publicId} | Delete document
 [**generate_document**](DocumentsApi.md#generate_document) | **POST** /documents/generate | Generate document
 [**generate_document_asynchronous**](DocumentsApi.md#generate_document_asynchronous) | **POST** /documents/generate/async | Generate document (async)
 [**generate_document_batch**](DocumentsApi.md#generate_document_batch) | **POST** /documents/generate/batch | Generate document (batch)
 [**generate_document_batch_asynchronous**](DocumentsApi.md#generate_document_batch_asynchronous) | **POST** /documents/generate/batch/async | Generate document (batch + async)
+[**generate_viewer_url**](DocumentsApi.md#generate_viewer_url) | **POST** /documents/{publicId} | Get document with prefill
 [**get_async_job_status**](DocumentsApi.md#get_async_job_status) | **GET** /documents/async/{jobId} | Get job status
 [**get_document**](DocumentsApi.md#get_document) | **GET** /documents/{publicId} | Get document
 [**get_document_actions**](DocumentsApi.md#get_document_actions) | **GET** /documents/{publicId}/actions | Get document actions
@@ -463,6 +464,96 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Async job response |  -  |
+**401** | Unauthorized |  -  |
+**402** | Account Suspended |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **generate_viewer_url**
+> GenerateViewerUrl200Response generate_viewer_url(public_id, generate_viewer_url_request=generate_viewer_url_request)
+
+Get document with prefill
+
+Returns a URL for a stored document, optionally with viewer prefill data. The prefill is encrypted server-side and embedded in the viewer URL, so the caller does not have to handle encryption. Prefill is only applied when `output` is `viewer`.
+
+
+### Example
+
+* Bearer (JWT) Authentication (JSONWebTokenAuth):
+
+```python
+import pdf_generator_api_client
+from pdf_generator_api_client.models.generate_viewer_url200_response import GenerateViewerUrl200Response
+from pdf_generator_api_client.models.generate_viewer_url_request import GenerateViewerUrlRequest
+from pdf_generator_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://us1.pdfgeneratorapi.com/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pdf_generator_api_client.Configuration(
+    host = "https://us1.pdfgeneratorapi.com/api/v4"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): JSONWebTokenAuth
+configuration = pdf_generator_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with pdf_generator_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pdf_generator_api_client.DocumentsApi(api_client)
+    public_id = 'bac8381bce1982e5f6957a0f52371336' # str | Resource public id
+    generate_viewer_url_request = pdf_generator_api_client.GenerateViewerUrlRequest() # GenerateViewerUrlRequest | Optional response format and viewer prefill data. (optional)
+
+    try:
+        # Get document with prefill
+        api_response = api_instance.generate_viewer_url(public_id, generate_viewer_url_request=generate_viewer_url_request)
+        print("The response of DocumentsApi->generate_viewer_url:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DocumentsApi->generate_viewer_url: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **public_id** | **str**| Resource public id | 
+ **generate_viewer_url_request** | [**GenerateViewerUrlRequest**](GenerateViewerUrlRequest.md)| Optional response format and viewer prefill data. | [optional] 
+
+### Return type
+
+[**GenerateViewerUrl200Response**](GenerateViewerUrl200Response.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Viewer URL response, returned when &#x60;output&#x60; is &#x60;viewer&#x60;. |  -  |
+**201** | Document data |  -  |
 **401** | Unauthorized |  -  |
 **402** | Account Suspended |  -  |
 **403** | Forbidden |  -  |
