@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **first_name** | **str** |  | [optional] 
 **last_name** | **str** |  | [optional] 
 **email** | **str** |  | [optional] 
+**signature_id** | **str** |  | [optional] 
 **editable** | **bool** |  | [optional] [default to True]
 
 ## Example
