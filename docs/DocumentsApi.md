@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**get_async_job_status**](DocumentsApi.md#get_async_job_status) | **GET** /documents/async/{jobId} | Get job status
 [**get_document**](DocumentsApi.md#get_document) | **GET** /documents/{publicId} | Get document
 [**get_document_actions**](DocumentsApi.md#get_document_actions) | **GET** /documents/{publicId}/actions | Get document actions
+[**get_document_signatures**](DocumentsApi.md#get_document_signatures) | **GET** /documents/{publicId}/signatures | Validate document signatures
 [**get_document_versions**](DocumentsApi.md#get_document_versions) | **GET** /documents/{publicId}/versions | Get document versions
 [**get_documents**](DocumentsApi.md#get_documents) | **GET** /documents | Get documents
 [**store_document**](DocumentsApi.md#store_document) | **POST** /documents | Store document
@@ -187,7 +188,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **generate_document_asynchronous**
-> InlineObject22 generate_document_asynchronous(generate_document_asynchronous_request)
+> InlineObject23 generate_document_asynchronous(generate_document_asynchronous_request)
 
 Generate document (async)
 
@@ -215,7 +216,7 @@ The job id is also added to the callback request as header PDF-API-Job-Id
 ```python
 import pdf_generator_api_client
 from pdf_generator_api_client.models.generate_document_asynchronous_request import GenerateDocumentAsynchronousRequest
-from pdf_generator_api_client.models.inline_object22 import InlineObject22
+from pdf_generator_api_client.models.inline_object23 import InlineObject23
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -261,7 +262,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject22**](InlineObject22.md)
+[**InlineObject23**](InlineObject23.md)
 
 ### Authorization
 
@@ -374,7 +375,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **generate_document_batch_asynchronous**
-> InlineObject22 generate_document_batch_asynchronous(generate_document_batch_asynchronous_request)
+> InlineObject23 generate_document_batch_asynchronous(generate_document_batch_asynchronous_request)
 
 Generate document (batch + async)
 
@@ -402,7 +403,7 @@ The job id is also added to the callback request as header PDF-API-Job-Id
 ```python
 import pdf_generator_api_client
 from pdf_generator_api_client.models.generate_document_batch_asynchronous_request import GenerateDocumentBatchAsynchronousRequest
-from pdf_generator_api_client.models.inline_object22 import InlineObject22
+from pdf_generator_api_client.models.inline_object23 import InlineObject23
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -448,7 +449,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject22**](InlineObject22.md)
+[**InlineObject23**](InlineObject23.md)
 
 ### Authorization
 
@@ -735,7 +736,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_document_actions**
-> InlineObject17 get_document_actions(public_id)
+> InlineObject18 get_document_actions(public_id)
 
 Get document actions
 
@@ -747,7 +748,7 @@ Returns a list of actions performed on a stored document
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.inline_object17 import InlineObject17
+from pdf_generator_api_client.models.inline_object18 import InlineObject18
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -793,7 +794,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject17**](InlineObject17.md)
+[**InlineObject18**](InlineObject18.md)
 
 ### Authorization
 
@@ -813,6 +814,105 @@ Name | Type | Description  | Notes
 **402** | Account Suspended |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
+**422** | Unprocessable Entity |  -  |
+**429** | Too Many Requests |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_document_signatures**
+> InlineObject17 get_document_signatures(public_id, version=version)
+
+Validate document signatures
+
+Reports on every digital signature a stored document carries: who signed,
+when a timestamp authority attested it, whether the signed bytes are
+unchanged and whether the certificate chains to a trusted root.
+
+Facts are reported separately from the verdict, because a reader and a
+validation library can disagree in both directions. `status` reduces them
+to one answer, worst case first.
+
+Each request consumes one credit. A request that reports `unavailable` —
+signature validation not being enabled on the deployment — validates
+nothing and is not charged.
+
+
+### Example
+
+* Bearer (JWT) Authentication (JSONWebTokenAuth):
+
+```python
+import pdf_generator_api_client
+from pdf_generator_api_client.models.inline_object17 import InlineObject17
+from pdf_generator_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://us1.pdfgeneratorapi.com/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pdf_generator_api_client.Configuration(
+    host = "https://us1.pdfgeneratorapi.com/api/v4"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): JSONWebTokenAuth
+configuration = pdf_generator_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with pdf_generator_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pdf_generator_api_client.DocumentsApi(api_client)
+    public_id = 'bac8381bce1982e5f6957a0f52371336' # str | Resource public id
+    version = '5f3c2b1a9d8e7f6a' # str | Which stored version to report on. A version identifier reports on that version, `initial` on the document as first generated. Defaults to the latest version. A version is always reported on as itself: reporting the latest would describe bytes the caller is not holding.  (optional)
+
+    try:
+        # Validate document signatures
+        api_response = api_instance.get_document_signatures(public_id, version=version)
+        print("The response of DocumentsApi->get_document_signatures:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DocumentsApi->get_document_signatures: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **public_id** | **str**| Resource public id | 
+ **version** | **str**| Which stored version to report on. A version identifier reports on that version, &#x60;initial&#x60; on the document as first generated. Defaults to the latest version. A version is always reported on as itself: reporting the latest would describe bytes the caller is not holding.  | [optional] 
+
+### Return type
+
+[**InlineObject17**](InlineObject17.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | What the document&#39;s signatures say |  -  |
+**401** | Unauthorized |  -  |
+**402** | Account Suspended |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**410** | Gone |  -  |
 **422** | Unprocessable Entity |  -  |
 **429** | Too Many Requests |  -  |
 **500** | Internal Server Error |  -  |

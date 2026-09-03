@@ -22,6 +22,8 @@ docs/CreateWorkspaceRequest.md
 docs/DataBatchInner.md
 docs/Document.md
 docs/DocumentAction.md
+docs/DocumentSignature.md
+docs/DocumentSignatures.md
 docs/DocumentUser.md
 docs/DocumentVersion.md
 docs/DocumentsApi.md
@@ -88,11 +90,11 @@ docs/InlineObject19.md
 docs/InlineObject1Response.md
 docs/InlineObject2.md
 docs/InlineObject20.md
-docs/InlineObject20Meta.md
 docs/InlineObject21.md
+docs/InlineObject21Meta.md
 docs/InlineObject22.md
-docs/InlineObject22Response.md
 docs/InlineObject23.md
+docs/InlineObject23Response.md
 docs/InlineObject24.md
 docs/InlineObject25.md
 docs/InlineObject26.md
@@ -100,6 +102,8 @@ docs/InlineObject27.md
 docs/InlineObject28.md
 docs/InlineObject29.md
 docs/InlineObject3.md
+docs/InlineObject30.md
+docs/InlineObject31.md
 docs/InlineObject4.md
 docs/InlineObject5.md
 docs/InlineObject6.md
@@ -194,6 +198,8 @@ pdf_generator_api_client/models/create_workspace_request.py
 pdf_generator_api_client/models/data_batch_inner.py
 pdf_generator_api_client/models/document.py
 pdf_generator_api_client/models/document_action.py
+pdf_generator_api_client/models/document_signature.py
+pdf_generator_api_client/models/document_signatures.py
 pdf_generator_api_client/models/document_user.py
 pdf_generator_api_client/models/document_version.py
 pdf_generator_api_client/models/encrypt_and_decrypt_base64.py
@@ -257,11 +263,11 @@ pdf_generator_api_client/models/inline_object19.py
 pdf_generator_api_client/models/inline_object1_response.py
 pdf_generator_api_client/models/inline_object2.py
 pdf_generator_api_client/models/inline_object20.py
-pdf_generator_api_client/models/inline_object20_meta.py
 pdf_generator_api_client/models/inline_object21.py
+pdf_generator_api_client/models/inline_object21_meta.py
 pdf_generator_api_client/models/inline_object22.py
-pdf_generator_api_client/models/inline_object22_response.py
 pdf_generator_api_client/models/inline_object23.py
+pdf_generator_api_client/models/inline_object23_response.py
 pdf_generator_api_client/models/inline_object24.py
 pdf_generator_api_client/models/inline_object25.py
 pdf_generator_api_client/models/inline_object26.py
@@ -269,6 +275,8 @@ pdf_generator_api_client/models/inline_object27.py
 pdf_generator_api_client/models/inline_object28.py
 pdf_generator_api_client/models/inline_object29.py
 pdf_generator_api_client/models/inline_object3.py
+pdf_generator_api_client/models/inline_object30.py
+pdf_generator_api_client/models/inline_object31.py
 pdf_generator_api_client/models/inline_object4.py
 pdf_generator_api_client/models/inline_object5.py
 pdf_generator_api_client/models/inline_object6.py
@@ -348,6 +356,8 @@ test/test_create_workspace_request.py
 test/test_data_batch_inner.py
 test/test_document.py
 test/test_document_action.py
+test/test_document_signature.py
+test/test_document_signatures.py
 test/test_document_user.py
 test/test_document_version.py
 test/test_documents_api.py
@@ -414,11 +424,11 @@ test/test_inline_object19.py
 test/test_inline_object1_response.py
 test/test_inline_object2.py
 test/test_inline_object20.py
-test/test_inline_object20_meta.py
 test/test_inline_object21.py
+test/test_inline_object21_meta.py
 test/test_inline_object22.py
-test/test_inline_object22_response.py
 test/test_inline_object23.py
+test/test_inline_object23_response.py
 test/test_inline_object24.py
 test/test_inline_object25.py
 test/test_inline_object26.py
@@ -426,6 +436,8 @@ test/test_inline_object27.py
 test/test_inline_object28.py
 test/test_inline_object29.py
 test/test_inline_object3.py
+test/test_inline_object30.py
+test/test_inline_object31.py
 test/test_inline_object4.py
 test/test_inline_object5.py
 test/test_inline_object6.py

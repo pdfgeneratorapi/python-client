@@ -5,7 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**response** | **str** | URL to open the embeddable Form Builder | [optional] 
+**response** | **str** | Public URL for form data collection | [optional] 
+**meta** | [**InlineObject21Meta**](InlineObject21Meta.md) |  | [optional] 
 
 ## Example
 

@@ -1,4 +1,4 @@
-# InlineObject20Meta
+# InlineObject21Meta
 
 
 ## Properties
@@ -10,19 +10,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from pdf_generator_api_client.models.inline_object20_meta import InlineObject20Meta
+from pdf_generator_api_client.models.inline_object21_meta import InlineObject21Meta
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of InlineObject20Meta from a JSON string
-inline_object20_meta_instance = InlineObject20Meta.from_json(json)
+# create an instance of InlineObject21Meta from a JSON string
+inline_object21_meta_instance = InlineObject21Meta.from_json(json)
 # print the JSON string representation of the object
-print(InlineObject20Meta.to_json())
+print(InlineObject21Meta.to_json())
 
 # convert the object into a dict
-inline_object20_meta_dict = inline_object20_meta_instance.to_dict()
-# create an instance of InlineObject20Meta from a dict
-inline_object20_meta_from_dict = InlineObject20Meta.from_dict(inline_object20_meta_dict)
+inline_object21_meta_dict = inline_object21_meta_instance.to_dict()
+# create an instance of InlineObject21Meta from a dict
+inline_object21_meta_from_dict = InlineObject21Meta.from_dict(inline_object21_meta_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**response** | [**List[DocumentAction]**](DocumentAction.md) |  | [optional] 
+**response** | [**DocumentSignatures**](DocumentSignatures.md) |  | [optional] 
 
 ## Example
 
