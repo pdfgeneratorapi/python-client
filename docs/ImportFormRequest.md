@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **file_url** | **str** | PDF file from remote URL to import | 
-**form** | [**FormConfigurationNew**](FormConfigurationNew.md) |  | [optional] 
+**form** | [**FormConfigurationImport**](FormConfigurationImport.md) |  | [optional] 
 **file_base64** | **str** | PDF file from base64 string to import | 
 
 ## Example

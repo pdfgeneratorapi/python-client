@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**create_form**](FormsApi.md#create_form) | **POST** /forms | Create form
 [**delete_form**](FormsApi.md#delete_form) | **DELETE** /forms/{formId} | Delete form
 [**get_form**](FormsApi.md#get_form) | **GET** /forms/{formId} | Get form
+[**get_form_schema**](FormsApi.md#get_form_schema) | **GET** /forms/schema | Get schema
 [**get_forms**](FormsApi.md#get_forms) | **GET** /forms | Get forms
 [**import_form**](FormsApi.md#import_form) | **POST** /forms/import | Import Form
 [**open_form_builder**](FormsApi.md#open_form_builder) | **POST** /forms/open | Open new form builder
@@ -268,8 +269,73 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_form_schema**
+> object get_form_schema()
+
+Get schema
+
+Returns Form JSON Schema which defines the structure of the Form Definition.
+
+### Example
+
+
+```python
+import pdf_generator_api_client
+from pdf_generator_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://us1.pdfgeneratorapi.com/api/v4
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pdf_generator_api_client.Configuration(
+    host = "https://us1.pdfgeneratorapi.com/api/v4"
+)
+
+
+# Enter a context with an instance of the API client
+with pdf_generator_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pdf_generator_api_client.FormsApi(api_client)
+
+    try:
+        # Get schema
+        api_response = api_instance.get_form_schema()
+        print("The response of FormsApi->get_form_schema:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling FormsApi->get_form_schema: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Form JSON Schema |  -  |
+**429** | Too Many Requests |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_forms**
-> InlineObject6 get_forms(page=page, per_page=per_page)
+> InlineObject6 get_forms(page=page, per_page=per_page, order_by=order_by, order_direction=order_direction, search=search)
 
 Get forms
 
@@ -307,10 +373,13 @@ with pdf_generator_api_client.ApiClient(configuration) as api_client:
     api_instance = pdf_generator_api_client.FormsApi(api_client)
     page = 1 # int | Pagination: page to return (optional) (default to 1)
     per_page = 15 # int | Pagination: How many records to return per page (optional) (default to 15)
+    order_by = id # str | Field to sort the forms by (optional) (default to id)
+    order_direction = desc # str | Sort direction (optional) (default to desc)
+    search = 'Certificate' # str | Returns forms whose name or ID contains the search value (optional)
 
     try:
         # Get forms
-        api_response = api_instance.get_forms(page=page, per_page=per_page)
+        api_response = api_instance.get_forms(page=page, per_page=per_page, order_by=order_by, order_direction=order_direction, search=search)
         print("The response of FormsApi->get_forms:\n")
         pprint(api_response)
     except Exception as e:
@@ -326,6 +395,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| Pagination: page to return | [optional] [default to 1]
  **per_page** | **int**| Pagination: How many records to return per page | [optional] [default to 15]
+ **order_by** | **str**| Field to sort the forms by | [optional] [default to id]
+ **order_direction** | **str**| Sort direction | [optional] [default to desc]
+ **search** | **str**| Returns forms whose name or ID contains the search value | [optional] 
 
 ### Return type
 
@@ -360,7 +432,7 @@ Name | Type | Description  | Notes
 
 Import Form
 
-Creates a new form based on editable PDF
+Creates a new form based on editable PDF. Form fields are created from the editable fields of the PDF. The optional `form` object sets the form name, template, actions and configuration.
 
 ### Example
 
@@ -511,7 +583,7 @@ This endpoint does not need any parameter.
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Form Builder URL |  -  |
+**200** | Form Builder URL |  -  |
 **401** | Unauthorized |  -  |
 **402** | Account Suspended |  -  |
 **403** | Forbidden |  -  |
@@ -596,7 +668,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Form Builder URL |  -  |
+**200** | Form Builder URL |  -  |
 **401** | Unauthorized |  -  |
 **402** | Account Suspended |  -  |
 **403** | Forbidden |  -  |

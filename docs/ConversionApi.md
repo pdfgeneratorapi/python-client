@@ -186,7 +186,10 @@ Name | Type | Description  | Notes
 
 URL to PDF
 
-Converts public URL to PDF
+Converts public URL to PDF.
+
+By default the page is printed once its network activity settles. Pages that keep making background requests (e.g. single-page applications) can signal when they have finished rendering with `wait_for_css` and/or `wait_for_js`; the page is then printed as soon as the signal is met. When both are given, both must be met.
+
 
 ### Example
 

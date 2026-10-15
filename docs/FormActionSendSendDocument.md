@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**url** | **str** | HTTPS URL where the generated document will be delivered. | 
+**url** | **str** | URL where the generated document will be delivered. Must use HTTPS. | 
 **headers** | [**List[FormActionSendSendDocumentHeadersInner]**](FormActionSendSendDocumentHeadersInner.md) | Optional HTTP headers to include with the delivery request. | [optional] 
 
 ## Example
