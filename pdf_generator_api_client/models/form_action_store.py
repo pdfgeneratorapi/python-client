@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class FormActionStore(BaseModel):
     """
-    Key-value pair of action configuration.
+    Saves the generated document to Document Storage.
     """ # noqa: E501
     store_document: Optional[StrictBool] = None
     __properties: ClassVar[List[str]] = ["store_document"]

@@ -1,6 +1,6 @@
 # FormActionSign
 
-Asks the person who submitted the form to sign the generated document.
+Lets the person who fills in the form view and sign the generated document.
 
 ## Properties
 

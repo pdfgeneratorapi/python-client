@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class FormActionSign(BaseModel):
     """
-    Asks the person who submitted the form to sign the generated document.
+    Lets the person who fills in the form view and sign the generated document.
     """ # noqa: E501
     sign_document: Optional[StrictBool] = None
     __properties: ClassVar[List[str]] = ["sign_document"]

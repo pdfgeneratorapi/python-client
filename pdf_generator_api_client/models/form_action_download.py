@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class FormActionDownload(BaseModel):
     """
-    Key-value pair of action configuration.
+    Lets the person who fills in the form download the generated document.
     """ # noqa: E501
     download_document: Optional[StrictBool] = None
     __properties: ClassVar[List[str]] = ["download_document"]

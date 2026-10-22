@@ -28,7 +28,7 @@ class FormActionSendSendDocument(BaseModel):
     """
     FormActionSendSendDocument
     """ # noqa: E501
-    url: StrictStr = Field(description="URL where the generated document will be delivered. Must use HTTPS.")
+    url: StrictStr = Field(description="URL that receives the submitted answers as JSON, and the generated document when the form also stores it. Must use HTTPS.")
     headers: Optional[List[FormActionSendSendDocumentHeadersInner]] = Field(default=None, description="Optional HTTP headers to include with the delivery request.")
     __properties: ClassVar[List[str]] = ["url", "headers"]
 

@@ -1,6 +1,6 @@
 # FormActionDownload
 
-Key-value pair of action configuration.
+Lets the person who fills in the form download the generated document.
 
 ## Properties
 
