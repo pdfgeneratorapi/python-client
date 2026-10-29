@@ -44,8 +44,8 @@ class Component(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['labelComponent', 'textComponent', 'dateComponent', 'numberComponent', 'htmlblockComponent', 'tableComponent', 'compositeComponent', 'chartComponent', 'barcodeComponent', 'qrcodeComponent', 'imageComponent', 'headerComponent', 'footerComponent', 'rectangleComponent', 'vlineComponent', 'hlineComponent', 'pagenumberComponent', 'symbolComponent', 'checkboxComponent', 'radioComponent', 'signatureComponent']):
-            raise ValueError("must be one of enum values ('labelComponent', 'textComponent', 'dateComponent', 'numberComponent', 'htmlblockComponent', 'tableComponent', 'compositeComponent', 'chartComponent', 'barcodeComponent', 'qrcodeComponent', 'imageComponent', 'headerComponent', 'footerComponent', 'rectangleComponent', 'vlineComponent', 'hlineComponent', 'pagenumberComponent', 'symbolComponent', 'checkboxComponent', 'radioComponent', 'signatureComponent')")
+        if value not in set(['labelComponent', 'textComponent', 'dateComponent', 'numberComponent', 'htmlblockComponent', 'tableComponent', 'compositeComponent', 'chartComponent', 'barcodeComponent', 'qrcodeComponent', 'imageComponent', 'headerComponent', 'footerComponent', 'rectangleComponent', 'ellipseComponent', 'vlineComponent', 'hlineComponent', 'pagenumberComponent', 'symbolComponent', 'checkboxComponent', 'radioComponent', 'signatureComponent']):
+            raise ValueError("must be one of enum values ('labelComponent', 'textComponent', 'dateComponent', 'numberComponent', 'htmlblockComponent', 'tableComponent', 'compositeComponent', 'chartComponent', 'barcodeComponent', 'qrcodeComponent', 'imageComponent', 'headerComponent', 'footerComponent', 'rectangleComponent', 'ellipseComponent', 'vlineComponent', 'hlineComponent', 'pagenumberComponent', 'symbolComponent', 'checkboxComponent', 'radioComponent', 'signatureComponent')")
         return value
 
     model_config = ConfigDict(
