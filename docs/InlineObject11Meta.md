@@ -9,7 +9,8 @@ Name | Type | Description | Notes
 **display_name** | **str** | Document name without the file extension. | [optional] 
 **encoding** | **str** | Document encoding | [optional] 
 **content_type** | **str** | Document content type. | [optional] 
-**public_id** | **str** | Document public id | [optional] 
+**stats** | [**InlineObject11MetaStats**](InlineObject11MetaStats.md) |  | [optional] 
+**public_id** | **str** | Document public id, if output&#x3D;url was used for document storage | [optional] 
 
 ## Example
 

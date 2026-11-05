@@ -1,14 +1,14 @@
 # FormConfigurationImport
 
-Optional form settings applied to the imported form. Form fields are created from the editable fields of the PDF.
+Optional form settings applied to the imported form. Form fields are created from the editable fields of the PDF. When `form` is sent, `name` and `actions` are required.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **template_id** | **int** | Template ID which is connected to the form | [optional] 
-**name** | **str** | Form name | [optional] 
-**actions** | [**List[FormConfigurationNewActionsInner]**](FormConfigurationNewActionsInner.md) | Array of action configurations. Each action is a separate object with a single key; leave an action out to disable it. | [optional] 
+**name** | **str** | Form name | 
+**actions** | [**List[FormConfigurationNewActionsInner]**](FormConfigurationNewActionsInner.md) | Array of action configurations. Each action is a separate object with a single key; leave an action out to disable it. | 
 **configuration** | [**FormConfiguration**](FormConfiguration.md) |  | [optional] 
 
 ## Example

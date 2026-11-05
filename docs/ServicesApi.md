@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **add_watermark**
-> InlineObject9 add_watermark(add_watermark_request)
+> InlineObject8 add_watermark(add_watermark_request)
 
 Add watermark
 
@@ -27,7 +27,7 @@ Adds a text or an image watermark to PDF document from base64 string or a remote
 ```python
 import pdf_generator_api_client
 from pdf_generator_api_client.models.add_watermark_request import AddWatermarkRequest
-from pdf_generator_api_client.models.inline_object9 import InlineObject9
+from pdf_generator_api_client.models.inline_object8 import InlineObject8
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject9**](InlineObject9.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 
@@ -89,18 +89,19 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Document data |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable. PDF Services is not available on this deployment. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **decrypt_document**
-> InlineObject9 decrypt_document(encrypt_document_request)
+> InlineObject8 decrypt_document(encrypt_document_request)
 
 Decrypt document
 
@@ -113,7 +114,7 @@ Decrypts an encrypted PDF document from base64 string or a remote URL.
 ```python
 import pdf_generator_api_client
 from pdf_generator_api_client.models.encrypt_document_request import EncryptDocumentRequest
-from pdf_generator_api_client.models.inline_object9 import InlineObject9
+from pdf_generator_api_client.models.inline_object8 import InlineObject8
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -159,7 +160,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject9**](InlineObject9.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 
@@ -175,18 +176,19 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Document data |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable. PDF Services is not available on this deployment. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **encrypt_document**
-> InlineObject9 encrypt_document(encrypt_document_request)
+> InlineObject8 encrypt_document(encrypt_document_request)
 
 Encrypt document
 
@@ -199,7 +201,7 @@ Encrypts a PDF document from base64 string or a remote URL.
 ```python
 import pdf_generator_api_client
 from pdf_generator_api_client.models.encrypt_document_request import EncryptDocumentRequest
-from pdf_generator_api_client.models.inline_object9 import InlineObject9
+from pdf_generator_api_client.models.inline_object8 import InlineObject8
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -245,7 +247,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject9**](InlineObject9.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 
@@ -261,18 +263,19 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Document data |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable. PDF Services is not available on this deployment. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **extract_form_fields**
-> InlineObject14 extract_form_fields(extract_form_fields_request)
+> InlineObject13 extract_form_fields(extract_form_fields_request)
 
 Extract form fields
 
@@ -285,7 +288,7 @@ Extracts form fields and their metadata from a PDF document using base64 string 
 ```python
 import pdf_generator_api_client
 from pdf_generator_api_client.models.extract_form_fields_request import ExtractFormFieldsRequest
-from pdf_generator_api_client.models.inline_object14 import InlineObject14
+from pdf_generator_api_client.models.inline_object13 import InlineObject13
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -331,7 +334,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject14**](InlineObject14.md)
+[**InlineObject13**](InlineObject13.md)
 
 ### Authorization
 
@@ -347,18 +350,19 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Form fields data |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable. PDF Services is not available on this deployment. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **fill_form_fields**
-> InlineObject9 fill_form_fields(fill_form_fields_request)
+> InlineObject8 fill_form_fields(fill_form_fields_request)
 
 Fill form fields
 
@@ -371,7 +375,7 @@ Fills form fields in a PDF document with provided data from base64 string or a r
 ```python
 import pdf_generator_api_client
 from pdf_generator_api_client.models.fill_form_fields_request import FillFormFieldsRequest
-from pdf_generator_api_client.models.inline_object9 import InlineObject9
+from pdf_generator_api_client.models.inline_object8 import InlineObject8
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -417,7 +421,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject9**](InlineObject9.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 
@@ -433,18 +437,19 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Document data |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable. PDF Services is not available on this deployment. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **make_accessible**
-> InlineObject9 make_accessible(make_accessible_request)
+> InlineObject8 make_accessible(make_accessible_request)
 
 Make accessible
 
@@ -456,7 +461,7 @@ Tags a PDF document for accessibility from base64 string or a remote URL.
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.inline_object9 import InlineObject9
+from pdf_generator_api_client.models.inline_object8 import InlineObject8
 from pdf_generator_api_client.models.make_accessible_request import MakeAccessibleRequest
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
@@ -503,7 +508,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject9**](InlineObject9.md)
+[**InlineObject8**](InlineObject8.md)
 
 ### Authorization
 
@@ -519,18 +524,19 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Document data |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable. PDF Services is not available on this deployment. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **optimize_document**
-> InlineObject12 optimize_document(optimize_document_request)
+> InlineObject11 optimize_document(optimize_document_request)
 
 Optimize document
 
@@ -542,7 +548,7 @@ Optimizes the size of a PDF document from base64 string or a remote URL.
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.inline_object12 import InlineObject12
+from pdf_generator_api_client.models.inline_object11 import InlineObject11
 from pdf_generator_api_client.models.optimize_document_request import OptimizeDocumentRequest
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
@@ -589,7 +595,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject12**](InlineObject12.md)
+[**InlineObject11**](InlineObject11.md)
 
 ### Authorization
 
@@ -605,13 +611,14 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Document data |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
+**503** | Service Unavailable. PDF Services is not available on this deployment. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

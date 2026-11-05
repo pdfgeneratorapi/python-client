@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **checksum** | **str** |  | [optional] 
 **user_id** | **int** |  | [optional] 
 **user_name** | **str** |  | [optional] 
+**user_email** | **str** | Identifier of the workspace that created the version | [optional] 
 **is_production** | **bool** |  | [optional] 
 **created_at** | **str** |  | [optional] 
 **updated_at** | **str** |  | [optional] 

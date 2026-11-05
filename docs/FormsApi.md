@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **create_form**
-> InlineObject20 create_form(form_configuration_new)
+> InlineObject19 create_form(form_configuration_new)
 
 Create form
 
@@ -30,7 +30,7 @@ Creates a new form based on the configuration sent in the request body.
 ```python
 import pdf_generator_api_client
 from pdf_generator_api_client.models.form_configuration_new import FormConfigurationNew
-from pdf_generator_api_client.models.inline_object20 import InlineObject20
+from pdf_generator_api_client.models.inline_object19 import InlineObject19
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject20**](InlineObject20.md)
+[**InlineObject19**](InlineObject19.md)
 
 ### Authorization
 
@@ -92,12 +92,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Form configuration |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -174,18 +174,18 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | The resource was deleted successfully. |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_form**
-> InlineObject20 get_form(form_id)
+> InlineObject19 get_form(form_id)
 
 Get form
 
@@ -197,7 +197,7 @@ Returns form configuration
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.inline_object20 import InlineObject20
+from pdf_generator_api_client.models.inline_object19 import InlineObject19
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject20**](InlineObject20.md)
+[**InlineObject19**](InlineObject19.md)
 
 ### Authorization
 
@@ -259,18 +259,18 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Form configuration |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_form_schema**
-> object get_form_schema()
+> GetFormSchema200Response get_form_schema()
 
 Get schema
 
@@ -281,6 +281,7 @@ Returns Form JSON Schema which defines the structure of the Form Definition.
 
 ```python
 import pdf_generator_api_client
+from pdf_generator_api_client.models.get_form_schema200_response import GetFormSchema200Response
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -313,7 +314,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**object**
+[**GetFormSchema200Response**](GetFormSchema200Response.md)
 
 ### Authorization
 
@@ -329,7 +330,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Form JSON Schema |  -  |
-**429** | Too Many Requests |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -417,18 +418,18 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | An array of form objects |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **import_form**
-> InlineObject20 import_form(import_form_request)
+> InlineObject19 import_form(import_form_request)
 
 Import Form
 
@@ -441,7 +442,7 @@ Creates a new form based on editable PDF. Form fields are created from the edita
 ```python
 import pdf_generator_api_client
 from pdf_generator_api_client.models.import_form_request import ImportFormRequest
-from pdf_generator_api_client.models.inline_object20 import InlineObject20
+from pdf_generator_api_client.models.inline_object19 import InlineObject19
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -487,7 +488,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject20**](InlineObject20.md)
+[**InlineObject19**](InlineObject19.md)
 
 ### Authorization
 
@@ -503,18 +504,18 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Form configuration |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **open_form_builder**
-> InlineObject22 open_form_builder()
+> InlineObject21 open_form_builder()
 
 Open new form builder
 
@@ -526,7 +527,7 @@ Creates a new Form Builder session and returns a URL that can be used to open th
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.inline_object22 import InlineObject22
+from pdf_generator_api_client.models.inline_object21 import InlineObject21
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -568,7 +569,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineObject22**](InlineObject22.md)
+[**InlineObject21**](InlineObject21.md)
 
 ### Authorization
 
@@ -584,18 +585,18 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Form Builder URL |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **open_form_builder_for_existing_form**
-> InlineObject22 open_form_builder_for_existing_form(form_id)
+> InlineObject21 open_form_builder_for_existing_form(form_id)
 
 Open existing form builder
 
@@ -607,7 +608,7 @@ Creates a Form Builder session for editing an existing form and returns a URL th
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.inline_object22 import InlineObject22
+from pdf_generator_api_client.models.inline_object21 import InlineObject21
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -653,7 +654,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject22**](InlineObject22.md)
+[**InlineObject21**](InlineObject21.md)
 
 ### Authorization
 
@@ -669,18 +670,18 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Form Builder URL |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **share_form**
-> InlineObject21 share_form(form_id)
+> InlineObject20 share_form(form_id)
 
 Share form
 
@@ -692,7 +693,7 @@ Creates an unique sharing URL to collect form data
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.inline_object21 import InlineObject21
+from pdf_generator_api_client.models.inline_object20 import InlineObject20
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -738,7 +739,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject21**](InlineObject21.md)
+[**InlineObject20**](InlineObject20.md)
 
 ### Authorization
 
@@ -754,18 +755,18 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Form sharing URL |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_form**
-> InlineObject20 update_form(form_id, form_configuration_new)
+> InlineObject19 update_form(form_id, form_configuration_new)
 
 Update form
 
@@ -778,7 +779,7 @@ Updates the form configuration. The form configuration must be complete as the e
 ```python
 import pdf_generator_api_client
 from pdf_generator_api_client.models.form_configuration_new import FormConfigurationNew
-from pdf_generator_api_client.models.inline_object20 import InlineObject20
+from pdf_generator_api_client.models.inline_object19 import InlineObject19
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -826,7 +827,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject20**](InlineObject20.md)
+[**InlineObject19**](InlineObject19.md)
 
 ### Authorization
 
@@ -842,12 +843,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Form configuration |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

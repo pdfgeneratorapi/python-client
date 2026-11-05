@@ -172,67 +172,85 @@ You can also use [jwt.io](https://jwt.io/) to generate test tokens for your API 
 
 # Error codes
 
+Every error response is a JSON object with a `message` string. Request validation failures (422) also include an `errors` object keyed by the field that failed.
+
+```json
+{
+  "message": "The identifier field is required.",
+  "errors": {
+    "identifier": ["The identifier field is required."]
+  }
+}
+```
+
 | Code   | Description                    |
 |--------|--------------------------------|
+| 400    | Bad Request                    |
 | 401    | Unauthorized                   |
 | 402    | Payment Required               |
 | 403    | Forbidden                      |
 | 404    | Not Found                      |
+| 405    | Method Not Allowed             |
+| 409    | Conflict                       |
+| 410    | Gone                           |
 | 422    | Unprocessable Entity           |
 | 429    | Too Many Requests              |
 | 500    | Internal Server Error          |
+| 503    | Service Unavailable            |
 
 ## 401 Unauthorized
-| Description                                                             |
-|-------------------------------------------------------------------------|
-| Authentication failed: request expired                                  |
-| Authentication failed: workspace missing                                |
-| Authentication failed: key missing                                      |
-| Authentication failed: property 'iss' (issuer) missing in JWT           |
-| Authentication failed: property 'sub' (subject) missing in JWT          |
-| Authentication failed: property 'exp' (expiration time) missing in JWT  |
-| Authentication failed: incorrect signature                              |
+| Description                                                                       |
+|-----------------------------------------------------------------------------------|
+| Authentication failed: JWT Token missing.                                         |
+| Authentication failed: Malformed JWT Token.                                       |
+| Authentication failed: Expired JWT Token.                                         |
+| Authentication failed: Invalid workspace.                                         |
+| Authentication failed: Invalid organization.                                      |
+| Authentication failed: This application no longer has access to the workspace.   |
+| Authentication failed: The sub field is required. (also `iss` and `exp`)          |
 
 ## 402 Payment Required
-| Description                                                             |
-|-------------------------------------------------------------------------|
-| Your account is suspended, please upgrade your account                  |
+| Description                                                                       |
+|-----------------------------------------------------------------------------------|
+| Your account is suspended, please upgrade your account or contact support@pdfgeneratorapi.com. |
 
 ## 403 Forbidden
-| Description                                                             |
-|-------------------------------------------------------------------------|
-| Your account has exceeded the monthly document generation limit.        |
-| Access not granted: You cannot delete master workspace via API          |
-| Access not granted: Template is not accessible by this organization     |
-| Your session has expired, please close and reopen the editor.           |
+| Description                                                                       |
+|-----------------------------------------------------------------------------------|
+| You don't have permission to access this content. Please get in touch with your organization administrator to update your access permissions. |
+| This application was not granted permission for this request.                    |
+| Deleting own user is not allowed.                                                 |
+| Deleting organization owner is not allowed.                                       |
 
-## 404 Entity not found
-| Description                                                             |
-|-------------------------------------------------------------------------|
-| Entity not found                                                        |
-| Resource not found                                                      |
-| None of the templates is available for the workspace.                   |
+## 404 Not Found
+| Description                                                                       |
+|-----------------------------------------------------------------------------------|
+| Entity not found.                                                                 |
+| Route not found.                                                                  |
+| Workspace doesn’t have access to read the template.                               |
 
 ## 422 Unprocessable Entity
-| Description                                                             |
-|-------------------------------------------------------------------------|
-| Unable to parse JSON, please check formatting                           |
-| Required parameter missing                                              |
-| Required parameter missing: template definition not defined             |
-| Required parameter missing: template not defined                        |
+| Description                                                                       |
+|-----------------------------------------------------------------------------------|
+| Unable to parse JSON, please check formatting.                                    |
+| Template id should be a numeric value.                                            |
+| The per page must be at least 1. (with `errors.per_page`)                         |
 
 ## 429 Too Many Requests
-| Description                                                             |
-|-------------------------------------------------------------------------|
-| You can make up to 2 requests per second and 60 requests per minute.   |
+| Description                                                                       |
+|-----------------------------------------------------------------------------------|
+| Per-second rate limit exceeded. Please slow down your requests.                   |
+| Per-minute rate limit exceeded. Please try again in a minute.                     |
+| Global per-second rate limit exceeded. Please slow down your requests.            |
+| Global per-minute rate limit exceeded. Please try again in a minute.              |
 
 *  *  *  *  *
 
 
 This Python package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: 4.0.31
-- Package version: 8.0.31
+- API version: 4.0.34
+- Package version: 8.0.34
 - Generator version: 7.14.0
 - Build package: org.openapitools.codegen.languages.PythonClientCodegen
 For more information, please visit [https://support.pdfgeneratorapi.com](https://support.pdfgeneratorapi.com)
@@ -340,6 +358,7 @@ Class | Method | HTTP request | Description
 *DocumentsApi* | [**get_document_versions**](docs/DocumentsApi.md#get_document_versions) | **GET** /documents/{publicId}/versions | Get document versions
 *DocumentsApi* | [**get_documents**](docs/DocumentsApi.md#get_documents) | **GET** /documents | Get documents
 *DocumentsApi* | [**store_document**](docs/DocumentsApi.md#store_document) | **POST** /documents | Store document
+*FontsApi* | [**get_fonts**](docs/FontsApi.md#get_fonts) | **GET** /fonts | Get fonts
 *FormsApi* | [**create_form**](docs/FormsApi.md#create_form) | **POST** /forms | Create form
 *FormsApi* | [**delete_form**](docs/FormsApi.md#delete_form) | **DELETE** /forms/{formId} | Delete form
 *FormsApi* | [**get_form**](docs/FormsApi.md#get_form) | **GET** /forms/{formId} | Get form
@@ -390,8 +409,8 @@ Class | Method | HTTP request | Description
  - [AccessibilityOption](docs/AccessibilityOption.md)
  - [AddWatermarkRequest](docs/AddWatermarkRequest.md)
  - [AsyncOutputParam](docs/AsyncOutputParam.md)
+ - [AttachmentsParamInner](docs/AttachmentsParamInner.md)
  - [CallbackParam](docs/CallbackParam.md)
- - [Component](docs/Component.md)
  - [ConvertHTML2PDFRequest](docs/ConvertHTML2PDFRequest.md)
  - [ConvertPDF2ImageRequest](docs/ConvertPDF2ImageRequest.md)
  - [ConvertURL2PDFRequest](docs/ConvertURL2PDFRequest.md)
@@ -399,19 +418,23 @@ Class | Method | HTTP request | Description
  - [CreateEInvoiceRequest](docs/CreateEInvoiceRequest.md)
  - [CreateFacturXEInvoiceRequest](docs/CreateFacturXEInvoiceRequest.md)
  - [CreateFacturXEInvoiceRequestTemplate](docs/CreateFacturXEInvoiceRequestTemplate.md)
+ - [CreateFacturXEInvoiceRequestTemplateId](docs/CreateFacturXEInvoiceRequestTemplateId.md)
  - [CreateWorkspaceRequest](docs/CreateWorkspaceRequest.md)
- - [DataBatchInner](docs/DataBatchInner.md)
+ - [CreateXRechnungEInvoiceRequest](docs/CreateXRechnungEInvoiceRequest.md)
  - [Document](docs/Document.md)
  - [DocumentAction](docs/DocumentAction.md)
  - [DocumentSignature](docs/DocumentSignature.md)
  - [DocumentSignatures](docs/DocumentSignatures.md)
  - [DocumentUser](docs/DocumentUser.md)
  - [DocumentVersion](docs/DocumentVersion.md)
+ - [EInvoiceType](docs/EInvoiceType.md)
  - [EncryptAndDecryptBase64](docs/EncryptAndDecryptBase64.md)
  - [EncryptAndDecryptUrl](docs/EncryptAndDecryptUrl.md)
  - [EncryptDocumentRequest](docs/EncryptDocumentRequest.md)
+ - [Error](docs/Error.md)
  - [ExtractFormFieldsRequest](docs/ExtractFormFieldsRequest.md)
  - [FillFormFieldsRequest](docs/FillFormFieldsRequest.md)
+ - [Font](docs/Font.md)
  - [FormActionDownload](docs/FormActionDownload.md)
  - [FormActionSend](docs/FormActionSend.md)
  - [FormActionSendSendDocument](docs/FormActionSendSendDocument.md)
@@ -435,15 +458,18 @@ Class | Method | HTTP request | Description
  - [GenerateDocumentBatchAsynchronousRequest](docs/GenerateDocumentBatchAsynchronousRequest.md)
  - [GenerateDocumentBatchRequest](docs/GenerateDocumentBatchRequest.md)
  - [GenerateDocumentRequest](docs/GenerateDocumentRequest.md)
- - [GenerateQRCode201Response](docs/GenerateQRCode201Response.md)
- - [GenerateQRCode201ResponseMeta](docs/GenerateQRCode201ResponseMeta.md)
+ - [GenerateQRCode200Response](docs/GenerateQRCode200Response.md)
+ - [GenerateQRCode200ResponseMeta](docs/GenerateQRCode200ResponseMeta.md)
  - [GenerateQRCodeRequest](docs/GenerateQRCodeRequest.md)
  - [GenerateViewerUrl200Response](docs/GenerateViewerUrl200Response.md)
  - [GenerateViewerUrl200ResponseMeta](docs/GenerateViewerUrl200ResponseMeta.md)
  - [GenerateViewerUrlRequest](docs/GenerateViewerUrlRequest.md)
+ - [GetEInvoiceSchema200Response](docs/GetEInvoiceSchema200Response.md)
+ - [GetFonts200Response](docs/GetFonts200Response.md)
+ - [GetFormSchema200Response](docs/GetFormSchema200Response.md)
  - [GetStatus200Response](docs/GetStatus200Response.md)
  - [GetTemplateLibrary200Response](docs/GetTemplateLibrary200Response.md)
- - [GetTemplateVersion422Response](docs/GetTemplateVersion422Response.md)
+ - [GetTemplateSchema200Response](docs/GetTemplateSchema200Response.md)
  - [ImportFormBase64](docs/ImportFormBase64.md)
  - [ImportFormRequest](docs/ImportFormRequest.md)
  - [ImportFormUrl](docs/ImportFormUrl.md)
@@ -457,14 +483,14 @@ Class | Method | HTTP request | Description
  - [InlineObject10Meta](docs/InlineObject10Meta.md)
  - [InlineObject11](docs/InlineObject11.md)
  - [InlineObject11Meta](docs/InlineObject11Meta.md)
+ - [InlineObject11MetaStats](docs/InlineObject11MetaStats.md)
  - [InlineObject12](docs/InlineObject12.md)
- - [InlineObject12Meta](docs/InlineObject12Meta.md)
- - [InlineObject12MetaStats](docs/InlineObject12MetaStats.md)
+ - [InlineObject12Response](docs/InlineObject12Response.md)
  - [InlineObject13](docs/InlineObject13.md)
+ - [InlineObject13ResponseValue](docs/InlineObject13ResponseValue.md)
+ - [InlineObject13ResponseValueDefault](docs/InlineObject13ResponseValueDefault.md)
+ - [InlineObject13ResponseValueValue](docs/InlineObject13ResponseValueValue.md)
  - [InlineObject14](docs/InlineObject14.md)
- - [InlineObject14ResponseValue](docs/InlineObject14ResponseValue.md)
- - [InlineObject14ResponseValueDefault](docs/InlineObject14ResponseValueDefault.md)
- - [InlineObject14ResponseValueValue](docs/InlineObject14ResponseValueValue.md)
  - [InlineObject15](docs/InlineObject15.md)
  - [InlineObject16](docs/InlineObject16.md)
  - [InlineObject17](docs/InlineObject17.md)
@@ -473,26 +499,17 @@ Class | Method | HTTP request | Description
  - [InlineObject1Response](docs/InlineObject1Response.md)
  - [InlineObject2](docs/InlineObject2.md)
  - [InlineObject20](docs/InlineObject20.md)
+ - [InlineObject20Meta](docs/InlineObject20Meta.md)
  - [InlineObject21](docs/InlineObject21.md)
- - [InlineObject21Meta](docs/InlineObject21Meta.md)
  - [InlineObject22](docs/InlineObject22.md)
- - [InlineObject23](docs/InlineObject23.md)
- - [InlineObject23Response](docs/InlineObject23Response.md)
- - [InlineObject24](docs/InlineObject24.md)
- - [InlineObject25](docs/InlineObject25.md)
- - [InlineObject26](docs/InlineObject26.md)
- - [InlineObject27](docs/InlineObject27.md)
- - [InlineObject28](docs/InlineObject28.md)
- - [InlineObject29](docs/InlineObject29.md)
+ - [InlineObject22Response](docs/InlineObject22Response.md)
  - [InlineObject3](docs/InlineObject3.md)
- - [InlineObject30](docs/InlineObject30.md)
- - [InlineObject31](docs/InlineObject31.md)
  - [InlineObject4](docs/InlineObject4.md)
  - [InlineObject5](docs/InlineObject5.md)
  - [InlineObject6](docs/InlineObject6.md)
  - [InlineObject7](docs/InlineObject7.md)
- - [InlineObject7Response](docs/InlineObject7Response.md)
  - [InlineObject8](docs/InlineObject8.md)
+ - [InlineObject8Meta](docs/InlineObject8Meta.md)
  - [InlineObject9](docs/InlineObject9.md)
  - [InlineObject9Meta](docs/InlineObject9Meta.md)
  - [InlineObjectMeta](docs/InlineObjectMeta.md)
@@ -515,8 +532,6 @@ Class | Method | HTTP request | Description
  - [StoreDocumentRequest](docs/StoreDocumentRequest.md)
  - [Template](docs/Template.md)
  - [TemplateDefinition](docs/TemplateDefinition.md)
- - [TemplateDefinitionDataSettings](docs/TemplateDefinitionDataSettings.md)
- - [TemplateDefinitionEditor](docs/TemplateDefinitionEditor.md)
  - [TemplateDefinitionNew](docs/TemplateDefinitionNew.md)
  - [TemplateDefinitionNewDataSettings](docs/TemplateDefinitionNewDataSettings.md)
  - [TemplateDefinitionNewEditor](docs/TemplateDefinitionNewEditor.md)
@@ -524,15 +539,17 @@ Class | Method | HTTP request | Description
  - [TemplateDefinitionNewLayoutMargins](docs/TemplateDefinitionNewLayoutMargins.md)
  - [TemplateDefinitionNewLayoutRepeatLayout](docs/TemplateDefinitionNewLayoutRepeatLayout.md)
  - [TemplateDefinitionNewPagesInner](docs/TemplateDefinitionNewPagesInner.md)
+ - [TemplateDefinitionNewPagesInnerLayout](docs/TemplateDefinitionNewPagesInnerLayout.md)
  - [TemplateDefinitionNewPagesInnerMargins](docs/TemplateDefinitionNewPagesInnerMargins.md)
- - [TemplateDefinitionPagesInner](docs/TemplateDefinitionPagesInner.md)
+ - [TemplateDefinitionUpdate](docs/TemplateDefinitionUpdate.md)
  - [TemplateParam](docs/TemplateParam.md)
  - [TemplateParamData](docs/TemplateParamData.md)
- - [TemplateParamId](docs/TemplateParamId.md)
  - [TemplateVersion](docs/TemplateVersion.md)
  - [TemplateVersionCollection](docs/TemplateVersionCollection.md)
  - [TemplateVersionCollectionMeta](docs/TemplateVersionCollectionMeta.md)
+ - [ValidationError](docs/ValidationError.md)
  - [WatermarkBase64](docs/WatermarkBase64.md)
+ - [WatermarkFileUrl](docs/WatermarkFileUrl.md)
  - [WatermarkFileUrlWatermark](docs/WatermarkFileUrlWatermark.md)
  - [WatermarkImage](docs/WatermarkImage.md)
  - [WatermarkImageContentBase64](docs/WatermarkImageContentBase64.md)

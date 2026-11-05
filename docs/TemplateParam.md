@@ -6,7 +6,7 @@ Template id, version, version id and data
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | [**TemplateParamId**](TemplateParamId.md) |  | [optional] 
+**id** | [**CreateFacturXEInvoiceRequestTemplateId**](CreateFacturXEInvoiceRequestTemplateId.md) |  | [optional] 
 **version_id** | **int** | Template version ID | [optional] 
 **data** | [**TemplateParamData**](TemplateParamData.md) |  | [optional] 
 

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **created_at** | **str** | Timestamp when the template was created | [optional] 
 **updated_at** | **str** | Timestamp when the template was updated | [optional] 
 **tags** | **List[str]** | A list of tags assigned to a template | [optional] 
+**is_draft** | **bool** | True if the template is a draft | [optional] 
 
 ## Example
 

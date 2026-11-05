@@ -7,7 +7,7 @@ Metadata object (optional)
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **author** | **str** | Document author | [optional] [default to 'Organization name']
-**language** | **str** | Document language | [optional] [default to 'en']
+**language** | **str** | Document language as a BCP 47 language tag, e.g. &#x60;en&#x60; or &#x60;de-AT&#x60; | [optional] [default to 'en']
 
 ## Example
 

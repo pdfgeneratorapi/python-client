@@ -5,8 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**job_id** | **str** | UUID of the async job. | [optional] 
-**status** | **str** | Status of the async job. | [optional] 
+**response** | [**Dict[str, InlineObject13ResponseValue]**](InlineObject13ResponseValue.md) | Form fields extracted from the PDF document | [optional] 
 
 ## Example
 

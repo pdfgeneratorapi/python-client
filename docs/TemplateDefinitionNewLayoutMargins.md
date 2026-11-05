@@ -1,15 +1,15 @@
 # TemplateDefinitionNewLayoutMargins
 
-Page margins in units
+Page margins in units, all four sides
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**top** | **float** |  | [optional] 
-**right** | **float** |  | [optional] 
-**bottom** | **float** |  | [optional] 
-**left** | **float** |  | [optional] 
+**top** | **float** | Top margin in units | 
+**right** | **float** | Right margin in units | 
+**bottom** | **float** | Bottom margin in units | 
+**left** | **float** | Left margin in units | 
 
 ## Example
 

@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**content** | **str** | HTML content | [optional] 
+**content** | **str** | HTML content | 
 **paper_size** | **str** | PDF page size | [optional] [default to 'a4']
 **orientation** | **str** |  | [optional] [default to 'portrait']
 **output** | **str** | Output | [optional] [default to 'base64']
-**filename** | **str** | Document name | [optional] 
+**filename** | **str** | Document name. Left out, the document gets a generated name. | [optional] 
 
 ## Example
 

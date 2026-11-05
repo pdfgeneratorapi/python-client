@@ -5,10 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** | File name with extension. Auto-generated if not provided in request. | [optional] 
-**display_name** | **str** | File name without extension. | [optional] 
-**encoding** | **str** | Encoding of the response data. | [optional] 
-**content_type** | **str** | Image content type. | [optional] 
+**name** | **str** | Document name. This value is automatically generated if name attribute is not defined in request. | [optional] 
+**display_name** | **str** | Document name without the file extension. | [optional] 
+**encoding** | **str** | Document encoding | [optional] 
+**content_type** | **str** | Document content type. | [optional] 
+**public_id** | **str** | Document public id | [optional] 
 
 ## Example
 

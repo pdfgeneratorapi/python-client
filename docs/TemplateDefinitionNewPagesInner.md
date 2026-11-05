@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **width** | **float** | Page width in units | [optional] 
 **height** | **float** | Page height in units | [optional] 
 **margins** | [**TemplateDefinitionNewPagesInnerMargins**](TemplateDefinitionNewPagesInnerMargins.md) |  | [optional] 
-**border** | **bool** |  | [optional] [default to False]
-**components** | **List[object]** |  | [optional] 
-**layout** | **object** | Defines page specific layout which can differ from the main template layout (e.g page format, margins). | [optional] 
+**border** | **bool** | Stored for older templates. It draws nothing. | [optional] [default to False]
+**components** | **List[object]** | The page&#39;s components. The fields of each depend on its cls; the template schema (Get schema endpoint) lists them. | [optional] 
+**layout** | [**TemplateDefinitionNewPagesInnerLayout**](TemplateDefinitionNewPagesInnerLayout.md) |  | [optional] 
 **conditional_formats** | **List[object]** |  | [optional] 
 **background_image** | **str** | Defines background image for the page. | [optional] 
 

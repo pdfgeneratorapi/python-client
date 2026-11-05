@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identifier** | **str** | A unique identifier of the workspace. Make sure that you can generate the same identifier for your user. | [optional] 
+**identifier** | **str** | A unique identifier of the workspace. Make sure that you can generate the same identifier for your user. | 
 
 ## Example
 

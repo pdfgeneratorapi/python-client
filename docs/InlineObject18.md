@@ -5,7 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**response** | [**List[DocumentAction]**](DocumentAction.md) |  | [optional] 
+**response** | [**TemplateDefinition**](TemplateDefinition.md) |  | [optional] 
+**meta** | **object** |  | [optional] 
 
 ## Example
 

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **conversion_api** | [**StatusParam**](StatusParam.md) |  | [optional] [default to StatusParam.OK]
 **generator_api_sync** | [**StatusParam**](StatusParam.md) |  | [optional] [default to StatusParam.OK]
 **generator_api_async** | [**StatusParam**](StatusParam.md) |  | [optional] [default to StatusParam.OK]
+**pdf_services** | [**StatusParam**](StatusParam.md) |  | [optional] [default to StatusParam.OK]
 **e_invoice** | [**StatusParam**](StatusParam.md) |  | [optional] [default to StatusParam.OK]
 
 ## Example

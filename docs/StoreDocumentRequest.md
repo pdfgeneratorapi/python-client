@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **file_base64** | **str** | Base64 encoded PDF file. Required if file_url is not provided. | [optional] 
 **file_url** | **str** | Public HTTPS URL to a PDF file. Required if file_base64 is not provided. | [optional] 
 **prefill** | [**PrefillParam**](PrefillParam.md) |  | [optional] 
-**name** | **str** | Generated document name (optional) | [optional] [default to '']
+**name** | **str** | Document name | [optional] 
 **output** | **str** | Response format. &#x60;url&#x60; returns a public URL to the stored document; &#x60;viewer&#x60; returns a public URL to the PDF viewer. | [optional] [default to 'url']
 
 ## Example

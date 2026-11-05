@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **copy_template**
-> InlineObject19 copy_template(template_id, copy_template_request=copy_template_request)
+> InlineObject18 copy_template(template_id, copy_template_request=copy_template_request)
 
 Copy template
 
@@ -31,7 +31,7 @@ Creates a copy of a template to the workspace specified in authentication parame
 ```python
 import pdf_generator_api_client
 from pdf_generator_api_client.models.copy_template_request import CopyTemplateRequest
-from pdf_generator_api_client.models.inline_object19 import InlineObject19
+from pdf_generator_api_client.models.inline_object18 import InlineObject18
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject19**](InlineObject19.md)
+[**InlineObject18**](InlineObject18.md)
 
 ### Authorization
 
@@ -95,18 +95,18 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Template configuration |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_template**
-> InlineObject19 create_template(template_definition_new)
+> InlineObject18 create_template(template_definition_new)
 
 Create template
 
@@ -118,7 +118,7 @@ Creates a new template. If template configuration is not specified in the reques
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.inline_object19 import InlineObject19
+from pdf_generator_api_client.models.inline_object18 import InlineObject18
 from pdf_generator_api_client.models.template_definition_new import TemplateDefinitionNew
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject19**](InlineObject19.md)
+[**InlineObject18**](InlineObject18.md)
 
 ### Authorization
 
@@ -181,12 +181,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Template configuration |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -263,18 +263,18 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | The resource was deleted successfully. |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_template**
-> InlineObject19 get_template(template_id)
+> InlineObject18 get_template(template_id)
 
 Get template
 
@@ -286,7 +286,7 @@ Returns template configuration
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.inline_object19 import InlineObject19
+from pdf_generator_api_client.models.inline_object18 import InlineObject18
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -332,7 +332,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject19**](InlineObject19.md)
+[**InlineObject18**](InlineObject18.md)
 
 ### Authorization
 
@@ -348,12 +348,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Template configuration |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -434,18 +434,18 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Template data structure |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_template_schema**
-> object get_template_schema()
+> GetTemplateSchema200Response get_template_schema()
 
 Get schema
 
@@ -453,10 +453,10 @@ Returns Template JSON Schema which defines the structure of the Template Definit
 
 ### Example
 
-* Bearer (JWT) Authentication (JSONWebTokenAuth):
 
 ```python
 import pdf_generator_api_client
+from pdf_generator_api_client.models.get_template_schema200_response import GetTemplateSchema200Response
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -466,15 +466,6 @@ configuration = pdf_generator_api_client.Configuration(
     host = "https://us1.pdfgeneratorapi.com/api/v4"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): JSONWebTokenAuth
-configuration = pdf_generator_api_client.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
 
 # Enter a context with an instance of the API client
 with pdf_generator_api_client.ApiClient(configuration) as api_client:
@@ -498,11 +489,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**object**
+[**GetTemplateSchema200Response**](GetTemplateSchema200Response.md)
 
 ### Authorization
 
-[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -514,13 +505,13 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Template JSON Schema |  -  |
-**429** | Too Many Requests |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_templates**
-> InlineObject4 get_templates(name=name, tags=tags, access=access, page=page, per_page=per_page)
+> InlineObject4 get_templates(name=name, tags=tags, access=access, page=page, per_page=per_page, order_by=order_by, order_direction=order_direction, search=search)
 
 Get templates
 
@@ -561,10 +552,13 @@ with pdf_generator_api_client.ApiClient(configuration) as api_client:
     access =  # str | Filter template by access type. No values returns all templates. private - returns only private templates, organization - returns only organization templates. (optional) (default to )
     page = 1 # int | Pagination: page to return (optional) (default to 1)
     per_page = 15 # int | Pagination: How many records to return per page (optional) (default to 15)
+    order_by = updated_at # str | Field to sort the templates by. Ignored when `name` or `tags` is set. (optional) (default to updated_at)
+    order_direction = desc # str | Sort direction. Ignored when `name` or `tags` is set. (optional) (default to desc)
+    search = 'Invoice' # str | Returns templates whose ID, name, tags, creation date or modification date contains the search value. Ignored when `name` or `tags` is set. (optional)
 
     try:
         # Get templates
-        api_response = api_instance.get_templates(name=name, tags=tags, access=access, page=page, per_page=per_page)
+        api_response = api_instance.get_templates(name=name, tags=tags, access=access, page=page, per_page=per_page, order_by=order_by, order_direction=order_direction, search=search)
         print("The response of TemplatesApi->get_templates:\n")
         pprint(api_response)
     except Exception as e:
@@ -583,6 +577,9 @@ Name | Type | Description  | Notes
  **access** | **str**| Filter template by access type. No values returns all templates. private - returns only private templates, organization - returns only organization templates. | [optional] [default to ]
  **page** | **int**| Pagination: page to return | [optional] [default to 1]
  **per_page** | **int**| Pagination: How many records to return per page | [optional] [default to 15]
+ **order_by** | **str**| Field to sort the templates by. Ignored when &#x60;name&#x60; or &#x60;tags&#x60; is set. | [optional] [default to updated_at]
+ **order_direction** | **str**| Sort direction. Ignored when &#x60;name&#x60; or &#x60;tags&#x60; is set. | [optional] [default to desc]
+ **search** | **str**| Returns templates whose ID, name, tags, creation date or modification date contains the search value. Ignored when &#x60;name&#x60; or &#x60;tags&#x60; is set. | [optional] 
 
 ### Return type
 
@@ -602,18 +599,18 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | An array of template objects |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **import_template**
-> InlineObject19 import_template(import_template_request)
+> InlineObject18 import_template(import_template_request)
 
 Import template
 
@@ -626,7 +623,7 @@ Creates a template from existing PDF
 ```python
 import pdf_generator_api_client
 from pdf_generator_api_client.models.import_template_request import ImportTemplateRequest
-from pdf_generator_api_client.models.inline_object19 import InlineObject19
+from pdf_generator_api_client.models.inline_object18 import InlineObject18
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -672,7 +669,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject19**](InlineObject19.md)
+[**InlineObject18**](InlineObject18.md)
 
 ### Authorization
 
@@ -688,12 +685,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Template configuration |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -778,22 +775,22 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns an URL which you can use to redirect your user to the editor or use as iframe source |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_template**
-> InlineObject19 update_template(template_id, template_definition_new)
+> InlineObject18 update_template(template_id, template_definition_update)
 
 Update template
 
-Updates template configuration. Each top-level field sent (name, layout, pages and the rest) replaces the stored one, so pages must be complete, with every component.
+Updates template configuration. Each top-level field sent (name, layout, pages and the rest) replaces the stored one, so pages must be complete, with every component. A field left out keeps its stored value, the name included.
 
 ### Example
 
@@ -801,8 +798,8 @@ Updates template configuration. Each top-level field sent (name, layout, pages a
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.inline_object19 import InlineObject19
-from pdf_generator_api_client.models.template_definition_new import TemplateDefinitionNew
+from pdf_generator_api_client.models.inline_object18 import InlineObject18
+from pdf_generator_api_client.models.template_definition_update import TemplateDefinitionUpdate
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -827,11 +824,11 @@ with pdf_generator_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pdf_generator_api_client.TemplatesApi(api_client)
     template_id = 19375 # int | Template unique identifier
-    template_definition_new = pdf_generator_api_client.TemplateDefinitionNew() # TemplateDefinitionNew | Template configuration
+    template_definition_update = pdf_generator_api_client.TemplateDefinitionUpdate() # TemplateDefinitionUpdate | The template configuration to change
 
     try:
         # Update template
-        api_response = api_instance.update_template(template_id, template_definition_new)
+        api_response = api_instance.update_template(template_id, template_definition_update)
         print("The response of TemplatesApi->update_template:\n")
         pprint(api_response)
     except Exception as e:
@@ -846,11 +843,11 @@ with pdf_generator_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **template_id** | **int**| Template unique identifier | 
- **template_definition_new** | [**TemplateDefinitionNew**](TemplateDefinitionNew.md)| Template configuration | 
+ **template_definition_update** | [**TemplateDefinitionUpdate**](TemplateDefinitionUpdate.md)| The template configuration to change | 
 
 ### Return type
 
-[**InlineObject19**](InlineObject19.md)
+[**InlineObject18**](InlineObject18.md)
 
 ### Authorization
 
@@ -866,12 +863,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Template configuration |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -885,7 +882,6 @@ Validates if the provided template configuration matches the template JSON schem
 
 ### Example
 
-* Bearer (JWT) Authentication (JSONWebTokenAuth):
 
 ```python
 import pdf_generator_api_client
@@ -900,15 +896,6 @@ configuration = pdf_generator_api_client.Configuration(
     host = "https://us1.pdfgeneratorapi.com/api/v4"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): JSONWebTokenAuth
-configuration = pdf_generator_api_client.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
 
 # Enter a context with an instance of the API client
 with pdf_generator_api_client.ApiClient(configuration) as api_client:
@@ -940,7 +927,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[JSONWebTokenAuth](../README.md#JSONWebTokenAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -952,12 +939,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Template validation response |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

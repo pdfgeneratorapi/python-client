@@ -5,7 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**response** | [**Dict[str, InlineObject14ResponseValue]**](InlineObject14ResponseValue.md) | Form fields extracted from the PDF document | [optional] 
+**response** | [**List[Document]**](Document.md) |  | [optional] 
+**meta** | [**PaginationMeta**](PaginationMeta.md) |  | [optional] 
 
 ## Example
 

@@ -6,9 +6,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **content** | **str** | The content which is used to generate QR code | 
-**color** | **str** | QR code in hexadecimal format | [optional] [default to '#000000']
-**logo_base64** | **str** | A logo as a base64 image string to add on the QR code | [optional] 
-**logo_url** | **str** | A logo URL to an image to add on the QR code | [optional] 
+**color** | **str** | QR code color as a hex color code | [optional] [default to '#000000']
+**logo_base64** | **str** | A logo as a base64 image string to add on the QR code. Cannot be combined with &#x60;logo_url&#x60;. | [optional] 
+**logo_url** | **str** | Public HTTPS URL of a logo image to add on the QR code. Cannot be combined with &#x60;logo_base64&#x60;. | [optional] 
 **output** | **str** | Response format | [optional] [default to 'base64']
 
 ## Example

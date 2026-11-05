@@ -1,5 +1,6 @@
 # TemplateDefinitionNewPagesInnerMargins
 
+The page's right and bottom margins. Its top and left margins are the layout's.
 
 ## Properties
 

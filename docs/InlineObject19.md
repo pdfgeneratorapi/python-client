@@ -5,8 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**response** | [**TemplateDefinition**](TemplateDefinition.md) |  | [optional] 
-**meta** | **object** |  | [optional] 
+**response** | [**FormConfiguration**](FormConfiguration.md) |  | [optional] 
 
 ## Example
 

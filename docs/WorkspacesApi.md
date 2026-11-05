@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **create_workspace**
-> InlineObject8 create_workspace(create_workspace_request=create_workspace_request)
+> InlineObject7 create_workspace(create_workspace_request)
 
 Create workspace
 
@@ -24,7 +24,7 @@ Creates a regular workspace with identifier specified in the request.
 ```python
 import pdf_generator_api_client
 from pdf_generator_api_client.models.create_workspace_request import CreateWorkspaceRequest
-from pdf_generator_api_client.models.inline_object8 import InlineObject8
+from pdf_generator_api_client.models.inline_object7 import InlineObject7
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -48,11 +48,11 @@ configuration = pdf_generator_api_client.Configuration(
 with pdf_generator_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pdf_generator_api_client.WorkspacesApi(api_client)
-    create_workspace_request = pdf_generator_api_client.CreateWorkspaceRequest() # CreateWorkspaceRequest |  (optional)
+    create_workspace_request = pdf_generator_api_client.CreateWorkspaceRequest() # CreateWorkspaceRequest | 
 
     try:
         # Create workspace
-        api_response = api_instance.create_workspace(create_workspace_request=create_workspace_request)
+        api_response = api_instance.create_workspace(create_workspace_request)
         print("The response of WorkspacesApi->create_workspace:\n")
         pprint(api_response)
     except Exception as e:
@@ -66,11 +66,11 @@ with pdf_generator_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_workspace_request** | [**CreateWorkspaceRequest**](CreateWorkspaceRequest.md)|  | [optional] 
+ **create_workspace_request** | [**CreateWorkspaceRequest**](CreateWorkspaceRequest.md)|  | 
 
 ### Return type
 
-[**InlineObject8**](InlineObject8.md)
+[**InlineObject7**](InlineObject7.md)
 
 ### Authorization
 
@@ -86,12 +86,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Workspace information |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -168,18 +168,19 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | The resource was deleted successfully. |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**409** | Conflict. The request conflicts with the current state of the resource. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_workspace**
-> InlineObject8 get_workspace(workspace_identifier)
+> InlineObject7 get_workspace(workspace_identifier)
 
 Get workspace
 
@@ -191,7 +192,7 @@ Returns workspace information for the workspace identifier specified in the requ
 
 ```python
 import pdf_generator_api_client
-from pdf_generator_api_client.models.inline_object8 import InlineObject8
+from pdf_generator_api_client.models.inline_object7 import InlineObject7
 from pdf_generator_api_client.rest import ApiException
 from pprint import pprint
 
@@ -237,7 +238,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject8**](InlineObject8.md)
+[**InlineObject7**](InlineObject7.md)
 
 ### Authorization
 
@@ -253,18 +254,18 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Workspace information |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_workspaces**
-> InlineObject5 get_workspaces(page=page, per_page=per_page)
+> InlineObject5 get_workspaces(page=page, per_page=per_page, order_by=order_by, order_direction=order_direction, activated=activated, search=search)
 
 Get workspaces
 
@@ -302,10 +303,14 @@ with pdf_generator_api_client.ApiClient(configuration) as api_client:
     api_instance = pdf_generator_api_client.WorkspacesApi(api_client)
     page = 1 # int | Pagination: page to return (optional) (default to 1)
     per_page = 15 # int | Pagination: How many records to return per page (optional) (default to 15)
+    order_by = id # str | Field to sort the workspaces by (optional) (default to id)
+    order_direction = desc # str | Sort direction (optional) (default to desc)
+    activated = 1 # int | Returns only active (`1`) or deactivated (`0`) workspaces (optional)
+    search = 'demo.example' # str | Returns workspaces whose ID, name or identifier contains the search value (optional)
 
     try:
         # Get workspaces
-        api_response = api_instance.get_workspaces(page=page, per_page=per_page)
+        api_response = api_instance.get_workspaces(page=page, per_page=per_page, order_by=order_by, order_direction=order_direction, activated=activated, search=search)
         print("The response of WorkspacesApi->get_workspaces:\n")
         pprint(api_response)
     except Exception as e:
@@ -321,6 +326,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| Pagination: page to return | [optional] [default to 1]
  **per_page** | **int**| Pagination: How many records to return per page | [optional] [default to 15]
+ **order_by** | **str**| Field to sort the workspaces by | [optional] [default to id]
+ **order_direction** | **str**| Sort direction | [optional] [default to desc]
+ **activated** | **int**| Returns only active (&#x60;1&#x60;) or deactivated (&#x60;0&#x60;) workspaces | [optional] 
+ **search** | **str**| Returns workspaces whose ID, name or identifier contains the search value | [optional] 
 
 ### Return type
 
@@ -340,12 +349,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | An array of workspace objects |  -  |
-**401** | Unauthorized |  -  |
-**402** | Account Suspended |  -  |
-**403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**422** | Unprocessable Entity |  -  |
-**429** | Too Many Requests |  -  |
+**401** | Unauthorized. The message starts with &#x60;Authentication failed:&#x60; followed by the reason: * &#x60;JWT Token missing.&#x60; * &#x60;Malformed JWT Token.&#x60; * &#x60;Expired JWT Token.&#x60; * &#x60;Invalid workspace.&#x60; * &#x60;Invalid organization.&#x60; * &#x60;This application no longer has access to the workspace.&#x60; * a missing &#x60;iss&#x60;, &#x60;sub&#x60; or &#x60;exp&#x60; claim, e.g. &#x60;The sub field is required.&#x60;  |  -  |
+**402** | Payment Required. The account is suspended. |  -  |
+**403** | Forbidden. The workspace is not allowed to perform the request, for example a regular workspace calling an endpoint reserved for the master workspace. Requests made with an OAuth application credential that lacks the scope for the endpoint also get a &#x60;WWW-Authenticate&#x60; header.  |  * WWW-Authenticate - Sent only when an OAuth application credential lacks the required scope. <br>  |
+**404** | Not Found. The resource does not exist or the workspace cannot access it. |  -  |
+**422** | Unprocessable Entity. Request validation failures, including an invalid &#x60;page&#x60; or &#x60;per_page&#x60;, return an &#x60;errors&#x60; object keyed by field. Other 422 errors, such as a malformed JSON body or a failed conversion, return only &#x60;message&#x60;.  |  -  |
+**429** | Too Many Requests. Wait for the number of seconds in the &#x60;Retry-After&#x60; header before retrying. |  * Retry-After - Seconds to wait before the next request is allowed. <br>  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

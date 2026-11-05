@@ -5,8 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**response** | [**List[Document]**](Document.md) |  | [optional] 
-**meta** | [**PaginationMeta**](PaginationMeta.md) |  | [optional] 
+**response** | [**List[DocumentVersion]**](DocumentVersion.md) |  | [optional] 
 
 ## Example
 

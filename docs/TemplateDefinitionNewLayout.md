@@ -1,18 +1,18 @@
 # TemplateDefinitionNewLayout
 
-Defines template layout (e.g page format, margins).
+Defines template layout (e.g page format, margins). A layout needs a format, an orientation and margins with all four sides.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**format** | **str** | Defines template page size | [optional] [default to 'A4']
-**width** | **float** | Page width in units | [optional] 
-**height** | **float** | Page height in units | [optional] 
+**format** | **str** | Defines template page size. For any other size, use custom with width and height. | 
+**width** | **float** | Page width in units. Left out, it is the format&#39;s width; send it with a custom format. | [optional] 
+**height** | **float** | Page height in units. Left out, it is the format&#39;s height; send it with a custom format. | [optional] 
 **unit** | **str** | Measure unit | [optional] [default to 'cm']
-**orientation** | **str** | Page orientation | [optional] 
+**orientation** | **str** | Page orientation | 
 **rotation** | **int** | Page rotation in degrees | [optional] 
-**margins** | [**TemplateDefinitionNewLayoutMargins**](TemplateDefinitionNewLayoutMargins.md) |  | [optional] 
+**margins** | [**TemplateDefinitionNewLayoutMargins**](TemplateDefinitionNewLayoutMargins.md) |  | 
 **repeat_layout** | [**TemplateDefinitionNewLayoutRepeatLayout**](TemplateDefinitionNewLayoutRepeatLayout.md) |  | [optional] 
 **empty_labels** | **int** | Specifies how many blank lables to add to sheet label. | [optional] [default to 0]
 

@@ -6,7 +6,7 @@ Callback URL and optional headers
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**url** | **str** | Public callback URL that is used to make a POST request when the document is generated. | [optional] 
+**url** | **str** | Public HTTPS callback URL that is used to make a POST request when the document is generated. | 
 **headers** | **object** | A key-value pairs of header values sent with the POST request. | [optional] 
 
 ## Example
