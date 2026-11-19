@@ -58,7 +58,11 @@ class TestGenerateDocumentBatchAsynchronousRequest(unittest.TestCase):
                     ],
                 metadata = pdf_generator_api_client.models.metadata_param.metadataParam(
                     author = 'Organization name', 
-                    language = 'en', )
+                    language = 'en', ),
+                display_mode = pdf_generator_api_client.models.display_mode_param.displayModeParam(
+                    zoom = 'fullwidth', 
+                    layout = 'SinglePage', 
+                    mode = 'UseNone', )
             )
         else:
             return GenerateDocumentBatchAsynchronousRequest(

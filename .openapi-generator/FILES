@@ -21,6 +21,7 @@ docs/CreateFacturXEInvoiceRequestTemplate.md
 docs/CreateFacturXEInvoiceRequestTemplateId.md
 docs/CreateWorkspaceRequest.md
 docs/CreateXRechnungEInvoiceRequest.md
+docs/DisplayModeParam.md
 docs/Document.md
 docs/DocumentAction.md
 docs/DocumentSignature.md
@@ -202,6 +203,7 @@ pdf_generator_api_client/models/create_factur_xe_invoice_request_template.py
 pdf_generator_api_client/models/create_factur_xe_invoice_request_template_id.py
 pdf_generator_api_client/models/create_workspace_request.py
 pdf_generator_api_client/models/create_x_rechnung_e_invoice_request.py
+pdf_generator_api_client/models/display_mode_param.py
 pdf_generator_api_client/models/document.py
 pdf_generator_api_client/models/document_action.py
 pdf_generator_api_client/models/document_signature.py
@@ -363,6 +365,7 @@ test/test_create_factur_xe_invoice_request_template.py
 test/test_create_factur_xe_invoice_request_template_id.py
 test/test_create_workspace_request.py
 test/test_create_x_rechnung_e_invoice_request.py
+test/test_display_mode_param.py
 test/test_document.py
 test/test_document_action.py
 test/test_document_signature.py

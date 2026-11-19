@@ -55,6 +55,7 @@ __all__ = [
     "CreateFacturXEInvoiceRequestTemplateId",
     "CreateWorkspaceRequest",
     "CreateXRechnungEInvoiceRequest",
+    "DisplayModeParam",
     "Document",
     "DocumentAction",
     "DocumentSignature",
@@ -234,6 +235,7 @@ from pdf_generator_api_client.models.create_factur_xe_invoice_request_template i
 from pdf_generator_api_client.models.create_factur_xe_invoice_request_template_id import CreateFacturXEInvoiceRequestTemplateId as CreateFacturXEInvoiceRequestTemplateId
 from pdf_generator_api_client.models.create_workspace_request import CreateWorkspaceRequest as CreateWorkspaceRequest
 from pdf_generator_api_client.models.create_x_rechnung_e_invoice_request import CreateXRechnungEInvoiceRequest as CreateXRechnungEInvoiceRequest
+from pdf_generator_api_client.models.display_mode_param import DisplayModeParam as DisplayModeParam
 from pdf_generator_api_client.models.document import Document as Document
 from pdf_generator_api_client.models.document_action import DocumentAction as DocumentAction
 from pdf_generator_api_client.models.document_signature import DocumentSignature as DocumentSignature

@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from pdf_generator_api_client.models.attachments_param_inner import AttachmentsParamInner
+from pdf_generator_api_client.models.display_mode_param import DisplayModeParam
 from pdf_generator_api_client.models.format_param import FormatParam
 from pdf_generator_api_client.models.metadata_param import MetadataParam
 from pdf_generator_api_client.models.output_param import OutputParam
@@ -43,7 +44,8 @@ class GenerateDocumentRequest(BaseModel):
     empty_labels: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=0, description="Number of label positions to leave empty at the start of the first sheet. Only applies to label templates.")
     attachments: Optional[List[AttachmentsParamInner]] = Field(default=None, description="Files embedded into the generated PDF as attachments. Only PDF and XML files are accepted.")
     metadata: Optional[MetadataParam] = None
-    __properties: ClassVar[List[str]] = ["template", "format", "output", "name", "testing", "make_accessible", "print", "empty_labels", "attachments", "metadata"]
+    display_mode: Optional[DisplayModeParam] = None
+    __properties: ClassVar[List[str]] = ["template", "format", "output", "name", "testing", "make_accessible", "print", "empty_labels", "attachments", "metadata", "display_mode"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -97,6 +99,9 @@ class GenerateDocumentRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of metadata
         if self.metadata:
             _dict['metadata'] = self.metadata.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of display_mode
+        if self.display_mode:
+            _dict['display_mode'] = self.display_mode.to_dict()
         return _dict
 
     @classmethod
@@ -118,7 +123,8 @@ class GenerateDocumentRequest(BaseModel):
             "print": obj.get("print") if obj.get("print") is not None else False,
             "empty_labels": obj.get("empty_labels") if obj.get("empty_labels") is not None else 0,
             "attachments": [AttachmentsParamInner.from_dict(_item) for _item in obj["attachments"]] if obj.get("attachments") is not None else None,
-            "metadata": MetadataParam.from_dict(obj["metadata"]) if obj.get("metadata") is not None else None
+            "metadata": MetadataParam.from_dict(obj["metadata"]) if obj.get("metadata") is not None else None,
+            "display_mode": DisplayModeParam.from_dict(obj["display_mode"]) if obj.get("display_mode") is not None else None
         })
         return _obj
 
